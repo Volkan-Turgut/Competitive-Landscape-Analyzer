@@ -19,21 +19,7 @@ frontend/dist/
 Thumbs.db
 
 # Excluded project folders
-Claude_Generated_Ideas/
-Brainstorming/
 .claude/
-
-# Internal architecture docs (folder docs)
-ARCHITECTURE.md
-**/*.md
-!README.md
-
-# Jupyter notebooks
-*.ipynb
-.ipynb_checkpoints/
-
-# Debug output dumps
-frontend/src/data/debug/
 
 # Pytest
 .pytest_cache/
