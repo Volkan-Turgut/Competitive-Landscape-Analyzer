@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment
+.env
+backend/.env
+
+# Build output
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+
+# Excluded folders
+Claude_Generated_Ideas/
+Brainstorming/
+.claude/
+
+# Markdown docs (folder docs, architecture notes)
+*.md
+!README.md
+
+# Jupyter notebooks (brainstorming)
+*.ipynb
+*.json
+!frontend/package.json
+!frontend/tsconfig.json
+!frontend/tsconfig.app.json
+!frontend/tsconfig.node.json
+!frontend/components.json
+
+# OS
+.DS_Store
+Thumbs.db
