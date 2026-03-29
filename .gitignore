@@ -5,10 +5,6 @@ __pycache__/
 .venv/
 venv/
 
-# Environment / secrets
-.env
-backend/.env
-
 # Build output
 frontend/dist/
 
