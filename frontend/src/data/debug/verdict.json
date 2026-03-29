@@ -1,0 +1,37 @@
+{
+  "verdict": "NO-GO",
+  "confidence": 0.95,
+  "summary": "Notion is a $600M ARR productivity/workspace SaaS company valued at $11B with ~100M users. The cloud infrastructure market is dominated by hyperscalers (AWS, Azure, GCP) controlling 64%+ share with $250B+ combined revenue. Notion lacks the infrastructure expertise, capital scale ($155B+ flowing into cloud), and technical DNA to compete. Its optimal path is deepening its AI-powered productivity platform, not pivoting to IaaS/PaaS.",
+  "factors": [
+    {
+      "factor": "Massive Incumbent Moat",
+      "assessment": "AWS, Azure, and GCP control 64% of the market with $258B+ combined revenue vs Notion's $600M ARR.",
+      "signal": "negative"
+    },
+    {
+      "factor": "Capital Scale Mismatch",
+      "assessment": "$155.6B flowed into cloud in 2 years; Notion's total funding history is under $1B.",
+      "signal": "negative"
+    },
+    {
+      "factor": "No Infrastructure DNA",
+      "assessment": "Notion is a SaaS productivity tool with ~1,200 employees, no data centers or IaaS/PaaS expertise.",
+      "signal": "negative"
+    },
+    {
+      "factor": "Market Growth Attractive",
+      "assessment": "TAM of $1.3T growing at 17-25% CAGR to $2.3T by 2030 is compelling but requires massive capex.",
+      "signal": "neutral"
+    },
+    {
+      "factor": "Strong Core Business",
+      "assessment": "100M users, 50%+ Fortune 500 adoption, and $600M ARR growing ~50% suggest focus should stay on productivity.",
+      "signal": "negative"
+    },
+    {
+      "factor": "AI Opportunity Elsewhere",
+      "assessment": "Notion's AI-powered workspace strategy and new products (Mail, Drive, agents) better fit its strengths.",
+      "signal": "negative"
+    }
+  ]
+}

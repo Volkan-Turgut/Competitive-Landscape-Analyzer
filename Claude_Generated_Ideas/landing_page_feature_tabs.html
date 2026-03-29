@@ -1,0 +1,210 @@
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+.wrap { font-family: var(--font-sans); padding: 2rem 0; }
+.section-label { text-align: center; font-size: 13px; font-weight: 500; color: var(--color-text-info); letter-spacing: 0.05em; margin-bottom: 8px; }
+.section-title { text-align: center; font-size: 22px; font-weight: 500; color: var(--color-text-primary); line-height: 1.4; margin-bottom: 6px; }
+.section-sub { text-align: center; font-size: 14px; color: var(--color-text-secondary); max-width: 480px; margin: 0 auto 28px; line-height: 1.6; }
+.tabs { display: flex; justify-content: center; gap: 0; margin-bottom: 32px; border-radius: var(--border-radius-lg); overflow: hidden; border: 0.5px solid var(--color-border-tertiary); max-width: 580px; margin-left: auto; margin-right: auto; }
+.tab-btn { flex: 1; padding: 10px 8px; font-size: 13px; font-weight: 400; color: var(--color-text-secondary); background: transparent; border: none; cursor: pointer; transition: all 0.2s; border-right: 0.5px solid var(--color-border-tertiary); display: flex; align-items: center; justify-content: center; gap: 6px; }
+.tab-btn:last-child { border-right: none; }
+.tab-btn.active { background: var(--color-background-secondary); color: var(--color-text-primary); font-weight: 500; }
+.tab-btn:hover:not(.active) { background: var(--color-background-secondary); }
+.tab-icon { font-size: 14px; }
+.content { display: none; }
+.content.active { display: flex; gap: 32px; align-items: flex-start; }
+.left { flex: 0 0 220px; }
+.right { flex: 1; min-width: 0; }
+.feat-title { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+.feat-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 16px; }
+.bullet { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 10px; font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+.bullet-dot { flex-shrink: 0; width: 16px; height: 16px; border-radius: 50%; background: var(--color-background-success); display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.bullet-dot svg { width: 10px; height: 10px; }
+.check-path { stroke: var(--color-text-success); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mockup { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 16px; }
+.mock-header { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.mock-sub { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 14px; }
+.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.stat-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px; }
+.stat-label { font-size: 10px; color: var(--color-text-tertiary); margin-bottom: 2px; }
+.stat-val { font-size: 18px; font-weight: 500; color: var(--color-text-primary); }
+.stat-change { font-size: 10px; color: var(--color-text-success); }
+.mini-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.mini-table th { text-align: left; color: var(--color-text-tertiary); font-weight: 400; padding: 6px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 10px; }
+.mini-table td { padding: 7px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 10px; font-weight: 500; }
+.badge-leader { background: var(--color-background-success); color: var(--color-text-success); }
+.badge-challenger { background: var(--color-background-warning); color: var(--color-text-warning); }
+.badge-niche { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+.badge-seed { background: var(--color-background-info); color: var(--color-text-info); }
+.badge-a { background: #EEEDFE; color: #534AB7; }
+.badge-b { background: #E1F5EE; color: #0F6E56; }
+.bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.bar-name { font-size: 11px; color: var(--color-text-secondary); width: 80px; text-align: right; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-track { flex: 1; height: 14px; background: var(--color-background-secondary); border-radius: 3px; overflow: hidden; position: relative; }
+.bar-fill { height: 100%; border-radius: 3px; }
+.bar-val { font-size: 10px; color: var(--color-text-tertiary); width: 36px; flex-shrink: 0; }
+.verdict-card { text-align: center; padding: 20px; }
+.verdict-go { font-size: 28px; font-weight: 500; color: var(--color-text-success); letter-spacing: 0.05em; }
+.verdict-conf { font-size: 12px; color: var(--color-text-secondary); margin: 4px 0 12px; }
+.verdict-summary { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; max-width: 340px; margin: 0 auto 14px; }
+.verdict-factors { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; text-align: left; }
+.factor { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; }
+.factor-label { font-size: 10px; color: var(--color-text-tertiary); margin-bottom: 2px; }
+.factor-val { font-size: 12px; font-weight: 500; }
+.factor-pos { color: var(--color-text-success); }
+.factor-neg { color: var(--color-text-warning); }
+.area-chart { margin-bottom: 10px; }
+.investor-pills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
+.inv-pill { font-size: 10px; padding: 3px 8px; border-radius: 99px; background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); }
+</style>
+
+<div class="wrap">
+  <div class="section-label">How it works</div>
+  <div class="section-title">From company name to Go/No-Go verdict.<br>AI agents that do the research for you.</div>
+  <div class="section-sub">Enter any company and market. Our agents research incumbents, track emerging threats, size the opportunity, and deliver a data-backed recommendation.</div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab(0)"><span class="tab-icon">&#9678;</span> Map the market</button>
+    <button class="tab-btn" onclick="showTab(1)"><span class="tab-icon">&#9635;</span> Know the players</button>
+    <button class="tab-btn" onclick="showTab(2)"><span class="tab-icon">&#9733;</span> Spot disruptors</button>
+    <button class="tab-btn" onclick="showTab(3)"><span class="tab-icon">&#10003;</span> Get the verdict</button>
+  </div>
+
+  <!-- TAB 0: Map the market -->
+  <div class="content active" id="tab0">
+    <div class="left">
+      <div class="feat-title">Map the market</div>
+      <div class="feat-desc">Quantify the opportunity with TAM, growth projections, and analyst data from multiple sources.</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>TAM and SAM sizing from Gartner, Forrester, Statista, and 6+ industry sources</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>CAGR projections cross-referenced across analysts for confidence</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>Growth drivers and headwinds identified automatically</div>
+    </div>
+    <div class="right">
+      <div class="mockup">
+        <div class="mock-header">Market sizing — AI code review</div>
+        <div class="mock-sub">Data confidence: Medium</div>
+        <div class="stat-row">
+          <div class="stat-card"><div class="stat-label">TAM (2024)</div><div class="stat-val">$6.7B</div></div>
+          <div class="stat-card"><div class="stat-label">TAM (2030)</div><div class="stat-val">$25.7B</div></div>
+          <div class="stat-card"><div class="stat-label">CAGR</div><div class="stat-val">25.2%</div><div class="stat-change">&#9650; accelerating</div></div>
+        </div>
+        <svg class="area-chart" width="100%" viewBox="0 0 380 100">
+          <text font-family="var(--font-sans)" font-size="9" fill="var(--color-text-tertiary)" x="5" y="12">$25.7B</text>
+          <text font-family="var(--font-sans)" font-size="9" fill="var(--color-text-tertiary)" x="5" y="90">$4.3B</text>
+          <line x1="40" y1="15" x2="370" y2="15" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="3 3"/>
+          <line x1="40" y1="85" x2="370" y2="85" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="3 3"/>
+          <path d="M50 82 L100 75 L150 68 L200 58 L250 45 L300 32 L360 18" fill="none" stroke="var(--color-text-info)" stroke-width="1.5"/>
+          <path d="M50 82 L100 75 L150 68 L200 58 L250 45 L300 32 L360 18 L360 90 L50 90Z" fill="var(--color-text-info)" opacity="0.08"/>
+          <text font-family="var(--font-sans)" font-size="8" fill="var(--color-text-tertiary)" x="46" y="98">2023</text>
+          <text font-family="var(--font-sans)" font-size="8" fill="var(--color-text-tertiary)" x="145" y="98">2025</text>
+          <text font-family="var(--font-sans)" font-size="8" fill="var(--color-text-tertiary)" x="248" y="98">2028</text>
+          <text font-family="var(--font-sans)" font-size="8" fill="var(--color-text-tertiary)" x="348" y="98">2030</text>
+        </svg>
+        <div style="font-size:10px;color:var(--color-text-tertiary)">Sources: ResearchAndMarkets, Mordor Intelligence, MarketsAndMarkets, Precedence Research</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 1: Know the players -->
+  <div class="content" id="tab1">
+    <div class="left">
+      <div class="feat-title">Know the players</div>
+      <div class="feat-desc">Identify every established competitor, their revenue, market share, pricing, and strategic positioning.</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>Revenue and ARR data for every major player in the space</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>Strengths, weaknesses, and pricing models compared side by side</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>Market position classified as leader, challenger, or niche</div>
+    </div>
+    <div class="right">
+      <div class="mockup">
+        <div class="mock-header">Incumbents — AI code review</div>
+        <div class="mock-sub">8 competitors identified</div>
+        <table class="mini-table">
+          <thead><tr><th>Company</th><th>Position</th><th>ARR</th><th>Share</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:500">GitHub Copilot</td><td><span class="badge badge-leader">leader</span></td><td>$1.0B</td><td>42%</td></tr>
+            <tr><td style="font-weight:500">SonarQube</td><td><span class="badge badge-leader">leader</span></td><td>—</td><td>92.9%*</td></tr>
+            <tr><td style="font-weight:500">CodeRabbit</td><td><span class="badge badge-challenger">challenger</span></td><td>$19.2M</td><td>—</td></tr>
+            <tr><td style="font-weight:500">Codacy</td><td><span class="badge badge-challenger">challenger</span></td><td>$16.8M</td><td>—</td></tr>
+            <tr><td style="font-weight:500">Qodo</td><td><span class="badge badge-challenger">challenger</span></td><td>$10.2M</td><td>—</td></tr>
+            <tr><td style="font-weight:500">Graphite</td><td><span class="badge badge-niche">niche</span></td><td>$5.3M</td><td>—</td></tr>
+            <tr><td style="font-weight:500">Greptile</td><td><span class="badge badge-niche">niche</span></td><td>$1.0M</td><td>—</td></tr>
+            <tr><td style="font-weight:500">Sourcery</td><td><span class="badge badge-niche">niche</span></td><td>$0.7M</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:9px;color:var(--color-text-tertiary);margin-top:6px">*Code quality niche (different market category)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: Spot disruptors -->
+  <div class="content" id="tab2">
+    <div class="left">
+      <div class="feat-title">Spot the disruptors</div>
+      <div class="feat-desc">Track new entrants, recent funding rounds, and the velocity of capital flowing into the space.</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>Seed through Series B funding activity tracked in real time</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>Capital velocity signal: accelerating, stable, or decelerating</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>Key differentiators surfaced for each new entrant</div>
+    </div>
+    <div class="right">
+      <div class="mockup">
+        <div class="mock-header">Emerging competitors — AI code review</div>
+        <div class="mock-sub">7 new entrants tracked</div>
+        <div class="stat-row">
+          <div class="stat-card"><div class="stat-label">Capital (2yr)</div><div class="stat-val">$276M</div></div>
+          <div class="stat-card"><div class="stat-label">YoY change</div><div class="stat-val">+85%</div><div class="stat-change">&#9650; accelerating</div></div>
+          <div class="stat-card"><div class="stat-label">Avg deal</div><div class="stat-val">$23M</div></div>
+        </div>
+        <div style="margin-bottom:10px">
+          <div class="bar-row"><div class="bar-name">Codacy</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--color-text-success);opacity:0.7;border-radius:3px"></div></div><div class="bar-val">$24.3M</div></div>
+          <div class="bar-row"><div class="bar-name">Korbit AI</div><div class="bar-track"><div class="bar-fill" style="width:42%;background:#7F77DD;opacity:0.7;border-radius:3px"></div></div><div class="bar-val">$10.3M</div></div>
+          <div class="bar-row"><div class="bar-name">Bito</div><div class="bar-track"><div class="bar-fill" style="width:37%;background:var(--color-text-info);opacity:0.7;border-radius:3px"></div></div><div class="bar-val">$8.9M</div></div>
+          <div class="bar-row"><div class="bar-name">CodeAnt AI</div><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--color-text-info);opacity:0.7;border-radius:3px"></div></div><div class="bar-val">$2.5M</div></div>
+          <div class="bar-row"><div class="bar-name">Ellipsis</div><div class="bar-track"><div class="bar-fill" style="width:8%;background:var(--color-text-info);opacity:0.7;border-radius:3px"></div></div><div class="bar-val">$2.0M</div></div>
+          <div class="bar-row"><div class="bar-name">Sourcery</div><div class="bar-track"><div class="bar-fill" style="width:8%;background:var(--color-text-info);opacity:0.7;border-radius:3px"></div></div><div class="bar-val">$1.9M</div></div>
+        </div>
+        <div class="investor-pills">
+          <span class="inv-pill">a16z</span>
+          <span class="inv-pill">Scale Ventures</span>
+          <span class="inv-pill">Anthropic</span>
+          <span class="inv-pill">Accel</span>
+          <span class="inv-pill">Sequoia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: Get the verdict -->
+  <div class="content" id="tab3">
+    <div class="left">
+      <div class="feat-title">Get the verdict</div>
+      <div class="feat-desc">A synthesis agent cross-references all findings and delivers a data-backed Go/No-Go recommendation.</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>Cross-references incumbents, emerging threats, and market size</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>White space and risk factors identified automatically</div>
+      <div class="bullet"><div class="bullet-dot"><svg viewBox="0 0 12 12"><path class="check-path" d="M2.5 6.5L5 9L9.5 3.5"/></svg></div>Confidence score based on data quality and source agreement</div>
+    </div>
+    <div class="right">
+      <div class="mockup">
+        <div class="verdict-card">
+          <div class="verdict-go">GO</div>
+          <div class="verdict-conf">Confidence: 78%</div>
+          <div class="verdict-summary">Strong opportunity with identifiable white space in AI-native code review. High capital velocity signals market validation, but dominant incumbent presence requires differentiated positioning.</div>
+          <div class="verdict-factors">
+            <div class="factor"><div class="factor-label">Market growth</div><div class="factor-val factor-pos">25.2% CAGR</div></div>
+            <div class="factor"><div class="factor-label">Capital signal</div><div class="factor-val factor-pos">Accelerating</div></div>
+            <div class="factor"><div class="factor-label">Incumbent grip</div><div class="factor-val factor-neg">Strong (42% top player)</div></div>
+            <div class="factor"><div class="factor-label">White space</div><div class="factor-val factor-pos">Identified</div></div>
+            <div class="factor"><div class="factor-label">Barrier to entry</div><div class="factor-val factor-neg">Moderate</div></div>
+            <div class="factor"><div class="factor-label">Data confidence</div><div class="factor-val" style="color:var(--color-text-warning)">Medium</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(n) {
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===n));
+  document.querySelectorAll('.content').forEach((c,i) => c.classList.toggle('active', i===n));
+}
+</script>

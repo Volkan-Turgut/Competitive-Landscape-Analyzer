@@ -1,0 +1,290 @@
+{
+  "metadata": {
+    "description": "Incumbents Agent test cases with expected outputs and source URLs",
+    "created": "2026-03-27",
+    "total_cases": 10,
+    "notes": "Fields marked null mean no reliable public data found — agent should also return null. Revenue in millions USD. Market share as float percentage."
+  },
+  "test_cases": [
+    {
+      "id": 1,
+      "input": {
+        "company": "Salesforce",
+        "market": "AI code review"
+      },
+      "expected_direction": "CONDITIONAL",
+      "expected_competitors": [
+        {
+          "name": "GitHub Copilot (Microsoft)",
+          "market_position": "leader",
+          "market_share_pct": {"min": 24.9, "max": 42.0, "note": "Varies by source: CB Insights ~25%, Visual Studio Magazine 42%"},
+          "revenue_annual_mm": null,
+          "revenue_arr_mm": {"min": 800, "max": 1000, "note": "CB Insights Sep 2025: $800M. Dec 2025: crossed $1B"},
+          "pricing_model": "per-seat",
+          "pricing_range": "$10-$39/user/month",
+          "key_products": ["GitHub Copilot", "Copilot Code Review", "GitHub Advanced Security", "Copilot Autofix"]
+        },
+        {
+          "name": "Cursor (Anysphere)",
+          "market_position": "challenger",
+          "market_share_pct": {"min": 18, "max": 24, "note": "CB Insights Dec 2025: one of top 3 at ~70% combined"},
+          "revenue_annual_mm": null,
+          "revenue_arr_mm": {"min": 500, "max": 2000, "note": "SaaSter: $1B in 24mo. TechCrunch Mar 2026: surpassed $2B"},
+          "pricing_model": "per-seat",
+          "pricing_range": "$20-$40/user/month",
+          "key_products": ["Cursor IDE", "Cursor Pro", "Cursor Business", "BugBot"]
+        },
+        {
+          "name": "CodeRabbit",
+          "market_position": "challenger",
+          "market_share_pct": null,
+          "revenue_annual_mm": 15.0,
+          "revenue_arr_mm": null,
+          "pricing_model": "freemium",
+          "pricing_range": "$0-$24/user/month",
+          "key_products": ["CodeRabbit PR Review", "CodeRabbit CLI", "CodeRabbit Enterprise"]
+        },
+        {
+          "name": "Snyk",
+          "market_position": "leader",
+          "market_share_pct": null,
+          "revenue_annual_mm": 278.0,
+          "revenue_arr_mm": {"min": 300, "max": 326, "note": "Sacra Oct 2024: $300M. Sacra Feb 2026: $326M"},
+          "pricing_model": "enterprise-contract",
+          "pricing_range": "Custom/enterprise",
+          "key_products": ["Snyk Code", "Snyk Open Source", "Snyk Container", "Snyk IaC"]
+        },
+        {
+          "name": "SonarSource (SonarQube)",
+          "market_position": "leader",
+          "market_share_pct": null,
+          "revenue_annual_mm": 98.1,
+          "revenue_arr_mm": null,
+          "pricing_model": "freemium",
+          "pricing_range": "Free (Community) to custom enterprise",
+          "key_products": ["SonarQube", "SonarCloud", "SonarLint", "AI Code Assurance"]
+        },
+        {
+          "name": "Qodo (formerly CodiumAI)",
+          "market_position": "niche",
+          "market_share_pct": null,
+          "revenue_annual_mm": 10.0,
+          "revenue_arr_mm": null,
+          "pricing_model": "per-seat",
+          "pricing_range": "$0-$45/user/month",
+          "key_products": ["Qodo Merge", "Qodo Gen", "Qodo Cover", "Qodo CLI"]
+        }
+      ],
+      "sources": [
+        {"title": "CB Insights Dec 2025", "claim": "$4B coding AI market, top 3 hold 70%+, GitHub $800M ARR, Cursor + Claude Code crossed $1B ARR", "url": "https://www.cbinsights.com/research/report/coding-ai-market-share-december-2025/"},
+        {"title": "CB Insights Sep 2025", "claim": "GitHub leads with $800M ARR, market worth $2B+", "url": "https://www.cbinsights.com/research/report/coding-ai-market-share-2025/"},
+        {"title": "Sacra Feb 2026", "claim": "Snyk $326M ARR growing 7% YoY", "url": "https://sacra.com/research/snyk-at-326m-arr-growing-7-yoy/"},
+        {"title": "Sacra Sep 2025", "claim": "CodeRabbit $60M Series B at $550M valuation", "url": "https://sacra.com/c/coderabbit/"},
+        {"title": "Getlatka 2024", "claim": "SonarSource $98.1M revenue, 869 employees", "url": "https://getlatka.com/companies/sonarsource.com"},
+        {"title": "Getlatka 2025", "claim": "CodeRabbit $15M revenue, 24 person team", "url": "https://getlatka.com/companies/coderabbit.ai"},
+        {"title": "TechCrunch Mar 2026", "claim": "Cursor surpassed $2B in annualized revenue", "url": "https://techcrunch.com/2026/03/02/cursor-has-reportedly-surpassed-2b-in-annualized-revenue/"},
+        {"title": "Panto AI / Gartner 2025", "claim": "AI code assistant market $3.0-3.5B", "url": "https://www.getpanto.ai/blog/ai-coding-assistant-statistics"},
+        {"title": "DEV Community Mar 2026", "claim": "Narrow PR review market $400-600M, broad $2-3B", "url": "https://dev.to/rahulxsingh/the-state-of-ai-code-review-in-2026-trends-tools-and-whats-next-2gfh"},
+        {"title": "Verdent Feb 2026", "claim": "CodeRabbit $12-$24/user/month, Qodo $30-$45/user/month", "url": "https://www.verdent.ai/guides/best-ai-for-code-review-2026"},
+        {"title": "MarketReportAnalytics 2025", "claim": "AI code review tool market $750M in 2025, 9.2% CAGR", "url": "https://www.marketreportanalytics.com/reports/ai-code-review-tool-73093"},
+        {"title": "Mordor Intelligence 2025", "claim": "AI code tools $7.37B in 2025, 26.60% CAGR", "url": "https://www.mordorintelligence.com/industry-reports/artificial-intelligence-code-tools-market"}
+      ],
+      "notes": "Market share HIGHLY inconsistent across sources. Market definition ambiguous: narrow PR review ($400-600M) vs broad AI coding ($2-4B)."
+    },
+    {
+      "id": 2,
+      "input": {"company": "Stripe", "market": "business banking and neobanking for startups"},
+      "expected_direction": "GO",
+      "expected_competitors": [
+        {"name": "Mercury", "market_position": "leader", "market_share_pct": null, "revenue_annual_mm": 650.0, "revenue_arr_mm": null, "pricing_model": "freemium", "pricing_range": "Free checking, $240/yr personal, interchange-based", "key_products": ["Mercury Business Checking", "Mercury Treasury", "Mercury IO Card", "Mercury Personal"]},
+        {"name": "Brex", "market_position": "leader", "market_share_pct": null, "revenue_annual_mm": 700.0, "revenue_arr_mm": null, "pricing_model": "freemium + per-seat", "pricing_range": "Free Essentials, $12/user/month Premium", "key_products": ["Brex Business Account", "Brex Corporate Card", "Brex Expense Management"]},
+        {"name": "Ramp", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": 1000.0, "revenue_arr_mm": {"min": 100, "max": 150, "note": "SaaS portion only"}, "pricing_model": "freemium + per-seat", "pricing_range": "Free, Plus plan per-seat", "key_products": ["Ramp Corporate Card", "Ramp Expense Management", "Ramp Bill Pay", "Ramp Treasury"]},
+        {"name": "JPMorgan Chase", "market_position": "leader", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "enterprise", "pricing_range": "Traditional bank pricing", "key_products": ["Chase Business Complete Banking", "Chase Ink Cards"]},
+        {"name": "Novo", "market_position": "niche", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "freemium", "pricing_range": "Free checking, paid add-ons", "key_products": ["Novo Business Checking", "Novo Reserves"]}
+      ],
+      "sources": [
+        {"title": "Sacra Mar 2026", "claim": "Mercury $650M, Ramp $1B, Brex acquired by Capital One $5.15B", "url": "https://sacra.com/research/post-brex-ramp-vs-mercury/"},
+        {"title": "Sacra Nov 2025", "claim": "Mercury $650M annualized, 200K+ customers, $3.5B valuation", "url": "https://sacra.com/c/mercury/"},
+        {"title": "eMarketer Nov 2025", "claim": "Mercury $650M up 30% from $500M, GAAP profitable 3 years", "url": "https://www.emarketer.com/content/fintech-bank-business-models-risk"},
+        {"title": "Sacra Aug 2025", "claim": "Brex $700M up 50% YoY, interchange-based model", "url": "https://sacra.com/c/brex/"},
+        {"title": "Contrary Research Aug 2025", "claim": "Brex $12.3B val, $1.5B funding, 30K+ customers", "url": "https://research.contrary.com/company/mercury"},
+        {"title": "Popular Fintech May 2025", "claim": "McKinsey: $150B small business banking market", "url": "https://www.popularfintech.com/p/small-business-big-opportunity-square-stripe-ramp-brex"}
+      ],
+      "notes": "NOT SaaS. Revenue from interchange, interest on deposits, SaaS fees. Brex acquired by Capital One Jan 2026."
+    },
+    {
+      "id": 3,
+      "input": {"company": "John Deere", "market": "precision agriculture and farm management software"},
+      "expected_direction": "CONDITIONAL",
+      "expected_competitors": [
+        {"name": "John Deere (Deere & Company)", "market_position": "leader", "market_share_pct": {"min": 11.8, "max": 18.0}, "revenue_annual_mm": 51700.0, "revenue_arr_mm": null, "pricing_model": "per-machine + subscription", "pricing_range": "Operations Center free, premium per acre", "key_products": ["Operations Center", "See & Spray", "StarFire 7000", "AutoTrac"]},
+        {"name": "Trimble / PTx Trimble", "market_position": "leader", "market_share_pct": 15.0, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-device + subscription", "pricing_range": "Hardware + software subscriptions", "key_products": ["Trimble Ag Software", "GFX Displays", "NAV-900"]},
+        {"name": "AGCO Corporation", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": 14400.0, "revenue_arr_mm": null, "pricing_model": "per-machine", "pricing_range": "Precision Planting hardware + Fuse platform", "key_products": ["Precision Planting", "Fuse Platform", "PTx Trimble JV"]},
+        {"name": "CNH Industrial (Raven)", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-machine", "pricing_range": "Case IH / New Holland integrated", "key_products": ["Raven Autonomy", "Case IH AFS"]},
+        {"name": "Bayer (Climate FieldView)", "market_position": "challenger", "market_share_pct": {"min": 8.0, "max": 10.0}, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "freemium", "pricing_range": "Free basic, paid premium per acre", "key_products": ["Climate FieldView"]}
+      ],
+      "sources": [
+        {"title": "Mordor Intelligence 2024", "claim": "Deere 11.8% share, top 5 control 43%", "url": "https://www.mordorintelligence.com/industry-reports/farm-management-software-market"},
+        {"title": "GM Insights 2025", "claim": "Deere and Trimble ~15% each", "url": "https://www.gminsights.com/industry-analysis/precision-farming-market"},
+        {"title": "BusinessWire May 2025", "claim": "Deere 15-18%, Bayer 8-10%", "url": "https://www.businesswire.com/news/home/20250514544509/en/Agritech-Market-Global-Outlook-Forecast-Report-2025-2030-Competitive-Analysis-of-AGCO-Bayer-Crop-Science-CNH-Industrial-Corteva-Agriscience-John-Deere-Kubota-Syngenta-and-Trimble---ResearchAndMarkets.com"},
+        {"title": "MarketsAndMarkets", "claim": "Top 5 command 45-55%", "url": "https://www.marketsandmarkets.com/ResearchInsight/precision-farming-market.asp"},
+        {"title": "MarketsAndMarkets", "claim": "NA precision farming $4.10B 2025, $6.46B by 2032 at 6.7% CAGR", "url": "https://www.marketsandmarkets.com/Market-Reports/precision-farming-market-1243.html"},
+        {"title": "GlobeNewsWire Mar 2026", "claim": "Market to reach $17.29B by 2031", "url": "https://www.globenewswire.com/news-release/2026/03/11/3253975/0/en/Precision-Agriculture-Research-Report-2026-Market-to-Reach-17-29-Billion-by-2031-with-John-Deere-AGCO-CNH-Industrial-Trimble-and-Topcon-Dominating.html"},
+        {"title": "Precedence Research Jan 2026", "claim": "NA 44% share, market to surpass $48.36B by 2035", "url": "https://www.precedenceresearch.com/precision-farming-market"}
+      ],
+      "notes": "HARDWARE + SOFTWARE. No ARR. Deere IS an incumbent. Pricing per-acre/per-machine. Company revenue includes non-ag."
+    },
+    {
+      "id": 4,
+      "input": {"company": "Coca-Cola", "market": "cloud computing infrastructure"},
+      "expected_direction": "NO_GO",
+      "expected_competitors": [
+        {"name": "Amazon Web Services (AWS)", "market_position": "leader", "market_share_pct": {"min": 29, "max": 32}, "revenue_annual_mm": 110000.0, "revenue_arr_mm": null, "pricing_model": "usage-based", "pricing_range": "Pay-per-use, reserved instances", "key_products": ["EC2", "S3", "Lambda", "Bedrock", "SageMaker"]},
+        {"name": "Microsoft Azure", "market_position": "leader", "market_share_pct": {"min": 20, "max": 22}, "revenue_annual_mm": 85000.0, "revenue_arr_mm": null, "pricing_model": "usage-based + enterprise", "pricing_range": "Pay-per-use, enterprise agreements", "key_products": ["Azure Compute", "Azure AI", "Azure DevOps"]},
+        {"name": "Google Cloud", "market_position": "challenger", "market_share_pct": {"min": 11, "max": 13}, "revenue_annual_mm": 45000.0, "revenue_arr_mm": null, "pricing_model": "usage-based", "pricing_range": "Pay-per-use, committed use", "key_products": ["Compute Engine", "Vertex AI", "BigQuery", "GKE"]},
+        {"name": "Oracle Cloud", "market_position": "challenger", "market_share_pct": {"min": 2, "max": 3}, "revenue_annual_mm": 7000.0, "revenue_arr_mm": null, "pricing_model": "usage-based", "pricing_range": "Pay-per-use, ULA licensing", "key_products": ["OCI", "Autonomous Database"]},
+        {"name": "CoreWeave", "market_position": "niche", "market_share_pct": null, "revenue_annual_mm": 1000.0, "revenue_arr_mm": null, "pricing_model": "usage-based", "pricing_range": "GPU-as-a-service", "key_products": ["GPU Cloud", "AI/ML Infrastructure"]}
+      ],
+      "sources": [
+        {"title": "Synergy Research Nov 2025", "claim": "AWS 29%, Azure 20%, GCP 13%, Big Three 63%, Q3 $106.9B", "url": "https://www.srgresearch.com/articles/cloud-market-share-trends-big-three-together-hold-63-while-oracle-and-the-neoclouds-inch-higher"},
+        {"title": "Statista/Cargoson Q2 2025", "claim": "AWS 30%, Azure 20%, GCP 13%, $99B quarterly", "url": "https://www.cargoson.com/en/blog/global-cloud-infrastructure-market-share-aws-azure-google"},
+        {"title": "TechTarget Q3 2025", "claim": "$107B quarterly, 28% YoY", "url": "https://www.techtarget.com/searchcloudcomputing/news/366634757/The-big-three-grab-two-thirds-of-107B-cloud-market-in-Q3"},
+        {"title": "Omdia Dec 2025", "claim": "AWS 32%, Azure 22%, GCP 11%, $102.6B quarterly", "url": "https://omdia.tech.informa.com/pr/2025/dec/global-cloud-infrastructure-spending-hits-102point6-billion-dollars-up-25percent-in-q3-2025"},
+        {"title": "InfotechLead Dec 2025", "claim": "AWS $33B quarterly, Azure 40% YoY growth", "url": "https://infotechlead.com/cloud/top-cloud-providers-by-market-share-in-2025-aws-microsoft-azure-and-google-cloud-drive-enterprise-ai-growth-92806"},
+        {"title": "TekRevol Jan 2026", "claim": "Cloud $752.44B in 2025, forecast $2.39T by 2030", "url": "https://www.tekrevol.com/blogs/global-cloud-market-share-report-statistics-2025/"}
+      ],
+      "notes": "$400B+ annual market. Coca-Cola has ZERO leverage. Clear NO-GO."
+    },
+    {
+      "id": 5,
+      "input": {"company": "Notion", "market": "enterprise project management software"},
+      "expected_direction": "CONDITIONAL",
+      "expected_competitors": [
+        {"name": "Atlassian (Jira)", "market_position": "leader", "market_share_pct": {"min": 25, "max": 30}, "revenue_annual_mm": 5760.0, "revenue_arr_mm": null, "pricing_model": "per-seat", "pricing_range": "Free-$17.65/user/month", "key_products": ["Jira Software", "Confluence", "Trello", "Jira Service Management"]},
+        {"name": "Microsoft (Project/Planner)", "market_position": "leader", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-seat (bundled)", "pricing_range": "Included in M365, standalone $10-$55/user/month", "key_products": ["Microsoft Project", "Planner", "Lists", "Azure DevOps"]},
+        {"name": "Asana", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": 750.0, "revenue_arr_mm": null, "pricing_model": "per-seat", "pricing_range": "$0-$30.49/user/month", "key_products": ["Asana Work Management", "Asana AI Studio", "Asana Goals"]},
+        {"name": "Monday.com", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": 1000.0, "revenue_arr_mm": null, "pricing_model": "per-seat", "pricing_range": "$0-$24/seat/month", "key_products": ["Monday Work Management", "Monday CRM", "Monday Dev"]},
+        {"name": "Smartsheet", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": 1000.0, "revenue_arr_mm": null, "pricing_model": "per-seat", "pricing_range": "$9-$32/user/month", "key_products": ["Smartsheet Platform", "Resource Management"]},
+        {"name": "Linear", "market_position": "niche", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-seat", "pricing_range": "Free-$12/user/month", "key_products": ["Linear Issues", "Linear Projects"]}
+      ],
+      "sources": [
+        {"title": "MacroTrends", "claim": "Atlassian $5.76B TTM Dec 2025, 20% YoY", "url": "https://www.macrotrends.net/stocks/charts/TEAM/atlassian/revenue"},
+        {"title": "Getlatka Mar 2025", "claim": "Atlassian $4B revenue, 300K+ customers", "url": "https://getlatka.com/blog/atlassian-revenue/"},
+        {"title": "Mordor Intelligence Jan 2026", "claim": "Asana $188.3M Q4 2025, ClickUp $4B valuation", "url": "https://www.mordorintelligence.com/industry-reports/project-management-software-systems-market"},
+        {"title": "MetaStat Insight 2025", "claim": "PM market ~$9.8B, 15.6% CAGR to $27B+", "url": "https://www.metastatinsight.com/report/project-management-software-market"},
+        {"title": "Research Nester Nov 2025", "claim": "PM market $7.24B, 10.7% CAGR to $18.9B by 2035", "url": "https://www.researchnester.com/reports/project-management-software-market/4176"},
+        {"title": "Datanyze", "claim": "Jira used by 107,494 companies", "url": "https://www.datanyze.com/market-share/project-management--217/jira-market-share"}
+      ],
+      "notes": "Well-established SaaS. Per-seat universal. Notion entering from docs+wiki against entrenched workflow tools."
+    },
+    {
+      "id": 6,
+      "input": {"company": "Apple", "market": "home security systems and smart home"},
+      "expected_direction": "CONDITIONAL",
+      "expected_competitors": [
+        {"name": "Ring (Amazon)", "market_position": "leader", "market_share_pct": 28.0, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-unit + subscription", "pricing_range": "$99-$249 devices, $3.99-$20/month", "key_products": ["Ring Video Doorbell", "Ring Alarm", "Ring Cameras"]},
+        {"name": "ADT", "market_position": "leader", "market_share_pct": 29.0, "revenue_annual_mm": 5200.0, "revenue_arr_mm": null, "pricing_model": "per-unit + subscription", "pricing_range": "$199-$1200+ equipment, $24.99-$59.99/month", "key_products": ["ADT Smart Home Security", "ADT Self Setup", "ADT+ Google Nest"]},
+        {"name": "Google Nest", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-unit + subscription", "pricing_range": "$99-$329 devices, $6-$12/month Nest Aware", "key_products": ["Nest Cam", "Nest Doorbell", "Google Home"]},
+        {"name": "SimpliSafe", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-unit + subscription", "pricing_range": "$199-$489 kits, $0.50-$27.99/month", "key_products": ["SimpliSafe Security System", "Fast Protect"]},
+        {"name": "Vivint", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-unit + subscription", "pricing_range": "Equipment financed, $29.99-$44.99/month", "key_products": ["Vivint Smart Home", "Vivint Cameras"]}
+      ],
+      "sources": [
+        {"title": "SafeHome.org Feb 2025", "claim": "ADT 29%, Ring 28%. 52% households have security camera", "url": "https://www.safehome.org/resources/home-security-industry-annual/"},
+        {"title": "Precedence Research Feb 2026", "claim": "Smart home security $40.38B in 2025, $163.15B by 2035 at 14.99% CAGR", "url": "https://www.precedenceresearch.com/smart-home-security-market"},
+        {"title": "Mordor Intelligence Jan 2026", "claim": "ADT Q1 2025 $1.3B revenue, $360M monthly recurring", "url": "https://www.mordorintelligence.com/industry-reports/smart-home-safety-market"},
+        {"title": "Fortune Business Insights", "claim": "Market $33.2B in 2025, $117.37B by 2034", "url": "https://www.fortunebusinessinsights.com/smart-home-security-market-109801"},
+        {"title": "Mordor Intelligence", "claim": "Home security $75.06B in 2025, $115.05B by 2030", "url": "https://www.mordorintelligence.com/industry-reports/home-security-system-market"},
+        {"title": "Grand View Research", "claim": "Security camera market $11.77B in 2025, NA 41.27%", "url": "https://www.grandviewresearch.com/industry-analysis/smart-home-security-camera-market"}
+      ],
+      "notes": "HARDWARE + SUBSCRIPTION. Apple has HomeKit but no cameras/locks/monitoring. ADT-Google Nest partnership significant."
+    },
+    {
+      "id": 7,
+      "input": {"company": "Google", "market": "enterprise cybersecurity"},
+      "expected_direction": "GO",
+      "expected_competitors": [
+        {"name": "Palo Alto Networks", "market_position": "leader", "market_share_pct": {"min": 9, "max": 10}, "revenue_annual_mm": 9200.0, "revenue_arr_mm": {"min": 5600, "max": 6300}, "pricing_model": "per-seat + platform", "pricing_range": "Enterprise contracts, tiered", "key_products": ["Strata", "Prisma", "Cortex", "XSIAM"]},
+        {"name": "Microsoft Security", "market_position": "leader", "market_share_pct": 6.0, "revenue_annual_mm": 37000.0, "revenue_arr_mm": null, "pricing_model": "per-seat (bundled)", "pricing_range": "Included in E5, standalone add-ons", "key_products": ["Sentinel", "Defender", "Entra ID", "Purview"]},
+        {"name": "CrowdStrike", "market_position": "leader", "market_share_pct": null, "revenue_annual_mm": 4000.0, "revenue_arr_mm": 4240.0, "pricing_model": "per-endpoint", "pricing_range": "Per-endpoint, tiered by modules", "key_products": ["Falcon Platform", "Falcon XDR", "Falcon Cloud Security"]},
+        {"name": "Fortinet", "market_position": "challenger", "market_share_pct": 7.0, "revenue_annual_mm": {"min": 5960, "max": 6830}, "revenue_arr_mm": null, "pricing_model": "per-device + subscription", "pricing_range": "Appliance + FortiGuard subscription", "key_products": ["FortiGate", "FortiSASE", "FortiEDR"]},
+        {"name": "Zscaler", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": 2670.0, "revenue_arr_mm": null, "pricing_model": "per-user", "pricing_range": "Per-user cloud security subscription", "key_products": ["Zscaler Internet Access", "Zscaler Private Access"]}
+      ],
+      "sources": [
+        {"title": "Investing.com Aug 2025", "claim": "Microsoft $37B security FY2025, CrowdStrike ~$4B, Palo Alto ~$10B", "url": "https://www.investing.com/analysis/microsoft-why-its-security-business-rivals-crowdstrike-and-palo-alto-200665840"},
+        {"title": "Programs.com Mar 2026", "claim": "CrowdStrike $4.24B ARR, Palo Alto $5.6B NGS ARR, acquired CyberArk $25B", "url": "https://programs.com/resources/largest-cybersecurity-companies/"},
+        {"title": "GlobeNewsWire Mar 2026", "claim": "Market $255B in 2025, $580B by 2031 at 14.68% CAGR", "url": "https://www.globenewswire.com/news-release/2026/03/11/3253965/0/en/Cybersecurity-Solutions-Market-Research-Report-2026-2031-Profiles-of-Prominent-Players-Palo-Alto-Networks-Fortinet-CrowdStrike-Cisco-Systems-IBM.html"},
+        {"title": "Software Analyst Oct 2024", "claim": "Palo Alto 9.7% share (#1), no vendor double-digit", "url": "https://softwareanalyst.substack.com/p/cybersecurity-10b-giants-insights"},
+        {"title": "Cybersecurity Ventures Nov 2025", "claim": "Palo Alto $9.22B, Fortinet $5.96B, CrowdStrike $4.34B", "url": "https://cybersecurityventures.com/wp-content/uploads/2023/11/CybersecuritySpending2031.pdf"},
+        {"title": "EconomyInsights Nov 2025", "claim": "Palo Alto FY2025 $9.2B, CrowdStrike Flex ARR $1.69B (120% YoY)", "url": "https://www.economyinsights.com/p/top-10-cybersecurity-companies-by-market-cap"},
+        {"title": "24/7 Wall St Mar 2026", "claim": "CrowdStrike 50% use 6+ modules, Palo Alto NGS ARR $6.30B", "url": "https://247wallst.com/investing/2026/03/12/with-cyberattacks-surging-does-crowdstrike-or-palo-alto-networks-stand-out/"}
+      ],
+      "notes": "$255B market. Google ALREADY in via Mandiant ($5.4B) and Chronicle. No vendor >10% share. Palo Alto acquired CyberArk $25B Jul 2025."
+    },
+    {
+      "id": 8,
+      "input": {"company": "Netflix", "market": "cloud gaming"},
+      "expected_direction": "CONDITIONAL",
+      "expected_competitors": [
+        {"name": "Microsoft (Xbox Cloud Gaming)", "market_position": "leader", "market_share_pct": {"min": 50, "max": 60}, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "subscription", "pricing_range": "$14.99-$19.99/month (Game Pass Ultimate)", "key_products": ["Xbox Cloud Gaming", "Xbox Game Pass"]},
+        {"name": "NVIDIA (GeForce NOW)", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "freemium + subscription", "pricing_range": "Free / $9.99 / $19.99/month", "key_products": ["GeForce NOW Free", "GeForce NOW Priority", "GeForce NOW Ultimate"]},
+        {"name": "Sony (PlayStation Plus)", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "subscription", "pricing_range": "$9.99-$17.99/month", "key_products": ["PlayStation Plus Premium", "PlayStation Portal"]},
+        {"name": "Amazon (Luna)", "market_position": "niche", "market_share_pct": {"min": 0, "max": 5}, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "subscription (included in Prime)", "pricing_range": "Included in Prime, Luna+ $9.99/month", "key_products": ["Amazon Luna", "Luna+"]}
+      ],
+      "sources": [
+        {"title": "Grand View Research", "claim": "Market $2.27B in 2024, $21.04B by 2030 at 44.3% CAGR", "url": "https://www.grandviewresearch.com/industry-analysis/cloud-gaming-market"},
+        {"title": "GlobeNewsWire Jun 2025", "claim": "Market $3.8B 2023, $35B by 2029. Xbox 50%+ share", "url": "https://www.globenewswire.com/news-release/2025/06/09/3095999/0/en/Cloud-Gaming-Market-Outlook-to-2029-with-Microsoft-Xbox-Cloud-Gaming-Dominating-the-35-Billion-Market-by-Ruling-More-Than-Half-of-the-Market-Share.html"},
+        {"title": "Mordor Intelligence Jan 2026", "claim": "Amazon Luna into Prime Oct 2025, GeForce NOW RTX 5080", "url": "https://www.mordorintelligence.com/industry-reports/cloud-gaming-market"},
+        {"title": "Scoop Market.us Jan 2026", "claim": "Market $11.1B in 2025, $30.8B by 2028 at 46.9% CAGR", "url": "https://scoop.market.us/cloud-gaming-statistics/"},
+        {"title": "ElectroIQ Dec 2025", "claim": "Luna ~270K users, GeForce NOW 30M+ users", "url": "https://electroiq.com/stats/cloud-gaming-statistics/"},
+        {"title": "Congruence Market Insights", "claim": "Top 5 control ~65%", "url": "https://www.congruencemarketinsights.com/report/cloud-gaming-market"},
+        {"title": "Mordor Intelligence (US)", "claim": "US $1.37B in 2025, $9.16B by 2030", "url": "https://www.mordorintelligence.com/industry-reports/united-states-cloud-gaming-market"}
+      ],
+      "notes": "Market size varies wildly ($2.27B-$11.1B). Google Stadia shut down 2023. Netflix has mobile games but no cloud AAA streaming. Microsoft 50%+ share."
+    },
+    {
+      "id": 9,
+      "input": {"company": "Toyota", "market": "autonomous vehicle robotaxi services"},
+      "expected_direction": "NO_GO",
+      "expected_competitors": [
+        {"name": "Waymo (Alphabet)", "market_position": "leader", "market_share_pct": null, "revenue_annual_mm": 286.0, "revenue_arr_mm": null, "pricing_model": "per-ride", "pricing_range": "$3.50-$4.00 base + $2.25-$2.85/mile", "key_products": ["Waymo One", "Waymo Driver"]},
+        {"name": "Tesla", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-ride + subscription", "pricing_range": "FSD $199/month, ride fares TBD", "key_products": ["Tesla Robotaxi", "Tesla FSD", "Cybercab"]},
+        {"name": "Cruise (GM)", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-ride", "pricing_range": "$3.00 base + $2.15/mile (paused)", "key_products": ["Cruise Origin", "Cruise AV"]},
+        {"name": "Zoox (Amazon)", "market_position": "niche", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-ride", "pricing_range": "Free rides (pilot phase)", "key_products": ["Zoox robotaxi"]},
+        {"name": "Baidu Apollo Go", "market_position": "leader", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-ride", "pricing_range": "$0.80-$1.50/mile (China)", "key_products": ["Apollo Go", "Apollo RT6"]}
+      ],
+      "sources": [
+        {"title": "CNBC Dec 2025", "claim": "Waymo in 26 markets, Tesla Robotaxi app 529K installs, Baidu 250K+ weekly rides", "url": "https://www.cnbc.com/2025/12/16/waymo-amazon-zoox-tesla-robotaxi-expansion.html"},
+        {"title": "Programming Helper Jan 2026", "claim": "Waymo 14M trips 2025, $286M revenue, $20.43 avg fare", "url": "https://www.programming-helper.com/tech/waymo-tesla-robotaxi-race-autonomous-vehicle-market-2026"},
+        {"title": "S&P Global Dec 2025", "claim": "Waymo 2,500 robotaxis, 250K+ paid rides/week, 100M+ miles", "url": "https://www.spglobal.com/automotive-insights/en/blogs/2025/12/autonomous-ride-hailing-grows-key-us-markets"},
+        {"title": "Grand View Research", "claim": "Robotaxi $1.95B 2024, $43.76B by 2030 at 73.5% CAGR", "url": "https://www.grandviewresearch.com/industry-analysis/robotaxi-market-report"},
+        {"title": "Market Techie Feb 2026", "claim": "Market $2.68B 2025, $283.47B by 2035 at 59.4% CAGR", "url": "https://www.markettechie.com/robotaxi-market/"},
+        {"title": "PatentPC Jan 2026", "claim": "Waymo $0.40/mile, Cruise $0.90/mile, Tesla FSD $12K or $199/mo", "url": "https://patentpc.com/blog/tesla-vs-waymo-vs-cruise-whos-leading-the-autonomous-vehicle-race-market-share-stats"},
+        {"title": "Coherent Market Insights", "claim": "US $1.80-3.50/mile, China $0.80-1.50/mile", "url": "https://www.coherentmarketinsights.com/market-insight/robotaxi-market-4560"}
+      ],
+      "notes": "PER-RIDE revenue. Most competitors pre-revenue. Waymo lost $1.43B Q3 2025. Toyota has Woven Planet but no commercial service. NO-GO."
+    },
+    {
+      "id": 10,
+      "input": {"company": "Airbnb", "market": "enterprise HR and people management software"},
+      "expected_direction": "NO_GO",
+      "expected_competitors": [
+        {"name": "Workday", "market_position": "leader", "market_share_pct": null, "revenue_annual_mm": 8400.0, "revenue_arr_mm": null, "pricing_model": "per-employee/month", "pricing_range": "$34-$100+/employee/month", "key_products": ["Workday HCM", "Workday Payroll", "Workday Recruiting"]},
+        {"name": "SAP SuccessFactors", "market_position": "leader", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-employee/month", "pricing_range": "Enterprise contract, custom", "key_products": ["SuccessFactors HXM", "SAP Payroll"]},
+        {"name": "ADP", "market_position": "leader", "market_share_pct": null, "revenue_annual_mm": 19000.0, "revenue_arr_mm": null, "pricing_model": "per-employee/month", "pricing_range": "$12-$20/employee/month", "key_products": ["ADP Workforce Now", "ADP TotalSource"]},
+        {"name": "Rippling", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": 570.0, "revenue_arr_mm": null, "pricing_model": "per-employee/month (modular)", "pricing_range": "$8/employee/month + modules", "key_products": ["Rippling HR", "Rippling IT", "Rippling Finance"]},
+        {"name": "Deel", "market_position": "challenger", "market_share_pct": null, "revenue_annual_mm": 1300.0, "revenue_arr_mm": null, "pricing_model": "per-contractor/employee", "pricing_range": "$49/contractor, $599/employee (EOR)", "key_products": ["Deel HR", "Deel Payroll", "Deel EOR"]},
+        {"name": "BambooHR", "market_position": "niche", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "per-employee/month", "pricing_range": "$6-$10/employee/month", "key_products": ["BambooHR HRIS", "BambooHR Payroll"]},
+        {"name": "Gusto", "market_position": "niche", "market_share_pct": null, "revenue_annual_mm": null, "revenue_arr_mm": null, "pricing_model": "flat + per-employee", "pricing_range": "$40/month + $6-$12/employee", "key_products": ["Gusto Payroll", "Gusto Benefits"]}
+      ],
+      "sources": [
+        {"title": "Sacra", "claim": "Rippling $570M annualized Feb 2025, 20K+ customers", "url": "https://sacra.com/c/rippling/"},
+        {"title": "Software Finder 2025", "claim": "BambooHR/Paychex for SMB, Workday/Oracle/ADP for enterprise", "url": "https://softwarefinder.com/resources/2025-hr-tech-market-trends-report"},
+        {"title": "AirMason 2026", "claim": "Gusto $40/mo + $6/person, Rippling $8/user/mo, Workday $34-100/user/mo", "url": "https://www.airmason.com/blog/top-hr-software-platforms-in-2026/"},
+        {"title": "Success Knocks Mar 2026", "claim": "ADP 37M employees, Workday 6-12mo implementation", "url": "https://successknocks.com/best-hr-software-2026-comprehensive-buyers/"},
+        {"title": "Harmony HR Jan 2026", "claim": "BambooHR $10-20 PEPM, HiBob $16-25 PEPM", "url": "https://harmonyhr.org/blog/bamboohr-alternatives-2025.html"},
+        {"title": "Siit 2025", "claim": "Workday 6-12mo implementation, Deel 150+ countries", "url": "https://www.siit.io/tools/alternatives/workday-alternatives"}
+      ],
+      "notes": "CLEAR NO-GO. Airbnb zero HR expertise. PEPM pricing standard. Rippling sued Deel Mar 2025. Market segmented by company size."
+    }
+  ]
+}

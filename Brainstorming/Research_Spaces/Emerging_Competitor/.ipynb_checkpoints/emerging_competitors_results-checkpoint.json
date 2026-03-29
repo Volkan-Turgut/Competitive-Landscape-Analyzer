@@ -1,0 +1,2554 @@
+{
+  "metadata": {
+    "agent": "emerging_competitors",
+    "model": "claude-sonnet-4-6",
+    "architecture": "multi-agent-phased (discovery + detail x N + capital flow + assembly)",
+    "run_date": "2026-03-27",
+    "total_cases": 3,
+    "successful_cases": 3,
+    "total_searches": 320,
+    "total_time_seconds": 153.1
+  },
+  "results": [
+    {
+      "case_id": 1,
+      "market": "AI code review",
+      "excluded_incumbents": [
+        "GitHub Copilot",
+        "Cursor",
+        "Snyk",
+        "SonarSource",
+        "CodeRabbit",
+        "Qodo"
+      ],
+      "emerging_competitors": [
+        {
+          "name": "CodeAnt AI",
+          "description": "CodeAnt AI is an AI-powered code health platform that unifies AI code review, code security, code quality, and engineering metrics into a single platform. It helps engineering teams ship faster and safer by automatically reviewing every pull request and reducing manual code review time and bugs by over 50%.",
+          "founded_year": 2023,
+          "headquarters": "San Francisco, CA",
+          "total_funding_mm": 2.5,
+          "latest_round": {
+            "stage": "seed",
+            "amount_mm": 2.0,
+            "date": "May 2025",
+            "lead_investors": [
+              "Y Combinator",
+              "Uncorrelated Ventures",
+              "vitalstage ventures"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "CodeAnt AI is the only platform that bundles AI code review, SAST, secrets detection, IaC security, and DORA/engineering metrics into one unified product across all four major Git platforms (GitHub, GitLab, Bitbucket, and Azure DevOps) at a single flat price.",
+          "employee_count": null
+        },
+        {
+          "name": "Bito",
+          "description": "Bito is an AI developer platform that automates and enhances code review for enterprise engineering teams, delivering context-aware, agentic code reviews that integrate directly into GitHub, GitLab, and Bitbucket. Its AI Code Review Agent provides line-by-line feedback, detects issues, suggests performance improvements, and offers one-click fixes across 50+ programming languages.",
+          "founded_year": 2021,
+          "headquarters": "Menlo Park, CA",
+          "total_funding_mm": 8.9,
+          "latest_round": {
+            "stage": "seed",
+            "amount_mm": 5.7,
+            "date": "May 2025",
+            "lead_investors": [
+              "Vela Partners"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Bito uses a locally-run \"AI Architect\" codebase intelligence server that builds a dynamic knowledge graph of the entire codebase \u2014 understanding how systems fit together rather than treating files in isolation \u2014 enabling context-aware, human-like reasoning in code reviews without storing any code or training models on customer data.",
+          "employee_count": 57
+        },
+        {
+          "name": "Ellipsis",
+          "description": "Ellipsis is an AI developer tool that automatically reviews code and fixes bugs on pull requests, helping engineering teams ship faster. It is used by over 100 companies and installed across thousands of codebases.",
+          "founded_year": 2023,
+          "headquarters": "New York, NY (215 Park Ave S, Floor 11)",
+          "total_funding_mm": 2.0,
+          "latest_round": {
+            "stage": "seed",
+            "amount_mm": 2.0,
+            "date": "May 2024",
+            "lead_investors": [
+              "Y Combinator"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Unlike static analysis tools, Ellipsis actually executes the code it generates \u2014 just as a human reviewer would \u2014 enabling more accurate and actionable feedback that helps teams merge pull requests 13% faster.",
+          "employee_count": 2
+        },
+        {
+          "name": "Metabob",
+          "description": "Metabob is an AI-powered code review and static analysis tool that automatically detects logical, context-based problems and vulnerabilities early in the development process. It integrates into CI/CD pipelines and uses a combination of ML techniques to offer fix suggestions, saving developers up to 60% of time spent on code reviews and debugging.",
+          "founded_year": 2021,
+          "headquarters": "San Francisco, California",
+          "total_funding_mm": null,
+          "latest_round": {
+            "stage": "seed",
+            "amount_mm": 0.247,
+            "date": "October 2023",
+            "lead_investors": [
+              "K20 Fund",
+              "Foothill Ventures"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Unlike traditional static analysis tools, Metabob uses graph neural networks and ML to detect logical and context-aware bugs \u2014 such as race conditions and unhandled edge cases \u2014 that rule-based tools routinely miss.",
+          "employee_count": 14
+        },
+        {
+          "name": "Korbit AI",
+          "description": "Korbit AI is an AI-powered code review and engineering insights platform that provides developers with instant, context-aware feedback on every pull request. It helps software teams improve code quality, enforce coding standards, and upskill engineers while giving engineering leaders visibility into delivery velocity and compliance.",
+          "founded_year": 2017,
+          "headquarters": "Montreal, Canada",
+          "total_funding_mm": 10.3,
+          "latest_round": {
+            "stage": "series-a",
+            "amount_mm": 11.3,
+            "date": "May 2023",
+            "lead_investors": [
+              "Khosla Ventures"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Korbit AI uniquely combines automated code review with built-in developer mentoring and upskilling, surfacing not just bugs but actionable engineering insights that improve team performance over time.",
+          "employee_count": 25
+        },
+        {
+          "name": "Codacy",
+          "description": "Codacy is an automated code review and software quality platform that helps developers merge clean, secure, and high-quality code. It provides static analysis, SCA, secrets detection, IaC scanning, and other security/quality tools to standardize and automate code review workflows for development teams.",
+          "founded_year": 2012,
+          "headquarters": "Lisbon, Portugal",
+          "total_funding_mm": 24.3,
+          "latest_round": {
+            "stage": "series-b",
+            "amount_mm": 15.0,
+            "date": "September 2022",
+            "lead_investors": [
+              "Bright Pixel Capital"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Codacy offers an all-in-one developer toolbox combining automated code review with a broad security suite (SAST, SCA, Secrets Detection, IaC, DAST, and CSPM) in a single platform, positioning itself as the only tool developers need to ship clean, quality, and secure code.",
+          "employee_count": 50
+        },
+        {
+          "name": "Sourcery",
+          "description": "Sourcery is an AI-powered code review platform that automatically reviews pull requests on GitHub and GitLab, providing instant feedback on code quality, maintainability, and potential bugs. It combines a series of specialized AI reviewers with its own static analysis engine to help development teams write cleaner, better code faster.",
+          "founded_year": 2018,
+          "headquarters": "London, United Kingdom",
+          "total_funding_mm": 1.87,
+          "latest_round": {
+            "stage": "seed",
+            "amount_mm": 1.75,
+            "date": "January 2022",
+            "lead_investors": [
+              "Techstars",
+              "Forward Partners"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Sourcery uses a ensemble of multiple specialized AI reviewers\u2014each focused on different aspects of code quality\u2014combined with its own proprietary static analysis engine, enabling deeper and more contextual reviews directly in GitHub, GitLab, and IDEs without requiring configuration.",
+          "employee_count": null
+        }
+      ],
+      "capital_flow": {
+        "total_funding_last_2_years_mm": 276.0,
+        "deal_count_last_2_years": 12,
+        "average_deal_size_mm": 23.0,
+        "yoy_funding_change_pct": 85.0,
+        "top_investors": [
+          "Andreessen Horowitz (a16z)",
+          "Scale Venture Partners",
+          "Anthropic",
+          "Accel",
+          "Sequoia Capital"
+        ],
+        "capital_velocity_signal": "accelerating"
+      },
+      "sources": [
+        {
+          "title": "Bito 2026 Company Profile: Valuation, Funding & Investors | PitchBook",
+          "url": "https://pitchbook.com/profiles/company/482169-34",
+          "published_date": null,
+          "query": "Bito AI startup total funding raised investors employees 2024",
+          "relevance_score": 0.9999349
+        },
+        {
+          "title": "Bito Raises $5.7 Million Seed Extension | The SaaS News",
+          "url": "https://www.thesaasnews.com/news/bito-raises-5-7-million-seed-extension",
+          "published_date": null,
+          "query": "Bito AI startup total funding raised investors employees 2024",
+          "relevance_score": 0.99991655
+        },
+        {
+          "title": "Bito - 2026 Company Profile, Team, Funding & Competitors - Tracxn",
+          "url": "https://tracxn.com/d/companies/bito/__ZCM7iaKIUMJ295zVzHi0NLIYyug0S3GrT9TvSBCptP4",
+          "published_date": null,
+          "query": "Bito AI startup total funding raised investors employees 2024",
+          "relevance_score": 0.99990535
+        },
+        {
+          "title": "Bito \u2014 $9M Raised \u2014 Reviews & Alternatives | StartupHub.ai",
+          "url": "https://www.startuphub.ai/startups/bito-1774043327519",
+          "published_date": null,
+          "query": "Bito AI startup total funding raised investors employees 2024",
+          "relevance_score": 0.99986863
+        },
+        {
+          "title": "Bito Secures $1.5M Investment for AI-Powered ERP Solution",
+          "url": "https://www.linkedin.com/posts/pivotuz_will-bito-startup-receive-a-1500000-investment-activity-7416467682922790912-9DgA",
+          "published_date": null,
+          "query": "Bito AI startup total funding raised investors employees 2024",
+          "relevance_score": 0.9998416
+        },
+        {
+          "title": "AI dominates venture capital funding in 2024 - fDi Intelligence",
+          "url": "https://www.fdiintelligence.com/content/41641e67-f00f-53c0-97cb-464b3a883062",
+          "published_date": null,
+          "query": "AI code review startup VC funding 2023 2024 investment rounds",
+          "relevance_score": 0.9363841
+        },
+        {
+          "title": "Latest AI Startup Funding News and VC Investment Deals - 2025",
+          "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups",
+          "published_date": null,
+          "query": "new AI code review startup funding round 2024 2025",
+          "relevance_score": 0.9039154
+        },
+        {
+          "title": "Codacy Company Information - Funding, Investors, and More",
+          "url": "https://www.seedtable.com/startups/Codacy-ZN8EJ8",
+          "published_date": null,
+          "query": "Codacy startup AI code review funding rounds history",
+          "relevance_score": 0.88705814
+        },
+        {
+          "title": "Code B Releases 2024 AI Funding Analysis, Uncovering Investment ...",
+          "url": "https://www.prnewswire.com/in/news-releases/code-b-releases-2024-ai-funding-analysis-uncovering-investment-patterns-and-key-industry-trends-302291221.html",
+          "published_date": null,
+          "query": "AI code review startups funded 2023 2024 seed series A series B",
+          "relevance_score": 0.8834878
+        },
+        {
+          "title": "The Largest Funding Rounds of 2024 - MicroVentures",
+          "url": "https://microventures.com/the-largest-funding-rounds-of-2024",
+          "published_date": null,
+          "query": "AI code review startup VC funding 2023 2024 investment rounds",
+          "relevance_score": 0.8737439
+        },
+        {
+          "title": "CodeAnt AI - Valuation, Funding & Investors - PitchBook",
+          "url": "https://pitchbook.com/profiles/company/551388-34",
+          "published_date": null,
+          "query": "CodeAnt AI startup funding founding year headquarters",
+          "relevance_score": 0.8719229
+        },
+        {
+          "title": "AI code review startup CodeRabbit raised a $60M Series B led by ...",
+          "url": "https://www.techmeme.com/250916/p50",
+          "published_date": null,
+          "query": "AI code review startups funded 2023 2024 seed series A series B",
+          "relevance_score": 0.86928266
+        },
+        {
+          "title": "AI Startup Funding Nov 9-15, 2025: $3.7B Raised",
+          "url": "https://aifundingtracker.com/ai-funding-nov-9-nov-15-2025/",
+          "published_date": null,
+          "query": "new AI code review startup funding round 2024 2025",
+          "relevance_score": 0.86632514
+        },
+        {
+          "title": "Codacy \u2013 Funding, Valuation, Investors, News - Parsers VC",
+          "url": "https://o.parsers.vc/startup/codacy.com/",
+          "published_date": null,
+          "query": "Codacy startup AI code review funding rounds history",
+          "relevance_score": 0.86136365
+        },
+        {
+          "title": "From Startup Rounds to Sovereign Budgets: 25+ AI Funding Deals ...",
+          "url": "https://aidatainsider.com/ai/25-ai-startup-funding-deals-that-reshaped-2025/",
+          "published_date": null,
+          "query": "new AI code review startup funding round 2024 2025",
+          "relevance_score": 0.85967577
+        },
+        {
+          "title": "AI Startups Raised Almost Half of All Funding in 2024 - Entrepreneur",
+          "url": "https://www.entrepreneur.com/business-news/ai-startups-raised-almost-half-of-all-funding-in-2024/485250",
+          "published_date": null,
+          "query": "AI code review startup VC funding 2023 2024 investment rounds",
+          "relevance_score": 0.8576849
+        },
+        {
+          "title": "Codacy Funding: How Much Did They Raise & Key Investors",
+          "url": "https://www.zoominfo.com/financial/codacy-inc/369742154",
+          "published_date": null,
+          "query": "Codacy startup AI code review funding rounds history",
+          "relevance_score": 0.85538095
+        },
+        {
+          "title": "7 Vital AI Startup Funding Statistics for 2024 Revealed - EdgeDelta",
+          "url": "https://edgedelta.com/company/blog/ai-startup-funding-statistics",
+          "published_date": null,
+          "query": "AI code review startup VC funding 2023 2024 investment rounds",
+          "relevance_score": 0.846159
+        },
+        {
+          "title": "49 US AI startups raised $100M+ in 2025, matching 2024's record year",
+          "url": "https://www.techbuzz.ai/articles/49-us-ai-startups-raised-100m-in-2025-matching-2024-s-record-year",
+          "published_date": null,
+          "query": "new AI code review startup funding round 2024 2025",
+          "relevance_score": 0.8443195
+        },
+        {
+          "title": "Top 10 AI coding startups turning code into cash - Tech Funding News",
+          "url": "https://techfundingnews.com/top-10-ai-coding-startups-turning-code-into-cash-vc-biggest-investments-of-2024/",
+          "published_date": null,
+          "query": "AI code review startup VC funding 2023 2024 investment rounds",
+          "relevance_score": 0.83452857
+        },
+        {
+          "title": "Codeant AI - 2026 Company Profile, Team, Funding & Competitors",
+          "url": "https://tracxn.com/d/companies/codeantai/__Xyr0_VrFpFURcl7xuuk6NnBfoH8xV9JUgxu-eQhfP64",
+          "published_date": null,
+          "query": "CodeAnt AI startup funding founding year headquarters",
+          "relevance_score": 0.8335554
+        },
+        {
+          "title": "Korbit - Crunchbase Company Profile & Funding",
+          "url": "https://www.crunchbase.com/organization/korbit",
+          "published_date": null,
+          "query": "Korbit AI startup funding founding year headquarters employees",
+          "relevance_score": 0.83225065
+        },
+        {
+          "title": "AI Coding Market Funding Trends (2022 - 2026) - New Market Pitch",
+          "url": "https://newmarketpitch.com/blogs/news/ai-code-assistant-funding-trends",
+          "published_date": null,
+          "query": "AI code review market top investors funding deals 2023 2024",
+          "relevance_score": 0.83225065
+        },
+        {
+          "title": "Korbit AI | LinkedIn",
+          "url": "https://ca.linkedin.com/company/korbit-tech",
+          "published_date": null,
+          "query": "Korbit AI startup funding founding year headquarters employees",
+          "relevance_score": 0.82117355
+        },
+        {
+          "title": "The State of the Funding Market for AI Companies: A 2024 - Mintz",
+          "url": "https://www.mintz.com/insights-center/viewpoints/2166/2025-03-10-state-funding-market-ai-companies-2024-2025-outlook",
+          "published_date": null,
+          "query": "AI code review market top investors funding deals 2023 2024",
+          "relevance_score": 0.82082915
+        },
+        {
+          "title": "Ellipsis raises a $2M Seed Round | Automated code reviews",
+          "url": "https://www.ellipsis.dev/blog/ellipsis-raises-a-2m-seed-round",
+          "published_date": null,
+          "query": "Ellipsis AI code review startup funding",
+          "relevance_score": 0.8055255
+        },
+        {
+          "title": "CodeAnt AI - Crunchbase Company Profile & Funding",
+          "url": "https://www.crunchbase.com/organization/codeant-ai",
+          "published_date": null,
+          "query": "CodeAnt AI startup funding founding year headquarters",
+          "relevance_score": 0.7999589
+        },
+        {
+          "title": "Here are the 55 US AI startups that raised $100M or more in 2025",
+          "url": "https://techcrunch.com/2026/01/19/here-are-the-49-us-ai-startups-that-have-raised-100m-or-more-in-2025/",
+          "published_date": null,
+          "query": "new AI code review startup funding round 2024 2025",
+          "relevance_score": 0.798077
+        },
+        {
+          "title": "Digital Health Startup Raises $45M to Expand AI Care Manager Tool",
+          "url": "https://www.jdsupra.com/legalnews/digital-health-startup-raises-45m-to-2377841/",
+          "published_date": null,
+          "query": "Ellipsis AI code review startup funding",
+          "relevance_score": 0.7933146
+        },
+        {
+          "title": "Codacy nabs $15M to improve code reviews with automation",
+          "url": "https://techcrunch.com/2022/09/21/codacy-nabs-15m-to-improve-code-reviews-with-automation/",
+          "published_date": null,
+          "query": "Codacy startup AI code review funding rounds history",
+          "relevance_score": 0.7917732
+        },
+        {
+          "title": "The Largest AI Startup Funding Deals Of 2024 - Crunchbase News",
+          "url": "https://news.crunchbase.com/ai/largest-ai-startup-funding-deals-2024/",
+          "published_date": null,
+          "query": "AI code review market top investors funding deals 2023 2024",
+          "relevance_score": 0.79080546
+        },
+        {
+          "title": "Bito - LinkedIn",
+          "url": "https://www.linkedin.com/company/bitodev",
+          "published_date": null,
+          "query": "Bito AI code review startup funding founded headquarters",
+          "relevance_score": 0.77446437
+        },
+        {
+          "title": "Codacy's Competitors, Revenue, Number of Employees ... - Owler",
+          "url": "https://www.owler.com/company/codacy",
+          "published_date": null,
+          "query": "Codacy founded year headquarters employees differentiator",
+          "relevance_score": 0.7707586
+        },
+        {
+          "title": "AI for code reviews: CodeAnt AI raises $2M to help engineering ...",
+          "url": "https://techfundingnews.com/ai-for-code-reviews-codeant-ai-raises-2m-to-help-engineering-teams-cut-manual-code-review-time-and-bugs-by-over-50/",
+          "published_date": null,
+          "query": "CodeAnt AI startup funding founding year headquarters",
+          "relevance_score": 0.7604555
+        },
+        {
+          "title": "Ellipsis Funding | Complete Analysis - Extruct AI",
+          "url": "https://www.extruct.ai/hub/ellipsis-dev-funding/",
+          "published_date": null,
+          "query": "Ellipsis AI code review startup funding",
+          "relevance_score": 0.75659186
+        },
+        {
+          "title": "Metabob - LinkedIn",
+          "url": "https://www.linkedin.com/company/metabob",
+          "published_date": null,
+          "query": "Metabob AI code review startup funding founding year headquarters",
+          "relevance_score": 0.7507177
+        },
+        {
+          "title": "Ellipsis raises $2M to ship faster | Y Combinator posted on the topic",
+          "url": "https://www.linkedin.com/posts/y-combinator_ellipsis-yc-w24-has-raised-a-2m-seed-round-activity-7211027924823552000-8kfM",
+          "published_date": null,
+          "query": "Ellipsis AI code review startup funding",
+          "relevance_score": 0.7463059
+        },
+        {
+          "title": "Funding announcement: $7.7 million raised for static analysis tool",
+          "url": "https://blog.codacy.com/funding-announcement-company-vision",
+          "published_date": null,
+          "query": "Codacy startup AI code review funding rounds history",
+          "relevance_score": 0.7463059
+        },
+        {
+          "title": "Korbit - 2026 Company Profile, Team, Funding & Competitors - Tracxn",
+          "url": "https://tracxn.com/d/companies/korbit/__A3fmdiIlW900rJdgQd5WP42woFbJbJ8HM3zx5wPuKuo",
+          "published_date": null,
+          "query": "Korbit AI startup funding founding year headquarters employees",
+          "relevance_score": 0.7445268
+        },
+        {
+          "title": "Sourcery - Valuation, Funding & Investors - PitchBook",
+          "url": "https://pitchbook.com/profiles/company/469810-18",
+          "published_date": null,
+          "query": "Sourcery AI code review startup funding founded headquarters",
+          "relevance_score": 0.7380092
+        },
+        {
+          "title": "NEC Deploys Metabob, Cutting Software Maintenance by Two ...",
+          "url": "https://www.manilatimes.net/2026/02/26/tmt-newswire/globenewswire/nec-deploys-metabob-cutting-software-maintenance-by-two-thirds-in-trials/2285204",
+          "published_date": null,
+          "query": "Metabob AI code review startup funding founding year headquarters",
+          "relevance_score": 0.7371019
+        },
+        {
+          "title": "70 Large AI Investment Rounds from 2024 Across 10 Categories",
+          "url": "https://alexsandu.substack.com/p/70-large-ai-investment-rounds-from",
+          "published_date": null,
+          "query": "AI code review market top investors funding deals 2023 2024",
+          "relevance_score": 0.7368747
+        },
+        {
+          "title": "Codacy 2026 Company Profile: Valuation, Funding & Investors",
+          "url": "https://pitchbook.com/profiles/company/60376-24",
+          "published_date": null,
+          "query": "Codacy founded year headquarters employees differentiator",
+          "relevance_score": 0.72605723
+        },
+        {
+          "title": "Bito bites off $5.7M in funding to take on GitHub Copilot in AI coding",
+          "url": "https://siliconangle.com/2025/05/27/bito-bites-off-5-7m-funding-take-github-copilot-ai-coding/",
+          "published_date": null,
+          "query": "Bito AI code review startup funding founded headquarters",
+          "relevance_score": 0.7178241
+        },
+        {
+          "title": "Codacy Company Profile - Office Locations, Competitors, Revenue ...",
+          "url": "https://craft.co/codacy",
+          "published_date": null,
+          "query": "Codacy founded year headquarters employees differentiator",
+          "relevance_score": 0.7125728
+        },
+        {
+          "title": "Korbit (Business/Productivity Software) 2026 Company Profile",
+          "url": "https://pitchbook.com/profiles/company/292654-00",
+          "published_date": null,
+          "query": "Korbit AI startup funding founding year headquarters employees",
+          "relevance_score": 0.7004242
+        },
+        {
+          "title": "Streamlining Software Development with Ellipsis: A Deep Dive",
+          "url": "https://hiretop.com/blog2/ellipsis-ai-devtool/",
+          "published_date": null,
+          "query": "Ellipsis AI code review startup founded headquarters employees",
+          "relevance_score": 0.7001783
+        },
+        {
+          "title": "Korbit 2026 Company Profile: Valuation, Investors, Acquisition",
+          "url": "https://pitchbook.com/profiles/company/61155-19",
+          "published_date": null,
+          "query": "Korbit AI startup funding founding year headquarters employees",
+          "relevance_score": 0.6929958
+        },
+        {
+          "title": "Graphite, an AI-Powered Code Review Platform Backed by ...",
+          "url": "https://cbg.com.cy/graphite-an-ai-powered-code-review-platform-backed-by-anthropic-secures-funding/",
+          "published_date": null,
+          "query": "AI code review specifically CodeRabbit Qodo Codacy Graphite funding rounds 2023 2024 investors",
+          "relevance_score": 0.6690754
+        },
+        {
+          "title": "Ellipsis - Crunchbase Company Profile & Funding",
+          "url": "https://www.crunchbase.com/organization/bitbuilder-91a2",
+          "published_date": null,
+          "query": "Ellipsis AI code review startup funding",
+          "relevance_score": 0.66777676
+        },
+        {
+          "title": "Our Mission Continues: New Funding Fuels Bito's AI Code Review ...",
+          "url": "https://bito.ai/blog/bito-fundraising-2025/",
+          "published_date": null,
+          "query": "Ellipsis Korbit Sourcery \"Bito\" \"Codacy\" \"CodiumAI\" \"Metabob\" AI code review startup funding raised 2023 2024 2025",
+          "relevance_score": 0.6617704
+        },
+        {
+          "title": "Bito Raises $5.7M Seed Extension to Expand AI Code Review ...",
+          "url": "https://www.prnewswire.com/news-releases/bito-raises-5-7m-seed-extension-to-expand-ai-code-review-platform-with-codebase-awareness-302464654.html",
+          "published_date": null,
+          "query": "Ellipsis Korbit Sourcery \"Bito\" \"Codacy\" \"CodiumAI\" \"Metabob\" AI code review startup funding raised 2023 2024 2025",
+          "relevance_score": 0.6396691
+        },
+        {
+          "title": "How Metabob hit $1.9M revenue with a 17 person team in 2025.",
+          "url": "https://getlatka.com/companies/metabob.com",
+          "published_date": null,
+          "query": "Metabob AI code review startup funding founding year headquarters",
+          "relevance_score": 0.6260562
+        },
+        {
+          "title": "Learn more about Codacy",
+          "url": "https://www.codacy.com/about",
+          "published_date": null,
+          "query": "Codacy founded year headquarters employees differentiator",
+          "relevance_score": 0.6257817
+        },
+        {
+          "title": "Ellipsis (YC W24) - LinkedIn",
+          "url": "https://www.linkedin.com/company/ellipsis-dev",
+          "published_date": null,
+          "query": "Ellipsis AI code review startup founded headquarters employees",
+          "relevance_score": 0.5849357
+        },
+        {
+          "title": "Here's the full list of 49 US AI startups that have raised $100M or ...",
+          "url": "https://techcrunch.com/2024/12/20/heres-the-full-list-of-49-us-ai-startups-that-have-raised-100m-or-more-in-2024/",
+          "published_date": null,
+          "query": "AI code review startups funded 2023 2024 seed series A series B",
+          "relevance_score": 0.57837737
+        },
+        {
+          "title": "Ellipsis\u00ae Reviews (11), Pricing, Services & Verified Ratings - Clutch",
+          "url": "https://clutch.co/profile/ellipsis-1",
+          "published_date": null,
+          "query": "Ellipsis AI code review startup founded headquarters employees",
+          "relevance_score": 0.5735118
+        },
+        {
+          "title": "Raising our $60 million Series B: Quality gates for AI coding",
+          "url": "https://www.coderabbit.ai/blog/coderabbit-series-b-60-million-quality-gates-for-code-reviews",
+          "published_date": null,
+          "query": "Korbit AI code review key differentiator latest funding round 2024 2025",
+          "relevance_score": 0.56719416
+        },
+        {
+          "title": "Sourcery Technologies - 2026 Company Profile & Team - Tracxn",
+          "url": "https://tracxn.com/d/companies/sourcerytechnologies/__m84hKQDrgGF20Rp89St3L-YqYQnNG266Ks51YxDH4XI",
+          "published_date": null,
+          "query": "Sourcery AI code review startup funding founded headquarters",
+          "relevance_score": 0.5573882
+        },
+        {
+          "title": "CodeRabbit Raises $60M Series B Following ...",
+          "url": "https://finance.yahoo.com/news/coderabbit-raises-60m-series-b-130000720.html",
+          "published_date": null,
+          "query": "AI code review specifically CodeRabbit Qodo Codacy Graphite funding rounds 2023 2024 investors",
+          "relevance_score": 0.55449516
+        },
+        {
+          "title": "CodeAnt AI: AI Code Health Platform - Y Combinator",
+          "url": "https://www.ycombinator.com/companies/codeant-ai",
+          "published_date": null,
+          "query": "CodeAnt AI AI code review key differentiator employees",
+          "relevance_score": 0.54724693
+        },
+        {
+          "title": "CodeRabbit raises $60M, valuing the 2-year-old AI code review ...",
+          "url": "https://techcrunch.com/2025/09/16/coderabbit-raises-60m-valuing-the-2-year-old-ai-code-review-startup-at-550m/",
+          "published_date": null,
+          "query": "Ellipsis Korbit Sourcery \"Bito\" \"Codacy\" \"CodiumAI\" \"Metabob\" AI code review startup funding raised 2023 2024 2025",
+          "relevance_score": 0.539833
+        },
+        {
+          "title": "CodeRabbit raises $60M, valuing the 2-yea... - aVenture News",
+          "url": "https://aventure.vc/news/2025-09-16-coderabbit-raises-60m-valuing-the-2-year-old-ai-code-review-startup-at-550m",
+          "published_date": null,
+          "query": "AI code review specifically CodeRabbit Qodo Codacy Graphite funding rounds 2023 2024 investors",
+          "relevance_score": 0.5366292
+        },
+        {
+          "title": "AI Code Review for Refactoring and Debugging - YouTube",
+          "url": "https://www.youtube.com/watch?v=RBfD3Jjo_bM",
+          "published_date": null,
+          "query": "Metabob startup employees key differentiator AI code review",
+          "relevance_score": 0.53079647
+        },
+        {
+          "title": "Using an AI code review tool to analyze an e-commerce app - Medium",
+          "url": "https://medium.com/@lonnfors.axel/using-an-ai-code-review-tool-to-analyze-an-e-commerce-app-6955cc13592e",
+          "published_date": null,
+          "query": "Metabob startup employees key differentiator AI code review",
+          "relevance_score": 0.53021276
+        },
+        {
+          "title": "CodeAnt AI Raises $2 Million in Seed Round | The SaaS News",
+          "url": "https://www.thesaasnews.com/news/codeant-ai-raises-2-million-in-seed-round",
+          "published_date": null,
+          "query": "AI code review startups funded 2023 2024 seed series A series B",
+          "relevance_score": 0.52948296
+        },
+        {
+          "title": "The Ellipsis founders had an interesting insight: AI-generated code ...",
+          "url": "https://x.com/dflieb/status/1805415573184201045",
+          "published_date": null,
+          "query": "Ellipsis AI code review startup founded headquarters employees",
+          "relevance_score": 0.52232456
+        },
+        {
+          "title": "How to Do Code Review for an Unfamiliar Codebase - CodeAnt AI",
+          "url": "https://www.codeant.ai/blogs/ai-code-review-unfamiliar-codebases",
+          "published_date": null,
+          "query": "CodeAnt AI AI code review key differentiator employees",
+          "relevance_score": 0.49231076
+        },
+        {
+          "title": "Best AI Code Review Tools 2026: Ranked & Compared - CodeAnt AI",
+          "url": "https://www.codeant.ai/blogs/best-ai-code-review-tools",
+          "published_date": null,
+          "query": "CodeAnt AI AI code review key differentiator employees",
+          "relevance_score": 0.49143207
+        },
+        {
+          "title": "Metabob - 2026 Company Profile, Team, Funding & Competitors",
+          "url": "https://tracxn.com/d/companies/metabob/__br422dOrcn8ShVK19J7p0xRCRsMBS3p5xMtflDcvIpk",
+          "published_date": null,
+          "query": "Metabob AI code review startup funding founding year headquarters",
+          "relevance_score": 0.49040702
+        },
+        {
+          "title": "AI Code Review or Human Review? A Practical Guide - CodeAnt AI",
+          "url": "https://www.codeant.ai/blogs/ai-vs-human-code-review-when-to-automate",
+          "published_date": null,
+          "query": "CodeAnt AI AI code review key differentiator employees",
+          "relevance_score": 0.48074743
+        },
+        {
+          "title": "Working its magic, code refactoring platform Sourcery closes $1.75 ...",
+          "url": "https://tech.eu/2022/01/14/working-its-magic-code-refactoring-platform-sourcery-closes-1-75-million-in-seed-funding/",
+          "published_date": null,
+          "query": "Sourcery AI code review startup funding founded headquarters",
+          "relevance_score": 0.47621483
+        },
+        {
+          "title": "Compare AI Dungeon vs. ChatGPT vs. Metabob in 2026 - Slashdot",
+          "url": "https://slashdot.org/software/comparison/AI-Dungeon-vs-ChatGPT-vs-Metabob/",
+          "published_date": null,
+          "query": "Metabob startup employees key differentiator AI code review",
+          "relevance_score": 0.474023
+        },
+        {
+          "title": "NEC Implements AI Code Review Service | Pipeline Publishing",
+          "url": "https://www.pipelinepub.com/news/nec-implements-ai-code-review-service",
+          "published_date": null,
+          "query": "Metabob startup employees key differentiator AI code review",
+          "relevance_score": 0.46380913
+        },
+        {
+          "title": "AI Code Reviewer - CodeAnt AI - YouTube",
+          "url": "https://www.youtube.com/watch?v=uprOvRUUudQ",
+          "published_date": null,
+          "query": "CodeAnt AI AI code review key differentiator employees",
+          "relevance_score": 0.42706275
+        },
+        {
+          "title": "Korbit Funding, Valuation, Amount Raised & Investors | Messari",
+          "url": "https://messari.io/project/korbit/fundraising",
+          "published_date": null,
+          "query": "Korbit AI code review key differentiator latest funding round 2024 2025",
+          "relevance_score": 0.41933936
+        },
+        {
+          "title": "Sourcery - Products, Competitors, Financials, Employees ...",
+          "url": "https://www.cbinsights.com/company/sourcery-1",
+          "published_date": null,
+          "query": "Sourcery AI code review startup funding founded headquarters",
+          "relevance_score": 0.36902
+        },
+        {
+          "title": "Sourcery company information, funding & investors - Invest NY",
+          "url": "https://investny.org/companies/sourcery_1",
+          "published_date": null,
+          "query": "Sourcery AI code review startup funding founded headquarters",
+          "relevance_score": 0.33125004
+        },
+        {
+          "title": "Metabob - Financial Details - Crunchbase",
+          "url": "https://www.crunchbase.com/organization/metabob/company_financials",
+          "published_date": null,
+          "query": "Metabob AI code review startup funding founding year headquarters",
+          "relevance_score": 0.3206303
+        },
+        {
+          "title": "Sourcery AI Code Review download | SourceForge.net",
+          "url": "https://sourceforge.net/projects/sourcery-ai-code-review.mirror/",
+          "published_date": null,
+          "query": "Sourcery AI code review employees differentiator 2024",
+          "relevance_score": 0.28525794
+        },
+        {
+          "title": "Sourcery Code Reviews",
+          "url": "https://docs.sourcery.ai/Code-Review/Overview/",
+          "published_date": null,
+          "query": "Sourcery AI code review employees differentiator 2024",
+          "relevance_score": 0.27035305
+        },
+        {
+          "title": "Sourcery - Instant AI Code Reviews - GitHub",
+          "url": "https://github.com/sourcery-ai/sourcery",
+          "published_date": null,
+          "query": "Sourcery AI code review employees differentiator 2024",
+          "relevance_score": 0.2702077
+        },
+        {
+          "title": "CodeRabbit Secures $60M: The Rise of AI-Powered Code Review ...",
+          "url": "https://www.aicerts.ai/news/coderabbit-secures-60m-the-rise-of-ai-powered-code-review-startups/",
+          "published_date": null,
+          "query": "Korbit AI code review key differentiator latest funding round 2024 2025",
+          "relevance_score": 0.263908
+        },
+        {
+          "title": "AI Differentiator, Human Time, and Trust: 2024 vs 2026 Pitch Trends",
+          "url": "https://www.linkedin.com/posts/alliekmiller_wow-claude-code-is-an-analytics-beast-activity-7430692472504086529-B5eQ",
+          "published_date": null,
+          "query": "Sourcery AI code review employees differentiator 2024",
+          "relevance_score": 0.26259756
+        },
+        {
+          "title": "Celebrating a Year of Innovation: Codacy's 2024 Recap",
+          "url": "https://blog.codacy.com/codacy-2024-recap",
+          "published_date": null,
+          "query": "Codacy founded year headquarters employees differentiator",
+          "relevance_score": 0.24446262
+        },
+        {
+          "title": "AI Code Reviews with CodeRabbit and Sourcery - YouTube",
+          "url": "https://www.youtube.com/watch?v=riA7NpIw2ik",
+          "published_date": null,
+          "query": "Sourcery AI code review employees differentiator 2024",
+          "relevance_score": 0.22880244
+        }
+      ],
+      "search_count": 100,
+      "time_seconds": 56.1,
+      "error": null
+    },
+    {
+      "case_id": 4,
+      "market": "cloud computing infrastructure",
+      "excluded_incumbents": [
+        "AWS",
+        "Microsoft Azure",
+        "Google Cloud",
+        "Oracle Cloud",
+        "IBM Cloud"
+      ],
+      "emerging_competitors": [
+        {
+          "name": "CoreWeave",
+          "description": "CoreWeave is a specialized cloud computing provider focused on GPU-accelerated infrastructure for AI and machine learning workloads. Originally founded as a crypto mining operation, it pivoted to become one of the leading AI cloud infrastructure providers, offering high-performance compute at scale for generative AI applications.",
+          "founded_year": 2017,
+          "headquarters": "Livingston, New Jersey, USA",
+          "total_funding_mm": 8600.0,
+          "latest_round": {
+            "stage": "unknown",
+            "amount_mm": 1100.0,
+            "date": "May 2024",
+            "lead_investors": [
+              "Coatue"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Unlike hyperscalers, CoreWeave is purpose-built exclusively for GPU-accelerated AI workloads, offering faster access to scarce high-end Nvidia GPUs with optimized networking and automation, enabling superior performance and availability for AI/ML tasks at scale.",
+          "employee_count": 1500
+        },
+        {
+          "name": "Volumez",
+          "description": "Volumez is a cloud-aware data infrastructure company that provides a modern platform enabling organizations to build high-performance, scalable storage infrastructure natively in the cloud. Their software-defined approach decouples compute and storage to optimize cloud infrastructure for data-intensive workloads.",
+          "founded_year": 2020,
+          "headquarters": "Tel Aviv, Israel",
+          "total_funding_mm": 40.0,
+          "latest_round": {
+            "stage": "series-a",
+            "amount_mm": 40.0,
+            "date": "July 2024",
+            "lead_investors": [
+              "Koch Disruptive Technologies"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Volumez takes a cloud-native, software-defined approach to data infrastructure that decouples storage from compute, allowing enterprises to leverage existing cloud resources as high-performance storage without proprietary hardware or legacy storage systems.",
+          "employee_count": 36
+        },
+        {
+          "name": "Modal Labs",
+          "description": "Modal Labs is a serverless AI cloud infrastructure platform that enables developers to build, deploy, and scale AI models and applications in the cloud. It offers high-performance compute infrastructure with features like sub-second cold starts, instant autoscaling, and programmable building blocks designed specifically for every stage of AI development.",
+          "founded_year": 2021,
+          "headquarters": "San Francisco, CA",
+          "total_funding_mm": 103.0,
+          "latest_round": {
+            "stage": "series-b",
+            "amount_mm": 80.0,
+            "date": "September 2025",
+            "lead_investors": [
+              "General Catalyst"
+            ],
+            "valuation_mm": 1100.0
+          },
+          "key_differentiator": "Modal offers a fully serverless AI infrastructure platform with sub-second cold starts and instant autoscaling, letting developers run GPU workloads in the cloud with a local-feeling developer experience \u2014 eliminating the need to manage containers, clusters, or cloud configurations.",
+          "employee_count": 14
+        },
+        {
+          "name": "Cylake",
+          "description": "Cylake is building a complete, AI-native, data-driven cybersecurity platform for large and highly regulated organizations that cannot rely on public cloud infrastructure. The platform is designed to operate fully on-premises or in private cloud environments, ensuring customers maintain total data and operational sovereignty.",
+          "founded_year": 2026,
+          "headquarters": "Sunnyvale, California",
+          "total_funding_mm": 45.0,
+          "latest_round": {
+            "stage": "seed",
+            "amount_mm": 45.0,
+            "date": "March 2026",
+            "lead_investors": [
+              "Greylock"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Unlike most modern security platforms, Cylake delivers AI-native, agentic cybersecurity entirely within a customer's sovereign environment (on-premises or private cloud), requiring no dependency on public cloud infrastructure\u2014making it uniquely suited for governments, defense, and heavily regulated industries.",
+          "employee_count": 13
+        },
+        {
+          "name": "Union.ai",
+          "description": "Union.ai is an end-to-end AI development infrastructure platform for orchestrating, training, serving, and monitoring AI workloads. It is the enterprise platform built on Flyte, the popular open-source AI orchestrator, helping engineering teams move from experiment to production at scale.",
+          "founded_year": 2020,
+          "headquarters": "Bellevue, Washington, USA",
+          "total_funding_mm": 48.1,
+          "latest_round": {
+            "stage": "series-a",
+            "amount_mm": 38.1,
+            "date": "February 2026",
+            "lead_investors": [
+              "New Enterprise Associates (NEA)",
+              "Nava Ventures",
+              "Mozilla Ventures"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Union.ai is the creator and enterprise steward of Flyte, the industry's leading open-source AI orchestrator, giving it a uniquely open, community-driven foundation for dynamic, durable AI workflows that legacy software infrastructure cannot handle.",
+          "employee_count": null
+        },
+        {
+          "name": "Celestial AI",
+          "description": "Celestial AI is a semiconductor startup and creator of Photonic Fabric, an optical interconnect technology platform that uses light instead of electricity to move data within and across AI data centers. Its technology enables high-bandwidth, low-latency connectivity for AI computing clusters, supporting optical scale-up networks for accelerated computing.",
+          "founded_year": 2020,
+          "headquarters": "Santa Clara, California",
+          "total_funding_mm": 520.0,
+          "latest_round": {
+            "stage": "unknown",
+            "amount_mm": 255.0,
+            "date": "April 2025",
+            "lead_investors": [
+              "Fidelity Management & Research Company",
+              "VentureTech Alliance",
+              "Samsung Catalyst Fund"
+            ],
+            "valuation_mm": 2500.0
+          },
+          "key_differentiator": "Celestial AI's Photonic Fabric replaces traditional electrical interconnects with optical (light-based) connections, dramatically increasing bandwidth and energy efficiency for AI compute scaling \u2014 a production-ready solution in a market with very few comparable alternatives.",
+          "employee_count": 117
+        },
+        {
+          "name": "Quantum Brilliance",
+          "description": "Quantum Brilliance develops room-temperature diamond-based quantum computing hardware that operates without the need for cryogenic cooling. Their technology enables compact, portable quantum accelerators that can be deployed at the edge and integrated into classical computing infrastructure.",
+          "founded_year": 2019,
+          "headquarters": "Haymarket, New South Wales, Australia",
+          "total_funding_mm": 77.7,
+          "latest_round": {
+            "stage": "series-a",
+            "amount_mm": 20.0,
+            "date": "December 2024",
+            "lead_investors": [
+              "Main Sequence",
+              "In-Q-Tel"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Unlike competitors that require near absolute-zero cryogenic cooling, Quantum Brilliance uses nitrogen-vacancy (NV) diamond technology to build quantum processors that operate at room temperature, enabling portable, edge-deployable quantum accelerators.",
+          "employee_count": 108
+        },
+        {
+          "name": "Syntiant",
+          "description": "Syntiant is a semiconductor company that develops ultra-low-power neural processing units (NPUs) designed to bring AI and machine learning inference directly to edge devices. Their chips enable always-on voice, audio, and sensor processing without relying on cloud connectivity.",
+          "founded_year": 2017,
+          "headquarters": "Irvine, California, USA",
+          "total_funding_mm": 121.0,
+          "latest_round": {
+            "stage": "series-b",
+            "amount_mm": 35.0,
+            "date": "September 2023",
+            "lead_investors": [
+              "M12 (Microsoft's venture fund)",
+              "Applied Ventures"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Syntiant's chips use an analog-inspired, deep-learning-based architecture that delivers neural network inference at extremely low power (microwatt-level), enabling always-on AI on battery-powered edge devices without cloud dependency.",
+          "employee_count": null
+        }
+      ],
+      "capital_flow": {
+        "total_funding_last_2_years_mm": 66600.0,
+        "deal_count_last_2_years": 1200,
+        "average_deal_size_mm": 55.5,
+        "yoy_funding_change_pct": 47.0,
+        "top_investors": [
+          "Andreessen Horowitz (a16z)",
+          "Lightspeed Venture Partners",
+          "Khosla Ventures",
+          "General Catalyst",
+          "Microsoft (M12 / Strategic)"
+        ],
+        "capital_velocity_signal": "accelerating"
+      },
+      "sources": [
+        {
+          "title": "Union.ai - 2026 Company Profile, Team, Funding & Competitors",
+          "url": "https://tracxn.com/d/companies/unionai/__VNpPTDLgGN39sc6d_FIf4762zF0sL_vXc-DOoEEshWk",
+          "published_date": null,
+          "query": "Union.ai startup cloud computing infrastructure funding founding",
+          "relevance_score": 0.99998
+        },
+        {
+          "title": "Seattle-area startup Union.ai raises $19M to fuel AI workflow platform",
+          "url": "https://www.geekwire.com/2026/seattle-area-startup-union-ai-raises-19m-to-fuel-ai-workflow-platform/",
+          "published_date": null,
+          "query": "Union.ai startup cloud computing infrastructure funding founding",
+          "relevance_score": 0.9996971
+        },
+        {
+          "title": "Union.ai - Crunchbase Company Profile & Funding",
+          "url": "https://www.crunchbase.com/organization/union-ai",
+          "published_date": null,
+          "query": "Union.ai startup cloud computing infrastructure funding founding",
+          "relevance_score": 0.99961996
+        },
+        {
+          "title": "Union.ai Raises $38M for AI Pipeline Infrastructure - LinkedIn",
+          "url": "https://www.linkedin.com/posts/siddontang_ai-startup-tracker-activity-7434276015138484224-SDOh",
+          "published_date": null,
+          "query": "Union.ai startup cloud computing infrastructure funding founding",
+          "relevance_score": 0.9991374
+        },
+        {
+          "title": "Union.ai Completes $38.1 Million Series A to Power a New Era of AI ...",
+          "url": "https://www.union.ai/blog-post/union-ai-completes-38-1-million-series-a-to-power-a-new-era-of-ai-development-infrastructure",
+          "published_date": null,
+          "query": "Union.ai startup cloud computing infrastructure funding founding",
+          "relevance_score": 0.99895966
+        },
+        {
+          "title": "AI Cloud Startup CoreWeave Raises $1.1B as GPU Demand Surges",
+          "url": "https://voicebot.ai/2024/05/02/ai-cloud-startup-coreweave-raises-1-1b-as-gpu-demand-surges/",
+          "published_date": null,
+          "query": "CoreWeave cloud computing startup funding rounds 2024",
+          "relevance_score": 0.9534532
+        },
+        {
+          "title": "CoreWeave Secures $1.1 Billion in Series C Funding to Drive the ...",
+          "url": "https://investors.coreweave.com/news/news-details/2024/CoreWeave-Secures-1-1-Billion-in-Series-C-Funding-to-Drive-the-Next-Generation-of-Cloud-Computing-for-the-Future-of-AI/default.aspx",
+          "published_date": null,
+          "query": "CoreWeave cloud computing startup funding rounds 2024",
+          "relevance_score": 0.9531401
+        },
+        {
+          "title": "Cloud Computing Startup CoreWeave Nears $8.6 Billion in Funding",
+          "url": "https://www.bloomberg.com/news/articles/2024-05-01/cloud-computing-startup-coreweave-nears-8-6-billion-in-funding",
+          "published_date": null,
+          "query": "CoreWeave cloud computing startup funding rounds 2024",
+          "relevance_score": 0.9392538
+        },
+        {
+          "title": "AI startup CoreWeave raises $7.5 billion in debt, Blackstone leads",
+          "url": "https://www.cnbc.com/2024/05/17/ai-startup-coreweave-raises-7point5-billion-in-debt-blackstone-leads.html",
+          "published_date": null,
+          "query": "CoreWeave cloud computing startup funding rounds 2024",
+          "relevance_score": 0.9263638
+        },
+        {
+          "title": "Quantum Brilliance Stock Price, Funding, Valuation ... - CB Insights",
+          "url": "https://www.cbinsights.com/company/quantum-brilliance/financials",
+          "published_date": null,
+          "query": "Quantum Brilliance latest funding round investors valuation 2023 2024",
+          "relevance_score": 0.92620385
+        },
+        {
+          "title": "Nvidia-Backed Cloud AI Startup CoreWeave Seeks IPO: Report - CRN",
+          "url": "https://www.crn.com/news/ai/2024/nvidia-backed-cloud-ai-startup-coreweave-seeks-ipo-report",
+          "published_date": null,
+          "query": "CoreWeave cloud computing startup funding rounds 2024",
+          "relevance_score": 0.91795975
+        },
+        {
+          "title": "Celestial AI Raises $255M for AI Infrastructure Innovation",
+          "url": "https://techintelpro.com/news/celestial-ai-raises-255m-for-ai-infrastructure-innovation",
+          "published_date": null,
+          "query": "Celestial AI startup cloud computing infrastructure funding",
+          "relevance_score": 0.8745175
+        },
+        {
+          "title": "Celestial AI's $250M Funding \u2013 Accelerating AI's Future with Light",
+          "url": "https://rooled.com/resources/celestial-ais-250m-funding-accelerating-ais-future-with-light/",
+          "published_date": null,
+          "query": "Celestial AI startup cloud computing infrastructure funding",
+          "relevance_score": 0.8622012
+        },
+        {
+          "title": "Funding, Valuation, Investors, News - Quantum Brilliance",
+          "url": "https://parsers.vc/startup/quantumbrilliance.com/?utm_source=blog&utm_medium=digest&utm_campaign=fundraising&utm_content=QuantumBrilliance",
+          "published_date": null,
+          "query": "Quantum Brilliance startup funding founding year headquarters employees",
+          "relevance_score": 0.84767824
+        },
+        {
+          "title": "Palo Alto Networks founder Nir Zuk unveils new cybersecurity ...",
+          "url": "https://www.calcalistech.com/ctechnews/article/r1ev1gvkbg",
+          "published_date": null,
+          "query": "Cylake startup cloud computing infrastructure funding",
+          "relevance_score": 0.8415267
+        },
+        {
+          "title": "Optical interconnect startup Celestial AI raises $250m - DCD",
+          "url": "https://www.datacenterdynamics.com/en/news/optical-interconnect-startup-celestial-ai-raises-250m/",
+          "published_date": null,
+          "query": "Celestial AI startup cloud computing infrastructure funding",
+          "relevance_score": 0.838376
+        },
+        {
+          "title": "Volumez - 2025 Company Profile, Team, Funding & Competitors",
+          "url": "https://tracxn.com/d/companies/volumez/__Fk87sEGV8m7pft1Uar0yYqa4_C540Ps07Drbvghm2Dk",
+          "published_date": null,
+          "query": "Volumez headquarters employees key differentiator latest funding round",
+          "relevance_score": 0.83678174
+        },
+        {
+          "title": "Cylake Raises $45 Million to Secure Organizations Barred From Cloud",
+          "url": "https://www.securityweek.com/cylake-raises-45-million-to-secure-organizations-barred-from-cloud/",
+          "published_date": null,
+          "query": "Cylake startup cloud computing infrastructure funding",
+          "relevance_score": 0.83093774
+        },
+        {
+          "title": "Syntiant 2026 Company Profile: Valuation, Funding & Investors",
+          "url": "https://pitchbook.com/profiles/company/184026-16",
+          "published_date": null,
+          "query": "Syntiant startup funding rounds founding year headquarters",
+          "relevance_score": 0.8282873
+        },
+        {
+          "title": "Palo Alto founder Nir Zuk raises $45M Seed for next-gen AI cyber ...",
+          "url": "https://www.ynetnews.com/business/article/rkyw7idtbg",
+          "published_date": null,
+          "query": "Cylake startup cloud computing infrastructure funding",
+          "relevance_score": 0.82795376
+        },
+        {
+          "title": "Syntiant - 2026 Company Profile, Team, Funding & Competitors",
+          "url": "https://tracxn.com/d/companies/syntiant/__fpH6mCJXQ532IW1oI3j95ZxhAGxwgryghEZYGMmgYYc",
+          "published_date": null,
+          "query": "Syntiant startup funding rounds founding year headquarters",
+          "relevance_score": 0.82186085
+        },
+        {
+          "title": "Volumez $20 Million series a 2024-07-09 - Fundings - Fundz",
+          "url": "https://app.fundz.net/fundings/volumez-funding-round-series-a-ef3f4c",
+          "published_date": null,
+          "query": "Volumez startup cloud computing infrastructure funding founding",
+          "relevance_score": 0.8127637
+        },
+        {
+          "title": "Celestial AI Closes Final Series C1 Round to Accelerate Next ...",
+          "url": "https://www.businesswire.com/news/home/20250812918226/en/Celestial-AI-Closes-Final-Series-C1-Round-to-Accelerate-Next-Generation-AI-Computing",
+          "published_date": null,
+          "query": "Celestial AI startup cloud computing infrastructure funding",
+          "relevance_score": 0.8098936
+        },
+        {
+          "title": "Celestial AI Secures $250M Funding to Advance AI Infrastructure ...",
+          "url": "https://www.hpcwire.com/off-the-wire/celestial-ai-secures-250m-funding-to-advance-ai-infrastructure-with-its-photonic-fabric/",
+          "published_date": null,
+          "query": "Celestial AI startup cloud computing infrastructure funding",
+          "relevance_score": 0.8095324
+        },
+        {
+          "title": "Nir Zuk Launches Cylake with $45M in Funding - LinkedIn",
+          "url": "https://www.linkedin.com/posts/cyber-news-live_cylake-offers-ai-native-security-without-activity-7436529519441633280-EM_B",
+          "published_date": null,
+          "query": "Cylake startup cloud computing infrastructure funding",
+          "relevance_score": 0.8058924
+        },
+        {
+          "title": "Palo Alto and SentinelOne founders launch security company Cylake",
+          "url": "https://www.techzine.eu/news/privacy-compliance/139318/palo-alto-and-sentinelone-founders-launch-security-company-cylake/",
+          "published_date": null,
+          "query": "Cylake startup cloud computing infrastructure funding",
+          "relevance_score": 0.78631157
+        },
+        {
+          "title": "Syntiant Surpasses 1 Million Units Shipped; Raises $35M in Series ...",
+          "url": "https://www.syntiant.com/news/syntiant-surpasses-1-million-units-shipped-raises-35m-in-series-c-led-by-m12-and-applied-ventures",
+          "published_date": null,
+          "query": "Syntiant startup funding rounds founding year headquarters",
+          "relevance_score": 0.78552294
+        },
+        {
+          "title": "US corporates continue their preference for larger VC deals",
+          "url": "https://pitchbook.com/news/articles/us-corporates-continue-their-preference-for-larger-vc-deals",
+          "published_date": null,
+          "query": "cloud infrastructure VC funding 2023 2024 year over year deal count statistics Crunchbase PitchBook",
+          "relevance_score": 0.78334314
+        },
+        {
+          "title": "AI inference startup Modal Labs in talks to raise at $2.5B valuation ...",
+          "url": "https://finance.yahoo.com/news/ai-inference-startup-modal-labs-224835401.html",
+          "published_date": null,
+          "query": "Modal Labs startup latest funding round 2024 investors valuation employees",
+          "relevance_score": 0.7811474
+        },
+        {
+          "title": "Top 14 Venture Capital Firms Investing in Cloud Infrastructure Startups",
+          "url": "https://www.rho.co/blog/vcs-in-cloud-infrastructure",
+          "published_date": null,
+          "query": "top venture capital investors cloud infrastructure startups 2023 2024 most active",
+          "relevance_score": 0.776708
+        },
+        {
+          "title": "Crusoe raises $1.375B Series E, expands AI factories and cloud ...",
+          "url": "https://www.linkedin.com/posts/crusoe_crusoe-announces-series-e-funding-to-scale-activity-7387497976841109504-F5MN",
+          "published_date": null,
+          "query": "cloud infrastructure startup Series A Series B funding 2023 2024 Crusoe Volumez Aarna Networks Nader",
+          "relevance_score": 0.77261686
+        },
+        {
+          "title": "Quantum Brilliance 2026 Company Profile - PitchBook",
+          "url": "https://pitchbook.com/profiles/company/438743-44",
+          "published_date": null,
+          "query": "Quantum Brilliance startup funding founding year headquarters employees",
+          "relevance_score": 0.77179235
+        },
+        {
+          "title": "Modal Labs Secures $2.5B Valuation in New Funding Round",
+          "url": "https://www.linkedin.com/posts/shopifreaks_httpstechfundingnewscomcan-modal-labs-hit-activity-7428445451248459777-ohGK",
+          "published_date": null,
+          "query": "Modal Labs startup latest funding round 2024 investors valuation employees",
+          "relevance_score": 0.77055156
+        },
+        {
+          "title": "Cloud infrastructure startup Volumez adds another $20 million to ...",
+          "url": "https://www.calcalistech.com/ctechnews/article/s1ejgi9pr",
+          "published_date": null,
+          "query": "Volumez startup cloud computing infrastructure funding founding",
+          "relevance_score": 0.76888984
+        },
+        {
+          "title": "Syntiant - Products, Competitors, Financials, Employees ...",
+          "url": "https://www.cbinsights.com/company/syntiant",
+          "published_date": null,
+          "query": "Syntiant startup funding rounds founding year headquarters",
+          "relevance_score": 0.767429
+        },
+        {
+          "title": "Union.ai Completes $38.1 Million Series A",
+          "url": "https://vcnewsdaily.com/union.ai/venture-capital-funding/bbwvqhydmm",
+          "published_date": null,
+          "query": "Union.ai headquarters employees key differentiator series funding round",
+          "relevance_score": 0.7613083
+        },
+        {
+          "title": "Modal Labs nears $2.5B valuation four months after $1.1B as ARR ...",
+          "url": "https://app.dealroom.co/news/note/modal-labs-nears-2-5b-valuation-in-new-ai-infrastructure-funding-talks",
+          "published_date": null,
+          "query": "Modal Labs startup latest funding round 2024 investors valuation employees",
+          "relevance_score": 0.7443038
+        },
+        {
+          "title": "CoreWeave | CRWV Stock Price, Company Overview & News - Forbes",
+          "url": "https://www.forbes.com/companies/coreweave/",
+          "published_date": null,
+          "query": "CoreWeave founded year headquarters employees key differentiator",
+          "relevance_score": 0.7434107
+        },
+        {
+          "title": "Quantum Brilliance - CB Insights",
+          "url": "https://www.cbinsights.com/company/quantum-brilliance",
+          "published_date": null,
+          "query": "Quantum Brilliance startup funding founding year headquarters employees",
+          "relevance_score": 0.73846215
+        },
+        {
+          "title": "What is Brief History of CoreWeave Company? - Matrix BCG",
+          "url": "https://matrixbcg.com/blogs/brief-history/coreweave",
+          "published_date": null,
+          "query": "CoreWeave founded year headquarters employees key differentiator",
+          "relevance_score": 0.7371019
+        },
+        {
+          "title": "Volumez Announces Completion of $40 Million Series A Funding to ...",
+          "url": "https://cioinfluence.com/cloud/volumez-announces-completion-of-40-million-series-a-funding-to-revolutionize-cloud-aware-data-infrastructure/",
+          "published_date": null,
+          "query": "Volumez startup cloud computing infrastructure funding founding",
+          "relevance_score": 0.73207545
+        },
+        {
+          "title": "quantum brilliance raises USD $20 million in Series A funding round",
+          "url": "https://quantumbrilliance.com/news/quantum-brilliance-raises-usd-20-million-in-series-a-funding-round/",
+          "published_date": null,
+          "query": "Quantum Brilliance latest funding round investors valuation 2023 2024",
+          "relevance_score": 0.7120925
+        },
+        {
+          "title": "CVC's most active investors in 2024 - and how they invested",
+          "url": "https://globalventuring.com/corporate/energy-and-natural-resources/cvcs-most-active-investors-in-2024/",
+          "published_date": null,
+          "query": "top venture capital investors cloud infrastructure startups 2023 2024 most active",
+          "relevance_score": 0.71113056
+        },
+        {
+          "title": "Volumez Secures $20 Million in Series A Funding to Revolutionize ...",
+          "url": "https://www.prnewswire.com/il/news-releases/volumez-secures-20-million-in-series-a-funding-to-revolutionize-cloud-infrastructure-301802168.html",
+          "published_date": null,
+          "query": "Volumez startup cloud computing infrastructure funding founding",
+          "relevance_score": 0.7089592
+        },
+        {
+          "title": "The 17 Largest Global Startup Funding Rounds of March 2024",
+          "url": "https://www.alleywatch.com/2024/04/global-startup-funding-top-largest-march-2024-vc/",
+          "published_date": null,
+          "query": "new cloud infrastructure startup funding round 2024 disruptive",
+          "relevance_score": 0.70799106
+        },
+        {
+          "title": "Modal - 2026 Company Profile, Team, Funding & Competitors - Tracxn",
+          "url": "https://tracxn.com/d/companies/modal/__Gp2t3WXRBTwsXTIOuxxmlHmnM4PGvDr-CH8bN3OV8W4",
+          "published_date": null,
+          "query": "Modal cloud computing startup funding founding year headquarters",
+          "relevance_score": 0.7031221
+        },
+        {
+          "title": "Modal Labs Eyes $2.5B Valuation Amid AI Inference Boom",
+          "url": "https://www.kukarella.com/news/modal-labs-eyes-25b-valuation-amid-ai-inference-boom-p1771192801",
+          "published_date": null,
+          "query": "Modal Labs startup latest funding round 2024 investors valuation employees",
+          "relevance_score": 0.6934942
+        },
+        {
+          "title": "Volumez Secures $40 Million in Series A | The SaaS News",
+          "url": "https://www.thesaasnews.com/news/volumez-secures-40-million-in-series-a",
+          "published_date": null,
+          "query": "Volumez headquarters employees key differentiator latest funding round",
+          "relevance_score": 0.69049704
+        },
+        {
+          "title": "Volumez 2026 Company Profile: Valuation, Funding & Investors",
+          "url": "https://pitchbook.com/profiles/company/500645-44",
+          "published_date": null,
+          "query": "Volumez headquarters employees key differentiator latest funding round",
+          "relevance_score": 0.6894943
+        },
+        {
+          "title": "Top VC Fundraising Trends of 2024 - Venture Capital Archive",
+          "url": "https://venturecapitalarchive.com/venturecapitalannualreport2024",
+          "published_date": null,
+          "query": "top venture capital investors cloud infrastructure startups 2023 2024 most active",
+          "relevance_score": 0.6882385
+        },
+        {
+          "title": "Union.ai Completes $38.1 Million Series A to Power a New",
+          "url": "https://www.globenewswire.com/news-release/2026/02/25/3244638/0/en/Union-ai-Completes-38-1-Million-Series-A-to-Power-a-New-Era-of-AI-Development-Infrastructure.html",
+          "published_date": null,
+          "query": "Union.ai headquarters employees key differentiator series funding round",
+          "relevance_score": 0.6854659
+        },
+        {
+          "title": "Syntiant - Crunchbase Company Profile & Funding",
+          "url": "https://www.crunchbase.com/organization/syntiant",
+          "published_date": null,
+          "query": "Syntiant startup funding rounds founding year headquarters",
+          "relevance_score": 0.68318754
+        },
+        {
+          "title": "Cloud Infrastructure Company Volumez Raises $20 Million",
+          "url": "https://pulse2.com/volumez-raises-20-million/",
+          "published_date": null,
+          "query": "Volumez startup cloud computing infrastructure funding founding",
+          "relevance_score": 0.6826801
+        },
+        {
+          "title": "Can Modal Labs hit $2.5B as AI inference becomes the new ...",
+          "url": "https://techfundingnews.com/can-modal-labs-hit-2-5b-as-ai-inference-becomes-the-new-infrastructure-gold-rush/",
+          "published_date": null,
+          "query": "Modal Labs startup latest funding round 2024 investors valuation employees",
+          "relevance_score": 0.67501575
+        },
+        {
+          "title": "Quantum Brilliance - PostQuantum.com",
+          "url": "https://postquantum.com/quantum-computing-companies/quantum-brilliance/",
+          "published_date": null,
+          "query": "Quantum Brilliance startup funding founding year headquarters employees",
+          "relevance_score": 0.67192334
+        },
+        {
+          "title": "CoreWeave - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/CoreWeave",
+          "published_date": null,
+          "query": "CoreWeave founded year headquarters employees key differentiator",
+          "relevance_score": 0.6688159
+        },
+        {
+          "title": "CoreWeave: Valuation, Funding & Investors - PitchBook",
+          "url": "https://pitchbook.com/profiles/company/327267-64",
+          "published_date": null,
+          "query": "CoreWeave founded year headquarters employees key differentiator",
+          "relevance_score": 0.6682966
+        },
+        {
+          "title": "Union.ai Secures $38.1M Series A Funding | Let's Data Science",
+          "url": "https://letsdatascience.com/news/unionai-secures-381m-series-a-funding-c3f02e9c",
+          "published_date": null,
+          "query": "Union.ai headquarters employees key differentiator series funding round",
+          "relevance_score": 0.6578248
+        },
+        {
+          "title": "Volumez Announces Completion of $40 Million Series A Funding to ...",
+          "url": "https://www.prnewswire.com/news-releases/volumez-announces-completion-of-40-million-series-a-funding-to-revolutionize-cloud-aware-data-infrastructure-302193398.html",
+          "published_date": null,
+          "query": "Volumez headquarters employees key differentiator latest funding round",
+          "relevance_score": 0.63288915
+        },
+        {
+          "title": "Quantum Brilliance - 2026 Company Profile & Team - Tracxn",
+          "url": "https://tracxn.com/d/companies/quantum-brilliance/__XyD1egdy5HLXzm9HgmC1iAtVuldx4RDXcLD43X1t2ng",
+          "published_date": null,
+          "query": "Quantum Brilliance startup funding founding year headquarters employees",
+          "relevance_score": 0.62934244
+        },
+        {
+          "title": "CoreWeave - LinkedIn",
+          "url": "https://www.linkedin.com/company/coreweave",
+          "published_date": null,
+          "query": "CoreWeave founded year headquarters employees key differentiator",
+          "relevance_score": 0.62824833
+        },
+        {
+          "title": "Union.ai Secures $38.1 - Signalbase",
+          "url": "https://www.trysignalbase.com/news/funding/unionai-secures-381",
+          "published_date": null,
+          "query": "Union.ai headquarters employees key differentiator series funding round",
+          "relevance_score": 0.6219319
+        },
+        {
+          "title": "Cylake - LinkedIn",
+          "url": "https://www.linkedin.com/company/cylake-ai",
+          "published_date": null,
+          "query": "Cylake company founded headquarters employees",
+          "relevance_score": 0.6213807
+        },
+        {
+          "title": "Syntiant Raises $35 Million in New Funding Round",
+          "url": "https://www.syntiant.com/news/syntiant-raises-35-million-in-new-funding-round",
+          "published_date": null,
+          "query": "Syntiant AI chip company employees key differentiator latest funding 2024",
+          "relevance_score": 0.61695945
+        },
+        {
+          "title": "Union.ai Raises $38.1M Series A for AI Development Infrastructure",
+          "url": "https://www.linkedin.com/posts/joshraditch_ai-machinelearning-orchestration-activity-7432464305708761089-TdxV",
+          "published_date": null,
+          "query": "Union.ai headquarters employees key differentiator series funding round",
+          "relevance_score": 0.6158511
+        },
+        {
+          "title": "Quantum Brilliance Raises $20M in Series A Funding Round",
+          "url": "https://www.hpcwire.com/off-the-wire/quantum-brilliance-raises-20m-in-series-a-funding-round/",
+          "published_date": null,
+          "query": "Quantum Brilliance latest funding round investors valuation 2023 2024",
+          "relevance_score": 0.6152965
+        },
+        {
+          "title": "Team \u2014 Celestial AI",
+          "url": "https://www.celestial.ai/team",
+          "published_date": null,
+          "query": "Celestial AI founded headquarters employees differentiator",
+          "relevance_score": 0.6133529
+        },
+        {
+          "title": "Quantum Brilliance Secures $20 Million in Series A Funding to ...",
+          "url": "https://quantumcomputingreport.com/quantum-brilliance-secures-20-million-in-series-a-funding-to-advance-diamond-quantum-technology/",
+          "published_date": null,
+          "query": "Quantum Brilliance latest funding round investors valuation 2023 2024",
+          "relevance_score": 0.60610276
+        },
+        {
+          "title": "Syntiant \u2013 Funding, Valuation, Investors, News - Parsers VC",
+          "url": "https://o.parsers.vc/startup/syntiant.com/",
+          "published_date": null,
+          "query": "Syntiant AI chip company employees key differentiator latest funding 2024",
+          "relevance_score": 0.6016175
+        },
+        {
+          "title": "Cloudberry Ventures raises \u20ac50M to back AI, compute and ...",
+          "url": "https://techfundingnews.com/cloudberry-ventures-raises-e50m-to-back-ai-compute-and-infrastructure-startups-from-seed-to-series-a/",
+          "published_date": null,
+          "query": "cloud computing infrastructure startups funded Seed Series A Series B 2023 2024",
+          "relevance_score": 0.59824234
+        },
+        {
+          "title": "Startup Funding Regained Its Footing In 2024 As AI ...",
+          "url": "https://news.crunchbase.com/venture/global-funding-data-analysis-ai-eoy-2024/",
+          "published_date": null,
+          "query": "cloud infrastructure VC funding 2023 2024 year over year deal count statistics Crunchbase PitchBook",
+          "relevance_score": 0.5942929
+        },
+        {
+          "title": "Eye On AI: Who Were The Most-Active AI Investors In 2024?",
+          "url": "https://news.crunchbase.com/ai/most-active-investors-2024-a16z-databricks-xai/",
+          "published_date": null,
+          "query": "top venture capital investors cloud infrastructure startups 2023 2024 most active",
+          "relevance_score": 0.588062
+        },
+        {
+          "title": "Team-alt - Celestial AI",
+          "url": "https://www.celestial.ai/team-1",
+          "published_date": null,
+          "query": "Celestial AI founded headquarters employees differentiator",
+          "relevance_score": 0.572078
+        },
+        {
+          "title": "The Largest Funding Rounds of 2024 - MicroVentures",
+          "url": "https://microventures.com/the-largest-funding-rounds-of-2024",
+          "published_date": null,
+          "query": "cloud computing infrastructure VC funding deals 2023 2024 total investment",
+          "relevance_score": 0.5697814
+        },
+        {
+          "title": "The 51 most disruptive startups of 2024 - TechCrunch",
+          "url": "https://techcrunch.com/2024/12/13/the-51-most-disruptive-startups-of-2024/",
+          "published_date": null,
+          "query": "new cloud infrastructure startup funding round 2024 disruptive",
+          "relevance_score": 0.56460327
+        },
+        {
+          "title": "Crusoe secures $750 million credit facility from Brookfield to ...",
+          "url": "https://www.crusoe.ai/resources/newsroom/crusoe-secures-usd750-million-credit-facility-from-brookfield-to-accelerate",
+          "published_date": null,
+          "query": "cloud infrastructure startup Series A Series B funding 2023 2024 Crusoe Volumez Aarna Networks Nader",
+          "relevance_score": 0.53881395
+        },
+        {
+          "title": "AI-focused data center startup Crusoe raises $600M at $2.8B valuation",
+          "url": "https://siliconangle.com/2024/12/12/ai-focused-data-center-startup-crusoe-raises-600m-2-8b-valuation/",
+          "published_date": null,
+          "query": "cloud infrastructure startup Series A Series B funding 2023 2024 Crusoe Volumez Aarna Networks Nader",
+          "relevance_score": 0.5310884
+        },
+        {
+          "title": "How Much Did Modal Raise? Funding & Key Investors | TexA - TexAu",
+          "url": "https://www.texau.com/profiles/modal",
+          "published_date": null,
+          "query": "Modal cloud computing startup funding founding year headquarters",
+          "relevance_score": 0.52510154
+        },
+        {
+          "title": "Celestial AI - CB Insights",
+          "url": "https://www.cbinsights.com/company/inorganic-intelligence",
+          "published_date": null,
+          "query": "Celestial AI founded headquarters employees differentiator",
+          "relevance_score": 0.5172057
+        },
+        {
+          "title": "Crusoe raises $1.375bn in latest funding round - DCD",
+          "url": "https://www.datacenterdynamics.com/en/news/crusoe-raises-1375bn-in-latest-funding-round/",
+          "published_date": null,
+          "query": "cloud infrastructure startup Series A Series B funding 2023 2024 Crusoe Volumez Aarna Networks Nader",
+          "relevance_score": 0.5081298
+        },
+        {
+          "title": "AI Chip Company Syntiant Raises $25M in Series B Funding Round ...",
+          "url": "https://www.syntiant.com/news/ai-chip-company-syntiant-raises-25m-in-series-b-funding-round-led-by-microsofts-m12",
+          "published_date": null,
+          "query": "Syntiant AI chip company employees key differentiator latest funding 2024",
+          "relevance_score": 0.5059329
+        },
+        {
+          "title": "VC may dominate AI computing deals, but PE supplies the capital",
+          "url": "https://pitchbook.com/news/articles/vc-may-dominate-ai-computing-deals-but-pe-supplies-the-capital",
+          "published_date": null,
+          "query": "cloud computing infrastructure VC funding deals 2023 2024 total investment",
+          "relevance_score": 0.49362883
+        },
+        {
+          "title": "The Largest AI Startup Funding Deals Of 2024 - Dacxi Chain - Medium",
+          "url": "https://dacxi.medium.com/the-largest-ai-startup-funding-deals-of-2024-8c97b9940000",
+          "published_date": null,
+          "query": "cloud computing infrastructure startups funded Seed Series A Series B 2023 2024",
+          "relevance_score": 0.49113917
+        },
+        {
+          "title": "Modal Labs raises $80M to simplify cloud AI infrastructure with ...",
+          "url": "https://siliconangle.com/2025/09/29/modal-labs-raises-80m-simplify-cloud-ai-infrastructure-programmable-building-blocks/",
+          "published_date": null,
+          "query": "Modal cloud computing startup funding founding year headquarters",
+          "relevance_score": 0.47899243
+        },
+        {
+          "title": "Cloud Infrastructure - 2026 Market & Investments Trends - Tracxn",
+          "url": "https://tracxn.com/d/sectors/cloud-infrastructure/__jThSJig86FoYweVaPNj32aFDKrv1eaBLI7MEXrVmEak",
+          "published_date": null,
+          "query": "cloud computing infrastructure VC funding deals 2023 2024 total investment",
+          "relevance_score": 0.47884622
+        },
+        {
+          "title": "Top 62 Cloud Venture Capital Firms (2026) - Failory",
+          "url": "https://www.failory.com/blog/cloud-venture-capital-firms",
+          "published_date": null,
+          "query": "top venture capital investors cloud infrastructure startups 2023 2024 most active",
+          "relevance_score": 0.46949652
+        },
+        {
+          "title": "AI startups grabbed a third of global VC dollars in 2024",
+          "url": "https://pitchbook.com/news/articles/ai-startups-grabbed-a-third-of-global-vc-dollars-in-2024",
+          "published_date": null,
+          "query": "cloud infrastructure VC funding 2023 2024 year over year deal count statistics Crunchbase PitchBook",
+          "relevance_score": 0.4654124
+        },
+        {
+          "title": "Cylake Launches to Bring Complete, AI-Native, - GlobeNewswire",
+          "url": "https://www.globenewswire.com/news-release/2026/03/05/3250222/0/en/Cylake-Launches-to-Bring-Complete-AI-Native-Data-Driven-Cybersecurity-to-Customers-that-Require-Total-Data-Sovereignty.html",
+          "published_date": null,
+          "query": "Cylake company founded headquarters employees",
+          "relevance_score": 0.46337196
+        },
+        {
+          "title": "Infrastructure Fundraising Report 2024 - With Intelligence",
+          "url": "https://www.withintelligence.com/insights/infrastructure-fundraising-report-2024/",
+          "published_date": null,
+          "query": "cloud computing infrastructure VC funding deals 2023 2024 total investment",
+          "relevance_score": 0.44637465
+        },
+        {
+          "title": "Celestial AI - LinkedIn",
+          "url": "https://www.linkedin.com/company/celestial-ai",
+          "published_date": null,
+          "query": "Celestial AI founded headquarters employees differentiator",
+          "relevance_score": 0.4105205
+        },
+        {
+          "title": "Startup Crusoe Nets $11.6B In Fresh Financing For Massive New ...",
+          "url": "https://news.crunchbase.com/ai/startup-crusoe-financing-openai-data-center-texas/",
+          "published_date": null,
+          "query": "cloud infrastructure startup Series A Series B funding 2023 2024 Crusoe Volumez Aarna Networks Nader",
+          "relevance_score": 0.4069804
+        },
+        {
+          "title": "Introducing Cylake: AI-Native Cybersecurity with Total Data ...",
+          "url": "https://greylock.com/portfolio-news/introducing-cylake-ai-native-cybersecurity-with-total-data-sovereignty/",
+          "published_date": null,
+          "query": "Cylake company founded headquarters employees",
+          "relevance_score": 0.4048609
+        },
+        {
+          "title": "VC Investment Landscape 2024: What Founders Must Know to ...",
+          "url": "https://foundersnetwork.com/vc-investment-landscape-2024/",
+          "published_date": null,
+          "query": "cloud computing infrastructure VC funding deals 2023 2024 total investment",
+          "relevance_score": 0.39627898
+        },
+        {
+          "title": "Global Venture Funding In 2025 Surged As Startup Deals ...",
+          "url": "https://news.crunchbase.com/venture/funding-data-third-largest-year-2025/",
+          "published_date": null,
+          "query": "cloud infrastructure VC funding 2023 2024 year over year deal count statistics Crunchbase PitchBook",
+          "relevance_score": 0.3939683
+        },
+        {
+          "title": "Top AI Infrastructure Startups by Fundraising (2026)",
+          "url": "https://newmarketpitch.com/blogs/news/ai-infrastructure-top-startups-fundraising",
+          "published_date": null,
+          "query": "new cloud infrastructure startup funding round 2024 disruptive",
+          "relevance_score": 0.38456595
+        },
+        {
+          "title": "Celestial AI",
+          "url": "https://www.celestial.ai/",
+          "published_date": null,
+          "query": "Celestial AI founded headquarters employees differentiator",
+          "relevance_score": 0.38324937
+        },
+        {
+          "title": "Clearlake - Overview, News & Similar companies | ZoomInfo.com",
+          "url": "https://www.zoominfo.com/c/clearlake-capital-group-lp/354049178",
+          "published_date": null,
+          "query": "Cylake company founded headquarters employees",
+          "relevance_score": 0.37031704
+        },
+        {
+          "title": "Modal Labs - Valuation, Funding & Investors - PitchBook",
+          "url": "https://pitchbook.com/profiles/company/504100-09",
+          "published_date": null,
+          "query": "Modal cloud computing startup funding founding year headquarters",
+          "relevance_score": 0.36854258
+        },
+        {
+          "title": "Cylake has raised $45 million from Greylock to develop an AI ...",
+          "url": "https://www.instagram.com/p/DVtKS71lG8r/",
+          "published_date": null,
+          "query": "Cylake company founded headquarters employees",
+          "relevance_score": 0.35716435
+        },
+        {
+          "title": "List of Funded Cloud Computing Startups For 2026 - Growth List",
+          "url": "https://growthlist.co/cloud-computing-startups/",
+          "published_date": null,
+          "query": "cloud computing infrastructure startups funded Seed Series A Series B 2023 2024",
+          "relevance_score": 0.31855983
+        },
+        {
+          "title": "Cloud Infrastructure Sector in United States - Tracxn",
+          "url": "https://tracxn.com/d/explore/cloud-infrastructure-startups-in-united-states/__2QDOQY_dnSi-xWFS-CqAUS2zske1ZmqUmhj6Bz_vecI",
+          "published_date": null,
+          "query": "cloud computing infrastructure startups funded Seed Series A Series B 2023 2024",
+          "relevance_score": 0.28344703
+        },
+        {
+          "title": "Top 2026 Cloud Infrastructure Series A Investors",
+          "url": "https://signal.nfx.com/investor-lists/top-cloud-infrastructure-series-a-investors",
+          "published_date": null,
+          "query": "cloud computing infrastructure startups funded Seed Series A Series B 2023 2024",
+          "relevance_score": 0.2594436
+        },
+        {
+          "title": "How Much Did Modal Labs Raise? Funding & Key Investors - Clay",
+          "url": "https://www.clay.com/dossier/modal-labs-funding",
+          "published_date": null,
+          "query": "Modal cloud computing startup funding founding year headquarters",
+          "relevance_score": 0.2424257
+        }
+      ],
+      "search_count": 110,
+      "time_seconds": 45.8,
+      "error": null
+    },
+    {
+      "case_id": 9,
+      "market": "autonomous vehicle robotaxi services",
+      "excluded_incumbents": [
+        "Waymo",
+        "Cruise",
+        "Tesla",
+        "Zoox",
+        "Baidu Apollo"
+      ],
+      "emerging_competitors": [
+        {
+          "name": "Wayve",
+          "description": "Wayve is a UK-based AI autonomous driving technology company that develops end-to-end deep learning software (AV2.0) enabling self-driving capabilities for fleet operators and automotive partners. It plans to commercially roll out Level 4 autonomous driving software through partnerships with automakers and Uber.",
+          "founded_year": 2017,
+          "headquarters": "London, UK",
+          "total_funding_mm": 2800.0,
+          "latest_round": {
+            "stage": "unknown",
+            "amount_mm": 1200.0,
+            "date": "February 2026",
+            "lead_investors": [
+              "Eclipse",
+              "Balderton",
+              "SoftBank Vision Fund 2"
+            ],
+            "valuation_mm": 8600.0
+          },
+          "key_differentiator": "Wayve uses a contrarian, end-to-end self-learning AI approach (similar to Tesla's but model-agnostic) that enables its software to run across any vehicle platform, rather than building a proprietary hardware-dependent robotaxi fleet like competitors.",
+          "employee_count": 500
+        },
+        {
+          "name": "Haomo.AI",
+          "description": "Haomo.AI is a Chinese autonomous driving technology company spun out of Great Wall Motor (GWM), dedicated to developing AI-powered autonomous driving systems and robotaxi solutions. The company aims for zero-accident autonomous mobility and operates as an AI-enabled platform for intelligent driving.",
+          "founded_year": 2019,
+          "headquarters": "Haidian, Beijing, China",
+          "total_funding_mm": 150.0,
+          "latest_round": {
+            "stage": "series-a",
+            "amount_mm": 150.0,
+            "date": "December 2021",
+            "lead_investors": [],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Haomo.AI is uniquely backed by and spun out of Great Wall Motor (GWM), China's largest SUV maker, giving it direct access to mass-market automotive manufacturing capabilities and proprietary vehicle data at scale.",
+          "employee_count": null
+        },
+        {
+          "name": "Avride",
+          "description": "Avride is a developer of self-driving technology for passenger vehicles (robotaxis) and sidewalk delivery robots, deploying autonomous services in partnership with Uber and Uber Eats across U.S. cities. Spun off from Yandex's self-driving car group, Avride shares core technology across its robotaxi and delivery robot platforms.",
+          "founded_year": 2020,
+          "headquarters": "Austin, Texas, USA",
+          "total_funding_mm": 375.0,
+          "latest_round": {
+            "stage": "unknown",
+            "amount_mm": 375.0,
+            "date": "October 2025",
+            "lead_investors": [
+              "Uber Technologies",
+              "Nebius Group"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Avride uniquely combines robotaxi and sidewalk delivery robot platforms that share the same core AI and sensor technology, while leveraging deep commercial partnerships with Uber and Uber Eats for immediate large-scale deployment.",
+          "employee_count": null
+        },
+        {
+          "name": "Momenta",
+          "description": "Momenta is a Chinese autonomous driving technology company that develops deep learning-based autonomous driving solutions, offering advanced driver assistance systems (ADAS) to automakers and powering robotaxi services in cities across China and Europe.",
+          "founded_year": 2016,
+          "headquarters": "Beijing, China",
+          "total_funding_mm": 1420.0,
+          "latest_round": {
+            "stage": "unknown",
+            "amount_mm": null,
+            "date": "2025",
+            "lead_investors": [],
+            "valuation_mm": 6000.0
+          },
+          "key_differentiator": "Momenta uniquely combines a mass-production ADAS business with a robotaxi platform, using fleet data from millions of production vehicles to continuously improve its autonomous driving models in a flywheel approach.",
+          "employee_count": null
+        },
+        {
+          "name": "WeRide",
+          "description": "WeRide is a leading global autonomous driving technology company that develops Level 2\u2013Level 4 autonomous driving solutions, including Robotaxi, Robobus, Robovan, and other products spanning smart mobility, logistics, and sanitation. It was the first publicly listed robotaxi company in the world, trading on both NASDAQ (WRD) and HKEX (0800).",
+          "founded_year": 2017,
+          "headquarters": "Guangzhou, China",
+          "total_funding_mm": 1090.0,
+          "latest_round": {
+            "stage": "unknown",
+            "amount_mm": null,
+            "date": "September 2025",
+            "lead_investors": [],
+            "valuation_mm": null
+          },
+          "key_differentiator": "WeRide is the only autonomous driving technology company in the world with products holding permits in eight countries across four continents, giving it unmatched global regulatory breadth among robotaxi competitors.",
+          "employee_count": 1001
+        },
+        {
+          "name": "Nuro",
+          "description": "Nuro is a self-driving technology company that develops and licenses its AI-first autonomous driving system, the Nuro Driver\u2122, to automakers and mobility platforms for robotaxis, commercial fleets, and personally owned vehicles. Founded by ex-Google engineers, it has evolved from building custom autonomous delivery robots to becoming a universal autonomy platform for the broader mobility ecosystem.",
+          "founded_year": 2016,
+          "headquarters": "Mountain View, CA",
+          "total_funding_mm": 2340.0,
+          "latest_round": {
+            "stage": "unknown",
+            "amount_mm": 203.0,
+            "date": "August 2025",
+            "lead_investors": [],
+            "valuation_mm": 6000.0
+          },
+          "key_differentiator": "Unlike competitors building their own robotaxi fleets, Nuro differentiates by licensing its proven Nuro Driver\u2122 AI platform to OEMs and mobility providers (e.g., Uber + Lucid partnership), enabling autonomous vehicles at commercial scale without owning the fleet.",
+          "employee_count": 993
+        },
+        {
+          "name": "Motional",
+          "description": "Motional is an American autonomous vehicle company and joint venture between Hyundai Motor Group and Aptiv, focused on developing Level 4 driverless technology for robotaxi and delivery services. It operates commercial robotaxi services in partnership with Lyft and Uber using all-electric Hyundai Ioniq 5 vehicles.",
+          "founded_year": 2020,
+          "headquarters": "Boston, Massachusetts, USA",
+          "total_funding_mm": 4000.0,
+          "latest_round": {
+            "stage": "unknown",
+            "amount_mm": 923.0,
+            "date": "May 2024",
+            "lead_investors": [
+              "Hyundai Motor Group"
+            ],
+            "valuation_mm": null
+          },
+          "key_differentiator": "Motional uniquely combines Hyundai's automotive manufacturing scale with Aptiv's deep electrical and software expertise as a backed joint venture, giving it a direct pathway to production-ready, fully integrated Level 4 robotaxi vehicles at scale.",
+          "employee_count": 1001
+        },
+        {
+          "name": "DiDi Autonomous Driving",
+          "description": "DiDi Autonomous Driving is the self-driving unit of Chinese ride-hailing giant DiDi Global, developing L4 autonomous driving technology and electric robotaxis in partnership with EV maker GAC Aion for mass production and commercial deployment.",
+          "founded_year": 2019,
+          "headquarters": "Beijing, China",
+          "total_funding_mm": 1825.0,
+          "latest_round": {
+            "stage": "series-b",
+            "amount_mm": 275.0,
+            "date": "October 2025",
+            "lead_investors": [
+              "Zhongguancun Science City Growth Fund",
+              "GAC Group"
+            ],
+            "valuation_mm": 5000.0
+          },
+          "key_differentiator": "DiDi leverages its massive existing ride-hailing network and real-world driving data from millions of trips to accelerate L4 robotaxi development, while its strategic partnership with GAC Aion positions it uniquely for mass production of purpose-built electric robotaxis.",
+          "employee_count": 7897
+        }
+      ],
+      "capital_flow": {
+        "total_funding_last_2_years_mm": 25300.0,
+        "deal_count_last_2_years": 18,
+        "average_deal_size_mm": 450.0,
+        "yoy_funding_change_pct": 112.0,
+        "top_investors": [
+          "Alphabet (Google)",
+          "Uber",
+          "NVIDIA (NVentures)",
+          "Khosla Ventures",
+          "Microsoft"
+        ],
+        "capital_velocity_signal": "accelerating"
+      },
+      "sources": [
+        {
+          "title": "Avride - Crunchbase Company Profile & Funding",
+          "url": "https://www.crunchbase.com/organization/avride",
+          "published_date": null,
+          "query": "Avride autonomous vehicle robotaxi startup funding founded",
+          "relevance_score": 0.9999385
+        },
+        {
+          "title": "Avride secures strategic investments up to $375M for self-driving ...",
+          "url": "https://www.therobotreport.com/av-developer-avride-secures-strategic-investments-and-commitments-of-up-to-375m/",
+          "published_date": null,
+          "query": "Avride autonomous vehicle robotaxi startup funding founded",
+          "relevance_score": 0.99989843
+        },
+        {
+          "title": "Avride - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Avride",
+          "published_date": null,
+          "query": "Avride autonomous vehicle robotaxi startup funding founded",
+          "relevance_score": 0.9998785
+        },
+        {
+          "title": "Waymo rival Avride grabs $375M from Uber and Nebius to scale ...",
+          "url": "https://techfundingnews.com/avride-375m-uber-nebius-autonomous-robotaxis/",
+          "published_date": null,
+          "query": "Avride autonomous vehicle robotaxi startup funding founded",
+          "relevance_score": 0.99978346
+        },
+        {
+          "title": "Motional - Products, Competitors, Financials, Employees ...",
+          "url": "https://www.cbinsights.com/company/motional-1",
+          "published_date": null,
+          "query": "Motional AV company founded year headquarters employees 2024",
+          "relevance_score": 0.9997565
+        },
+        {
+          "title": "Motional 2026 Company Profile: Valuation, Funding & Investors",
+          "url": "https://pitchbook.com/profiles/company/307867-78",
+          "published_date": null,
+          "query": "Motional AV company founded year headquarters employees 2024",
+          "relevance_score": 0.99932814
+        },
+        {
+          "title": "Motional | LinkedIn",
+          "url": "https://www.linkedin.com/company/motionaldrive",
+          "published_date": null,
+          "query": "Motional AV company founded year headquarters employees 2024",
+          "relevance_score": 0.99903023
+        },
+        {
+          "title": "Avride secures $375M from Uber and Nebius, expands to new markets",
+          "url": "https://www.linkedin.com/posts/avrideai_avride-secures-strategic-investment-and-other-activity-7386718232159711232-oMUo",
+          "published_date": null,
+          "query": "Avride autonomous vehicle robotaxi startup funding founded",
+          "relevance_score": 0.9990226
+        },
+        {
+          "title": "Motional - Overview, News & Similar companies | ZoomInfo.com",
+          "url": "https://www.zoominfo.com/c/motional/353761461",
+          "published_date": null,
+          "query": "Motional AV company founded year headquarters employees 2024",
+          "relevance_score": 0.9988121
+        },
+        {
+          "title": "Motional - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Motional",
+          "published_date": null,
+          "query": "Motional AV company founded year headquarters employees 2024",
+          "relevance_score": 0.9986646
+        },
+        {
+          "title": "Wayve raises $1.2bn Series D to scale robotaxi plans - Just Auto",
+          "url": "https://www.just-auto.com/news/wayve-raises-1-2bn-series-d/",
+          "published_date": null,
+          "query": "Wayve autonomous vehicle startup funding rounds total raised",
+          "relevance_score": 0.9301101
+        },
+        {
+          "title": "Wayve raises $1.2bn Series D to scale robotaxi plans - Yahoo Finance",
+          "url": "https://finance.yahoo.com/news/wayve-raises-1-2bn-series-114646277.html",
+          "published_date": null,
+          "query": "Wayve autonomous vehicle startup funding rounds total raised",
+          "relevance_score": 0.9197076
+        },
+        {
+          "title": "Nuro - 2026 Company Profile, Team, Funding & Competitors - Tracxn",
+          "url": "https://tracxn.com/d/companies/nuro/__kZIHQ5O-_3IZyro8NW7D_MgT95dHsu-fp13xeGHsKLE",
+          "published_date": null,
+          "query": "Nuro autonomous vehicle startup funding rounds total raised",
+          "relevance_score": 0.91175514
+        },
+        {
+          "title": "Didi reportedly seeking funds for self-driving unit at $5B valuation",
+          "url": "https://techcrunch.com/2025/03/04/didi-reportedly-seeking-funds-for-self-driving-unit-at-5b-valuation/",
+          "published_date": null,
+          "query": "DiDi Autonomous Driving startup funding rounds valuation",
+          "relevance_score": 0.8923472
+        },
+        {
+          "title": "Wayve, an A.I. Driverless Car Start-Up in Europe, Raises $1.2 Billion",
+          "url": "https://www.nytimes.com/2026/02/24/technology/wayve-ai-driverless-car-start-up.html",
+          "published_date": null,
+          "query": "Wayve autonomous vehicle startup funding rounds total raised",
+          "relevance_score": 0.89053273
+        },
+        {
+          "title": "Behind Didi's $2 Billion Self - driving Financing: \"Mass Production ...",
+          "url": "https://eu.36kr.com/en/p/3507507458513794",
+          "published_date": null,
+          "query": "DiDi Autonomous Driving startup funding rounds valuation",
+          "relevance_score": 0.8900749
+        },
+        {
+          "title": "Didi's self-driving unit said to seek funds at US$5 billion value",
+          "url": "https://www.businesstimes.com.sg/companies-markets/transport-logistics/didis-self-driving-unit-said-seek-funds-us5-billion-value",
+          "published_date": null,
+          "query": "DiDi Autonomous Driving startup funding rounds valuation",
+          "relevance_score": 0.8863518
+        },
+        {
+          "title": "Self-driving vehicle startup Nuro valued at $6 billion in late ... - Reuters",
+          "url": "https://www.reuters.com/business/autos-transportation/self-driving-vehicle-startup-nuro-valued-6-billion-late-stage-funding-round-2025-08-21/",
+          "published_date": null,
+          "query": "Nuro autonomous vehicle startup funding rounds total raised",
+          "relevance_score": 0.8861155
+        },
+        {
+          "title": "Autonomous Driving Startup Nuro Gains Nvidia As An Investor In ...",
+          "url": "https://news.crunchbase.com/ai/av-startup-nuro-gains-nvda-investor/",
+          "published_date": null,
+          "query": "Nuro autonomous vehicle startup funding rounds total raised",
+          "relevance_score": 0.88420963
+        },
+        {
+          "title": "Self-driving tech startup Wayve raises $1.2B from Nvidia, Uber, and ...",
+          "url": "https://techcrunch.com/2026/02/24/self-driving-tech-startup-wayve-raises-1-2b-from-nvidia-uber-and-three-automakers/",
+          "published_date": null,
+          "query": "Wayve autonomous vehicle startup funding rounds total raised",
+          "relevance_score": 0.87605256
+        },
+        {
+          "title": "Nuro raises $203M in Series E, valued at $6B, pivots to partnerships",
+          "url": "https://www.linkedin.com/posts/analytics-india-magazine_autonomous-vehicle-startup-nuro-has-raised-activity-7364298990361722881-tdE2",
+          "published_date": null,
+          "query": "Nuro autonomous vehicle startup funding rounds total raised",
+          "relevance_score": 0.8700796
+        },
+        {
+          "title": "Didi's Self-Driving Unit Said to Seek Funds at $5 Billion Value",
+          "url": "https://finance.yahoo.com/news/didi-self-driving-unit-said-021411734.html",
+          "published_date": null,
+          "query": "DiDi Autonomous Driving startup funding rounds valuation",
+          "relevance_score": 0.8588255
+        },
+        {
+          "title": "Didi Autonomous Driving Raises RMB 2 Billion in Series D Funding",
+          "url": "https://technode.com/2025/10/11/didi-autonomous-driving-raises-rmb-2-billion-in-series-d-funding/",
+          "published_date": null,
+          "query": "DiDi Autonomous Driving startup funding rounds valuation",
+          "relevance_score": 0.85538095
+        },
+        {
+          "title": "Nuro raises $203m, hits $6bn valuation in self-driving tech push",
+          "url": "https://www.youtube.com/watch?v=Z7RMX0Xnf1o",
+          "published_date": null,
+          "query": "Nuro autonomous vehicle startup funding rounds total raised",
+          "relevance_score": 0.853046
+        },
+        {
+          "title": "Momenta Pursues Funding Round at Over $5 Billion Valuation",
+          "url": "https://www.ainvest.com/news/momenta-pursues-funding-5-billion-valuation-2509/",
+          "published_date": null,
+          "query": "Momenta AI autonomous driving latest funding round 2023 2024 investors valuation",
+          "relevance_score": 0.8524574
+        },
+        {
+          "title": "Wayve - Company Profile - TrueUp",
+          "url": "https://www.trueup.io/co/wayve",
+          "published_date": null,
+          "query": "Wayve AI autonomous driving founded year headquarters employees",
+          "relevance_score": 0.85216236
+        },
+        {
+          "title": "Wayve Secures $1.5 Billion Funding Boost for Autonomous Driving ...",
+          "url": "https://mlq.ai/news/wayve-secures-15-billion-funding-boost-for-autonomous-driving-expansion/",
+          "published_date": null,
+          "query": "Wayve autonomous vehicle startup funding rounds total raised",
+          "relevance_score": 0.8409005
+        },
+        {
+          "title": "Momenta targets new funding at valuation above $5bn",
+          "url": "https://finance.yahoo.com/news/momenta-targets-funding-valuation-above-160321206.html",
+          "published_date": null,
+          "query": "Momenta AI autonomous driving latest funding round 2023 2024 investors valuation",
+          "relevance_score": 0.83452857
+        },
+        {
+          "title": "Wayve - LinkedIn",
+          "url": "https://www.linkedin.com/company/wayve-technologies",
+          "published_date": null,
+          "query": "Wayve AI autonomous driving founded year headquarters employees",
+          "relevance_score": 0.83225065
+        },
+        {
+          "title": "Didi Autonomous Driving 2026 Company Profile - PitchBook",
+          "url": "https://pitchbook.com/profiles/company/435594-61",
+          "published_date": null,
+          "query": "DiDi Autonomous Driving founded year headquarters employees robotaxi",
+          "relevance_score": 0.8302782
+        },
+        {
+          "title": "Momenta\uff08A Chinese autonomous driving limited liability company ...",
+          "url": "https://baike.baidu.com/en/item/Momenta/928968",
+          "published_date": null,
+          "query": "Momenta autonomous vehicle robotaxi startup funding founding year headquarters",
+          "relevance_score": 0.8095324
+        },
+        {
+          "title": "Wayve - Products, Competitors, Financials, Employees ... - CB Insights",
+          "url": "https://www.cbinsights.com/company/wayve-1",
+          "published_date": null,
+          "query": "Wayve AI autonomous driving founded year headquarters employees",
+          "relevance_score": 0.7938904
+        },
+        {
+          "title": "China's autonomous vehicle startup WeRide seeks US IPO at $5B ...",
+          "url": "https://techcrunch.com/2024/08/12/chinas-autonomous-vehicle-startup-weride-seeks-us-ipo-at-5b-valuation/",
+          "published_date": null,
+          "query": "WeRide autonomous vehicle robotaxi startup funding rounds 2024",
+          "relevance_score": 0.79099923
+        },
+        {
+          "title": "Momenta Raises $6B as China's Autonomous Driving Sector Heats Up",
+          "url": "https://www.techbuzz.ai/articles/momenta-raises-6b-as-china-s-autonomous-driving-sector-heats-up",
+          "published_date": null,
+          "query": "Momenta AI autonomous driving latest funding round 2023 2024 investors valuation",
+          "relevance_score": 0.7906115
+        },
+        {
+          "title": "Autonomous Vehicle Market Fundraising Deals (2026)",
+          "url": "https://newmarketpitch.com/blogs/news/autonomous-vehicle-funding-deals",
+          "published_date": null,
+          "query": "robotaxi autonomous vehicle funding deals 2023 2024 WeRide Wayve Zoox Cruise total VC investment year over year",
+          "relevance_score": 0.78074646
+        },
+        {
+          "title": "WeRide Announces Plan to Expand Commercial Robotaxi Services ...",
+          "url": "https://ir.weride.ai/news-releases/news-release-details/weride-announces-plan-expand-commercial-robotaxi-services-15/",
+          "published_date": null,
+          "query": "WeRide autonomous vehicle robotaxi startup funding rounds 2024",
+          "relevance_score": 0.76951396
+        },
+        {
+          "title": "Motional - 2026 Company Profile, Team, Funding & Competitors",
+          "url": "https://tracxn.com/d/companies/motional/__3EQZJmBbhz-TDAmBZokrTrVfw_xtKWrUIIC4fwE9K7w",
+          "published_date": null,
+          "query": "Motional autonomous vehicle robotaxi startup funding history",
+          "relevance_score": 0.76701033
+        },
+        {
+          "title": "Wayve 2026 Company Profile: Valuation, Funding & Investors",
+          "url": "https://pitchbook.com/profiles/company/226916-29",
+          "published_date": null,
+          "query": "Wayve AI autonomous driving founded year headquarters employees",
+          "relevance_score": 0.76617163
+        },
+        {
+          "title": "DiDi - Overview, News & Similar companies | ZoomInfo.com",
+          "url": "https://www.zoominfo.com/c/didi-global-inc/436183957",
+          "published_date": null,
+          "query": "DiDi Autonomous Driving founded year headquarters employees robotaxi",
+          "relevance_score": 0.7598145
+        },
+        {
+          "title": "Momenta raises funding, valued at $6 billion, sources say - LinkedIn",
+          "url": "https://www.linkedin.com/posts/stevegreenfield416_momenta-a-chinese-driverless-technology-activity-7377365153245380609-wbLK",
+          "published_date": null,
+          "query": "Momenta AI autonomous driving latest funding round 2023 2024 investors valuation",
+          "relevance_score": 0.75421005
+        },
+        {
+          "title": "Waabi raises $1 billion: 25,000 robotaxis planned for Uber",
+          "url": "https://www.trendingtopics.eu/waabi-raises-1-billion-25000-robotaxis-planned-for-uber/",
+          "published_date": null,
+          "query": "autonomous vehicle robotaxi VC funding 2023 2024 total investment deals",
+          "relevance_score": 0.752468
+        },
+        {
+          "title": "Motional Funding & Investors: Comprehensive Insights - Exa",
+          "url": "https://exa.ai/websets/directory/motional-funding",
+          "published_date": null,
+          "query": "Motional autonomous vehicle robotaxi startup funding history",
+          "relevance_score": 0.7460839
+        },
+        {
+          "title": "DiDi Autonomous Driving Information - RocketReach",
+          "url": "https://rocketreach.co/didi-autonomous-driving-profile_b4b90662fb239f7e",
+          "published_date": null,
+          "query": "DiDi Autonomous Driving founded year headquarters employees robotaxi",
+          "relevance_score": 0.7458619
+        },
+        {
+          "title": "Momenta - 2026 Company Profile, Team, Funding & Competitors",
+          "url": "https://tracxn.com/d/companies/momenta/__NfzRgUgM6GIdxAUZddxeZXdlYVPpgJldt8daZH8PFQ4",
+          "published_date": null,
+          "query": "Momenta autonomous vehicle robotaxi startup funding founding year headquarters",
+          "relevance_score": 0.7336813
+        },
+        {
+          "title": "Top Autonomous Vehicle Startups by Fundraising (2026)",
+          "url": "https://newmarketpitch.com/blogs/news/autonomous-vehicle-top-startups-fundraising",
+          "published_date": null,
+          "query": "autonomous vehicle robotaxi VC funding 2023 2024 total investment deals",
+          "relevance_score": 0.7311551
+        },
+        {
+          "title": "WeRide (Automotive) 2026 Company Profile",
+          "url": "https://pitchbook.com/profiles/company/184736-35",
+          "published_date": null,
+          "query": "WeRide founded year headquarters employees key differentiator",
+          "relevance_score": 0.7300017
+        },
+        {
+          "title": "WeRide\uff08an autonomous driving technology company ...",
+          "url": "https://baike.baidu.com/en/item/WeRide/997028",
+          "published_date": null,
+          "query": "WeRide founded year headquarters employees key differentiator",
+          "relevance_score": 0.72559077
+        },
+        {
+          "title": "DiDi Autonomous Driving - Company Profile - TrueUp",
+          "url": "https://www.trueup.io/co/didi-autonomous",
+          "published_date": null,
+          "query": "DiDi Autonomous Driving founded year headquarters employees robotaxi",
+          "relevance_score": 0.72559077
+        },
+        {
+          "title": "Nuro 2026 Company Profile: Valuation, Funding & Investors",
+          "url": "https://pitchbook.com/profiles/company/166438-45",
+          "published_date": null,
+          "query": "Nuro autonomous vehicle founded year headquarters employees 2024",
+          "relevance_score": 0.7213709
+        },
+        {
+          "title": "WeRide",
+          "url": "https://www.linkedin.com/company/werideai",
+          "published_date": null,
+          "query": "WeRide founded year headquarters employees key differentiator",
+          "relevance_score": 0.7206637
+        },
+        {
+          "title": "HAOMO.AI\uff08an artificial intelligence technology company dedicated ...",
+          "url": "https://baike.baidu.com/en/item/HAOMO.AI/16066",
+          "published_date": null,
+          "query": "Haomo.AI autonomous vehicle startup funding founding year headquarters",
+          "relevance_score": 0.7128128
+        },
+        {
+          "title": "Self-Driving Firm Momenta Seeks Funding at $5 Billion-Plus Value",
+          "url": "https://www.bloomberg.com/news/articles/2025-09-26/self-driving-firm-momenta-seeks-funding-at-5-billion-plus-value",
+          "published_date": null,
+          "query": "Momenta autonomous vehicle robotaxi startup funding founding year headquarters",
+          "relevance_score": 0.7116118
+        },
+        {
+          "title": "Waymo Finalizes Massive $16 Billion Funding at $110 ... - MLQ.ai",
+          "url": "https://mlq.ai/news/waymo-finalizes-massive-16-billion-funding-at-110-billion-valuation/",
+          "published_date": null,
+          "query": "Haomo.AI robotaxi funding round investors valuation employees",
+          "relevance_score": 0.7089592
+        },
+        {
+          "title": "Wayve Employee Directory, Headcount & Staff - LeadIQ",
+          "url": "https://leadiq.com/c/wayve/5c552430210000f9f2d50283/employee-directory",
+          "published_date": null,
+          "query": "Wayve AI autonomous driving founded year headquarters employees",
+          "relevance_score": 0.69820654
+        },
+        {
+          "title": "WeRide - 2026 Company Profile, Team, Funding & Competitors",
+          "url": "https://tracxn.com/d/companies/weride/__agVjNdUDYvkuGgdNWBKvJVKITJCqaJb_TKuXpu2JXa8",
+          "published_date": null,
+          "query": "WeRide autonomous vehicle robotaxi startup funding rounds 2024",
+          "relevance_score": 0.6977124
+        },
+        {
+          "title": "DiDi Autonomous Driving Raises $149 Million for Robotaxis - Skift",
+          "url": "https://skift.com/2023/10/13/didi-autonomous-driving-raises-149-million-for-robotaxis-startup-funding-roundup/",
+          "published_date": null,
+          "query": "autonomous vehicle robotaxi startup Seed Series A Series B funding 2023 2024",
+          "relevance_score": 0.6768127
+        },
+        {
+          "title": "Haomo.AI hits crossroads amid leadership shakeup and tech setbacks",
+          "url": "https://kr-asia.com/haomo-ai-hits-a-crossroads-amid-leadership-shakeup-and-tech-setbacks",
+          "published_date": null,
+          "query": "Haomo.AI autonomous vehicle startup funding founding year headquarters",
+          "relevance_score": 0.6711479
+        },
+        {
+          "title": "Avride Secures $375M to Advance Autonomous Vehicle Tech",
+          "url": "https://www.trysignalbase.com/news/funding/avride-secures-375m-to-advance-autonomous-vehicle-tech",
+          "published_date": null,
+          "query": "Avride AV startup headquarters employees latest funding round 2024",
+          "relevance_score": 0.6538572
+        },
+        {
+          "title": "DiDi - Products, Competitors, Financials, Employees ... - CB Insights",
+          "url": "https://www.cbinsights.com/company/didi-kuaidi",
+          "published_date": null,
+          "query": "DiDi Autonomous Driving founded year headquarters employees robotaxi",
+          "relevance_score": 0.6429039
+        },
+        {
+          "title": "Uber's Zoox deal latest in broad autonomous vehicle push",
+          "url": "https://247wallst.com/investing/2026/03/11/ubers-zoox-deal-latest-in-broad-autonomous-vehicle-push/",
+          "published_date": null,
+          "query": "robotaxi autonomous vehicle funding deals 2023 2024 WeRide Wayve Zoox Cruise total VC investment year over year",
+          "relevance_score": 0.6420965
+        },
+        {
+          "title": "About WeRide",
+          "url": "https://www.weride.ai/about",
+          "published_date": null,
+          "query": "WeRide founded year headquarters employees key differentiator",
+          "relevance_score": 0.6342494
+        },
+        {
+          "title": "Wayve - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Wayve",
+          "published_date": null,
+          "query": "autonomous vehicle robotaxi startup Seed Series A Series B funding 2023 2024",
+          "relevance_score": 0.63316137
+        },
+        {
+          "title": "Robotaxi Leader Waymo Confirms $16B Funding Round - AI Business",
+          "url": "https://aibusiness.com/iot/robotaxi-leader-waymo-confirms-16b-funding-round",
+          "published_date": null,
+          "query": "Haomo.AI robotaxi funding round investors valuation employees",
+          "relevance_score": 0.6279746
+        },
+        {
+          "title": "WeRide (WRD) Company Profile & Description",
+          "url": "https://stockanalysis.com/stocks/wrd/company/",
+          "published_date": null,
+          "query": "WeRide founded year headquarters employees key differentiator",
+          "relevance_score": 0.6205532
+        },
+        {
+          "title": "Motional Raises $550M Series B to Transform - SalesTools",
+          "url": "https://salestools.io/en/report/motional-550m-series-b-august-2025",
+          "published_date": null,
+          "query": "Motional autonomous vehicle robotaxi startup funding history",
+          "relevance_score": 0.62000114
+        },
+        {
+          "title": "WeRide secures Series C funding round, boosting the company's ...",
+          "url": "https://werideai.medium.com/weride-secures-series-c-funding-round-boosting-the-companys-valuation-to-us-3-3-billion-e05f55696005",
+          "published_date": null,
+          "query": "WeRide autonomous vehicle robotaxi startup funding rounds 2024",
+          "relevance_score": 0.6108487
+        },
+        {
+          "title": "Cruise, Motional backers slash robotaxi funding - The Robot Report",
+          "url": "https://www.therobotreport.com/cruise-motional-backers-slash-robotaxi-funding/",
+          "published_date": null,
+          "query": "Motional autonomous vehicle robotaxi startup funding history",
+          "relevance_score": 0.60498303
+        },
+        {
+          "title": "Avride Secures Strategic Investment of up to $375M - VC News Daily",
+          "url": "https://vcnewsdaily.com/avride/venture-capital-funding/rxvkvnrgpy",
+          "published_date": null,
+          "query": "Avride AV startup headquarters employees latest funding round 2024",
+          "relevance_score": 0.59372765
+        },
+        {
+          "title": "Robotaxi Tech Startup Gets $1.5 Billion From Uber, Nvidia, Microsoft",
+          "url": "https://www.tomorrowsworldtoday.com/manufacturing/robotaxi-tech-startup-gets-1-5-billion-from-uber-nvidia-microsoft/",
+          "published_date": null,
+          "query": "autonomous vehicle robotaxi startup Seed Series A Series B funding 2023 2024",
+          "relevance_score": 0.59033114
+        },
+        {
+          "title": "Waymo Lands $16B to Scale Robotaxis Globally at $126B Valuation",
+          "url": "https://www.techbuzz.ai/articles/waymo-lands-16b-to-scale-robotaxis-globally-at-126b-valuation",
+          "published_date": null,
+          "query": "Haomo.AI robotaxi funding round investors valuation employees",
+          "relevance_score": 0.58948064
+        },
+        {
+          "title": "Weekly Top 5 Startup Funding Roundup \u2013 Crusoe, Avride, Redwood ...",
+          "url": "https://intellizence.com/insights/startup-funding/weekly-top-5-startup-funding-roundup-crusoe-avride-redwood-uniphore-sesame-raise-over-2-6-billion/",
+          "published_date": null,
+          "query": "Avride AV startup headquarters employees latest funding round 2024",
+          "relevance_score": 0.5837973
+        },
+        {
+          "title": "Self-Driving Startup Wayve Raises $1.5 Billion for Robotaxi Wars",
+          "url": "https://www.bloomberg.com/news/articles/2026-02-25/self-driving-startup-wayve-raises-1-5-billion-for-robotaxi-wars",
+          "published_date": null,
+          "query": "Wayve Nuro Motional Avride WeRide Momenta Waabi robotaxi startup Series A Series B funding 2023 2024",
+          "relevance_score": 0.57322514
+        },
+        {
+          "title": "Mercedes, Stellantis, Uber and others invest in Wayve - electrive.com",
+          "url": "https://www.electrive.com/2026/02/26/mercedes-stellantis-uber-and-others-invest-in-wayve/",
+          "published_date": null,
+          "query": "robotaxi autonomous vehicle funding deals 2023 2024 WeRide Wayve Zoox Cruise total VC investment year over year",
+          "relevance_score": 0.57006866
+        },
+        {
+          "title": "Nuro",
+          "url": "https://www.nuro.ai/",
+          "published_date": null,
+          "query": "Nuro autonomous vehicle founded year headquarters employees 2024",
+          "relevance_score": 0.5689194
+        },
+        {
+          "title": "Haomo Zhixing Technology - 2026 Company Profile & Team - Tracxn",
+          "url": "https://tracxn.com/d/companies/haomozhixingtechnology/__hPu_HnZ3ZaHHt73Qwm2HHBUxhxrWVYF2zonVAQ93JQA",
+          "published_date": null,
+          "query": "Haomo.AI autonomous vehicle startup funding founding year headquarters",
+          "relevance_score": 0.5677694
+        },
+        {
+          "title": "Is $16B enough to build a profitable robotaxi business?",
+          "url": "https://mobility.techcrunch.com/p/is-16b-enough-to-build-a-profitable-robotaxi-business",
+          "published_date": null,
+          "query": "autonomous vehicle robotaxi startup Seed Series A Series B funding 2023 2024",
+          "relevance_score": 0.56575525
+        },
+        {
+          "title": "Uber taps Rivian to build robotaxis in deal worth up to $1.25B",
+          "url": "https://techcrunch.com/2026/03/19/uber-taps-rivian-to-build-robotaxis-in-deal-worth-up-to-1-25b/",
+          "published_date": null,
+          "query": "new robotaxi company recently funded 2023 2024 new entrant",
+          "relevance_score": 0.56460327
+        },
+        {
+          "title": "Nuro - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nuro",
+          "published_date": null,
+          "query": "Nuro autonomous vehicle founded year headquarters employees 2024",
+          "relevance_score": 0.54840803
+        },
+        {
+          "title": "Uber leads $375M investment in Avride - Austin Business Journal",
+          "url": "https://www.bizjournals.com/austin/news/2025/10/22/austin-autonomous-vehicles-co-raises-millions.html",
+          "published_date": null,
+          "query": "Avride AV startup headquarters employees latest funding round 2024",
+          "relevance_score": 0.5462305
+        },
+        {
+          "title": "Waymo raises $16 billion to take its robotaxi business 'global'",
+          "url": "https://www.theverge.com/transportation/872651/waymo-raises-16-billion-investment-value-robotaxi",
+          "published_date": null,
+          "query": "robotaxi startup funding rounds investors 2023 2024 Waymo Cruise Zoox",
+          "relevance_score": 0.5412882
+        },
+        {
+          "title": "Haomo Scores Nearly RMB 1 Billion in Series A, Reaching Unicorn ...",
+          "url": "https://www.businesswire.com/news/home/20211221005809/en/Haomo-Scores-Nearly-RMB-1-Billion-in-Series-A-Reaching-Unicorn-Status",
+          "published_date": null,
+          "query": "Haomo.AI autonomous vehicle startup funding founding year headquarters",
+          "relevance_score": 0.53385985
+        },
+        {
+          "title": "Haomo.AI - Crunchbase Company Profile & Funding",
+          "url": "https://www.crunchbase.com/organization/haomo-ai",
+          "published_date": null,
+          "query": "Haomo.AI autonomous vehicle startup funding founding year headquarters",
+          "relevance_score": 0.52173984
+        },
+        {
+          "title": "Uber's Next Robotaxi Deal: Amazon's Zoox - Forbes",
+          "url": "https://www.forbes.com/sites/alanohnsman/2026/03/11/ubers-next-robotaxi-deal-amazons-zoox/",
+          "published_date": null,
+          "query": "robotaxi autonomous vehicle funding deals 2023 2024 WeRide Wayve Zoox Cruise total VC investment year over year",
+          "relevance_score": 0.51822984
+        },
+        {
+          "title": "Uber investing up to $1.25 billion in Rivian, eyes ... - Yahoo Finance",
+          "url": "https://finance.yahoo.com/news/uber-investing-up-to-125-billion-in-rivian-eyes-50000-car-expansion-of-robotaxi-fleet-120000004.html",
+          "published_date": null,
+          "query": "autonomous vehicle robotaxi VC funding 2023 2024 total investment deals",
+          "relevance_score": 0.51530343
+        },
+        {
+          "title": "U.K.'s Wayve Snags Up To $1.5 Billion To Scale 'Plug-And-Play ...",
+          "url": "https://www.forbes.com/sites/alanohnsman/2026/02/24/wayve-snags-up-to-15-billion-to-scale-plug-and-play-robotaxi-software/",
+          "published_date": null,
+          "query": "Wayve Nuro Motional Avride WeRide Momenta Waabi robotaxi startup Series A Series B funding 2023 2024",
+          "relevance_score": 0.5139862
+        },
+        {
+          "title": "Waabi secures $1 Billion in new funding to lead Physical AI revolution",
+          "url": "https://waabi.ai/insights/waabi-secures-1-billion-in-new-funding-to-lead-physical-ai-revolution",
+          "published_date": null,
+          "query": "Wayve Nuro Motional Avride WeRide Momenta Waabi robotaxi startup Series A Series B funding 2023 2024",
+          "relevance_score": 0.51310796
+        },
+        {
+          "title": "Momenta - Overview, News & Similar companies | ZoomInfo.com",
+          "url": "https://www.zoominfo.com/c/momenta/458079580",
+          "published_date": null,
+          "query": "Momenta autonomous vehicle robotaxi startup funding founding year headquarters",
+          "relevance_score": 0.5078369
+        },
+        {
+          "title": "Avride secures strategic investment and other commitments of up to ...",
+          "url": "https://medium.com/avride/avride-secures-strategic-investment-and-other-commitments-of-up-to-375-million-backed-by-uber-and-c3cda08da42d",
+          "published_date": null,
+          "query": "Avride AV startup headquarters employees latest funding round 2024",
+          "relevance_score": 0.5073975
+        },
+        {
+          "title": "Wayve secures $1.5B to deploy its global autonomy platform",
+          "url": "https://wayve.ai/press/series-d/",
+          "published_date": null,
+          "query": "robotaxi autonomous vehicle funding deals 2023 2024 WeRide Wayve Zoox Cruise total VC investment year over year",
+          "relevance_score": 0.5021246
+        },
+        {
+          "title": "Momenta, China's leading autonomous driving company, receives a ...",
+          "url": "https://www.prnewswire.com/news-releases/momenta-chinas-leading-autonomous-driving-company-receives-a-new-round-of-funding-at-a-valuation-over-1-billion-300732853.html",
+          "published_date": null,
+          "query": "Momenta autonomous vehicle robotaxi startup funding founding year headquarters",
+          "relevance_score": 0.50183165
+        },
+        {
+          "title": "Waymo's $16B Valuation: Talent War in the Autonomous Vehicle ...",
+          "url": "https://www.linkedin.com/posts/zuhayeer_waymo-just-raised-16-billion-at-a-126-billion-activity-7424621257054339075-iEh9",
+          "published_date": null,
+          "query": "Haomo.AI robotaxi funding round investors valuation employees",
+          "relevance_score": 0.50065976
+        },
+        {
+          "title": "Waymo, Cruise and Zoox Inch Forward Ahead of Tesla Joining ...",
+          "url": "https://avamerica.org/waymo-cruise-and-zoox-inch-forward-ahead-of-tesla-joining-robotaxi-race/",
+          "published_date": null,
+          "query": "robotaxi startup funding rounds investors 2023 2024 Waymo Cruise Zoox",
+          "relevance_score": 0.49685127
+        },
+        {
+          "title": "Autonomous trucking startup Waabi raises $750 million to ... - CNBC",
+          "url": "https://www.cnbc.com/2026/01/28/autonomous-startup-waabi-raises-750-million-to-expand-into-robotaxis.html",
+          "published_date": null,
+          "query": "Wayve Nuro Motional Avride WeRide Momenta Waabi robotaxi startup Series A Series B funding 2023 2024",
+          "relevance_score": 0.4674539
+        },
+        {
+          "title": "Waymo valued at $126 billion in latest financing as robotaxis gather ...",
+          "url": "https://www.reuters.com/business/waymo-valued-126-billion-latest-financing-2026-02-02/",
+          "published_date": null,
+          "query": "robotaxi startup funding rounds investors 2023 2024 Waymo Cruise Zoox",
+          "relevance_score": 0.459295
+        },
+        {
+          "title": "Nuro - Overview, News & Similar companies | ZoomInfo.com",
+          "url": "https://www.zoominfo.com/c/nuro/447298598",
+          "published_date": null,
+          "query": "Nuro autonomous vehicle founded year headquarters employees 2024",
+          "relevance_score": 0.42319635
+        },
+        {
+          "title": "7 New Robotaxi Cities, $20b CAPEX, $2b Investment in xAI",
+          "url": "https://avmarketstrategist.substack.com/p/tesla-all-in-autonomy-7-new-robotaxi",
+          "published_date": null,
+          "query": "new robotaxi company recently funded 2023 2024 new entrant",
+          "relevance_score": 0.41307515
+        },
+        {
+          "title": "Uber to invest up to $1.25B in Rivian to help launch robotaxis",
+          "url": "https://www.youtube.com/watch?v=QCQsClel4P0",
+          "published_date": null,
+          "query": "new robotaxi company recently funded 2023 2024 new entrant",
+          "relevance_score": 0.41122967
+        },
+        {
+          "title": "Nuro | LinkedIn",
+          "url": "https://www.linkedin.com/company/nuro-inc.",
+          "published_date": null,
+          "query": "Nuro autonomous vehicle founded year headquarters employees 2024",
+          "relevance_score": 0.4071218
+        },
+        {
+          "title": "Uber investing in EV maker Rivian for robotaxi launch - WTAJ",
+          "url": "https://www.wtaj.com/news/consumer-news/uber-investing-in-ev-maker-rivian-for-robotaxi-launch/",
+          "published_date": null,
+          "query": "new robotaxi company recently funded 2023 2024 new entrant",
+          "relevance_score": 0.27963957
+        },
+        {
+          "title": "Rivian Stock Pops on $1.25 Billion Robotaxi Deal With Uber",
+          "url": "https://www.businessinsider.com/uber-rivian-deal-robotaxi-fleet-investment-autonomous-2026-3",
+          "published_date": null,
+          "query": "new robotaxi company recently funded 2023 2024 new entrant",
+          "relevance_score": 0.2714181
+        }
+      ],
+      "search_count": 110,
+      "time_seconds": 51.2,
+      "error": null
+    }
+  ]
+}

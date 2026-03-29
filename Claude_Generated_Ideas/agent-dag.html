@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent DAG — Final State</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0b; color: #f0f0f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 40px 20px; min-height: 100vh; }
+
+.dag { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+
+/* ── Header ── */
+.header { text-align: center; margin-bottom: 32px; }
+.header h1 { font-size: 20px; font-weight: 500; margin-bottom: 4px; }
+.header .company { color: #22c55e; }
+.header .company.running { color: #7c5aff; }
+.header .meta { font-size: 12px; color: rgba(255,255,255,0.35); }
+
+/* ── Nodes ── */
+.node { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.node-circle { width: 56px; height: 56px; border-radius: 50%; border: 2px solid; display: flex; align-items: center; justify-content: center; font-size: 18px; background: rgba(255,255,255,0.03); }
+.node-label { font-size: 13px; font-weight: 500; text-align: center; }
+.node-time { font-size: 10px; color: rgba(255,255,255,0.3); }
+
+.node-complete .node-circle { border-color: #22c55e; color: #22c55e; }
+.node-complete .node-label { color: #22c55e; }
+.node-running .node-circle { border-color: #7c5aff; color: #7c5aff; animation: pulse 1.5s ease-in-out infinite; }
+.node-running .node-label { color: #7c5aff; }
+.node-pending .node-circle { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.2); }
+.node-pending .node-label { color: rgba(255,255,255,0.3); }
+
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(124,90,255,0.3); } 50% { box-shadow: 0 0 0 8px rgba(124,90,255,0); } }
+
+/* ── Vertical connector with arrow ── */
+.v-connector { display: flex; flex-direction: column; align-items: center; }
+.v-line { width: 2px; height: 32px; }
+.v-line.solid { background: rgba(255,255,255,0.12); }
+.v-line.solid.complete { background: #22c55e; }
+.v-line.dashed { border-left: 2px dashed rgba(255,255,255,0.12); height: 32px; }
+.v-line.dashed.complete { border-color: rgba(34,197,94,0.5); }
+.v-arrow { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid rgba(255,255,255,0.12); }
+.v-arrow.complete { border-top-color: #22c55e; }
+
+/* ── Horizontal bar connecting branches ── */
+.h-bar { height: 2px; background: rgba(255,255,255,0.12); }
+.h-bar.complete { background: #22c55e; }
+
+/* ── Three branches layout ── */
+.branches { display: flex; justify-content: center; position: relative; }
+.branch { display: flex; flex-direction: column; align-items: center; width: 260px; }
+
+/* ── Sub-agent phases ── */
+.sub-phases { display: flex; flex-direction: column; align-items: center; gap: 0; margin-top: 10px; }
+.phase-row { display: flex; align-items: center; gap: 6px; padding: 4px 0; }
+.phase-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.phase-dot.complete { background: #22c55e; }
+.phase-dot.running { background: #7c5aff; animation: dotPulse 1s infinite; }
+.phase-dot.pending { background: rgba(255,255,255,0.15); }
+@keyframes dotPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+.phase-label { font-size: 11px; color: rgba(255,255,255,0.5); }
+.phase-label.complete { color: rgba(255,255,255,0.7); }
+.phase-label.running { color: #a78bfa; font-weight: 500; }
+
+/* ── Detail chips ── */
+.detail-expansion { margin: 6px 0; padding: 8px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); }
+.detail-header { font-size: 10px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; text-align: center; }
+.detail-grid { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; max-width: 220px; }
+.detail-chip { display: flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); font-size: 9px; color: rgba(255,255,255,0.5); white-space: nowrap; }
+.detail-chip.complete { border-color: rgba(34,197,94,0.2); }
+.detail-chip .chip-dot { width: 5px; height: 5px; border-radius: 50%; }
+.detail-chip.complete .chip-dot { background: #22c55e; }
+.detail-chip.running .chip-dot { background: #7c5aff; }
+.detail-chip.pending .chip-dot { background: rgba(255,255,255,0.15); }
+
+/* ── Merge dots ── */
+.merge-dots { display: flex; gap: 4px; justify-content: center; padding: 8px 0; }
+.merge-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+.merge-dots.complete .merge-dot { background: #22c55e; }
+
+/* ── Divider ── */
+.section-divider { margin: 80px 0 40px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 2px; width: 100%; max-width: 600px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- COMPLETED STATE                                        -->
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div class="dag">
+  
+  <div class="header">
+    <h1>Competitive Landscape — <span class="company">Unilever</span> × Cloud Infrastructure</h1>
+    <div class="meta">Completed · 142.3s</div>
+  </div>
+
+  <!-- Orchestrator -->
+  <div class="node node-complete">
+    <div class="node-circle">⌘</div>
+    <div class="node-label">Unilever × Cloud Infrastructure</div>
+  </div>
+
+  <!-- Arrow: orchestrator → horizontal bar -->
+  <div class="v-connector">
+    <div class="v-line solid complete"></div>
+    <div class="v-arrow complete"></div>
+  </div>
+
+  <!-- Horizontal bar spanning all 3 branches -->
+  <div class="h-bar complete" style="width: 520px;"></div>
+
+  <!-- Three branches -->
+  <div class="branches">
+
+    <!-- Incumbents -->
+    <div class="branch">
+      <div class="v-connector">
+        <div class="v-line solid complete"></div>
+        <div class="v-arrow complete"></div>
+      </div>
+      <div class="node node-complete">
+        <div class="node-circle">◆</div>
+        <div class="node-label">Incumbents</div>
+        <div class="node-time">34.2s</div>
+      </div>
+      <div class="sub-phases">
+        <div class="phase-row">
+          <div class="phase-dot complete"></div>
+          <span class="phase-label complete">Discovery</span>
+        </div>
+        <div class="detail-expansion">
+          <div class="detail-header">Detail Agents (8)</div>
+          <div class="detail-grid">
+            <div class="detail-chip complete"><span class="chip-dot"></span>AWS</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Azure</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>GCP</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Alibaba</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Oracle</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>IBM</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>DigitalOcean</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Linode</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Emerging -->
+    <div class="branch">
+      <div class="v-connector">
+        <div class="v-line solid complete"></div>
+        <div class="v-arrow complete"></div>
+      </div>
+      <div class="node node-complete">
+        <div class="node-circle">▲</div>
+        <div class="node-label">Emerging</div>
+        <div class="node-time">48.7s</div>
+      </div>
+      <div class="sub-phases">
+        <div class="phase-row">
+          <div class="phase-dot complete"></div>
+          <span class="phase-label complete">Discovery</span>
+        </div>
+        <div class="detail-expansion">
+          <div class="detail-header">Detail Agents (7)</div>
+          <div class="detail-grid">
+            <div class="detail-chip complete"><span class="chip-dot"></span>CoreWeave</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Lambda</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Vultr</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Corelight</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Oxide</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Fly.io</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Railway</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Market Sizing -->
+    <div class="branch">
+      <div class="v-connector">
+        <div class="v-line solid complete"></div>
+        <div class="v-arrow complete"></div>
+      </div>
+      <div class="node node-complete">
+        <div class="node-circle">●</div>
+        <div class="node-label">Market Sizing</div>
+        <div class="node-time">22.1s</div>
+      </div>
+      <div class="sub-phases">
+        <div class="phase-row">
+          <div class="phase-dot complete"></div>
+          <span class="phase-label complete">Research</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Merge -->
+  <div class="merge-dots complete">
+    <div class="merge-dot"></div>
+    <div class="merge-dot"></div>
+    <div class="merge-dot"></div>
+  </div>
+
+  <!-- Arrow: merge → synthesis -->
+  <div class="v-connector">
+    <div class="v-line dashed complete"></div>
+    <div class="v-arrow complete"></div>
+  </div>
+
+  <!-- Synthesis -->
+  <div class="node node-complete">
+    <div class="node-circle" style="border-color: #a78bfa; color: #a78bfa;">◇</div>
+    <div class="node-label" style="color: #a78bfa;">Synthesis</div>
+    <div class="node-time">37.3s</div>
+  </div>
+  <div class="sub-phases">
+    <div class="phase-row">
+      <div class="phase-dot complete" style="background: #a78bfa;"></div>
+      <span class="phase-label complete">Company Research</span>
+    </div>
+    <div class="phase-row">
+      <div class="phase-dot complete" style="background: #a78bfa;"></div>
+      <span class="phase-label complete">Cross-Reference</span>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MID-RUN STATE                                          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div class="dag">
+  <div class="section-divider">Mid-run state (agents in progress)</div>
+
+  <div class="header">
+    <h1>Competitive Landscape — <span class="company running">Unilever</span> × Cloud Infrastructure</h1>
+    <div class="meta">Running · 31.2s</div>
+  </div>
+
+  <!-- Orchestrator -->
+  <div class="node node-running">
+    <div class="node-circle">⌘</div>
+    <div class="node-label">Unilever × Cloud Infrastructure</div>
+  </div>
+
+  <div class="v-connector">
+    <div class="v-line solid complete"></div>
+    <div class="v-arrow complete"></div>
+  </div>
+
+  <div class="h-bar complete" style="width: 520px;"></div>
+
+  <div class="branches">
+
+    <!-- Incumbents — detail running -->
+    <div class="branch">
+      <div class="v-connector">
+        <div class="v-line solid complete"></div>
+        <div class="v-arrow complete"></div>
+      </div>
+      <div class="node node-running">
+        <div class="node-circle" style="border-color: #3b82f6; color: #3b82f6;">◆</div>
+        <div class="node-label" style="color: #3b82f6;">Incumbents</div>
+        <div class="node-time">18.4s</div>
+      </div>
+      <div class="sub-phases">
+        <div class="phase-row">
+          <div class="phase-dot complete"></div>
+          <span class="phase-label complete">Discovery</span>
+        </div>
+        <div class="detail-expansion">
+          <div class="detail-header">Detail Agents (8)</div>
+          <div class="detail-grid">
+            <div class="detail-chip complete"><span class="chip-dot"></span>AWS</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>Azure</div>
+            <div class="detail-chip complete"><span class="chip-dot"></span>GCP</div>
+            <div class="detail-chip running"><span class="chip-dot"></span>Alibaba</div>
+            <div class="detail-chip running"><span class="chip-dot"></span>Oracle</div>
+            <div class="detail-chip running"><span class="chip-dot"></span>IBM</div>
+            <div class="detail-chip pending"><span class="chip-dot"></span>DigitalOcean</div>
+            <div class="detail-chip pending"><span class="chip-dot"></span>Linode</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Emerging — detail running -->
+    <div class="branch">
+      <div class="v-connector">
+        <div class="v-line solid complete"></div>
+        <div class="v-arrow complete"></div>
+      </div>
+      <div class="node node-running">
+        <div class="node-circle" style="border-color: #f59e0b; color: #f59e0b;">▲</div>
+        <div class="node-label" style="color: #f59e0b;">Emerging</div>
+        <div class="node-time">12.1s</div>
+      </div>
+      <div class="sub-phases">
+        <div class="phase-row">
+          <div class="phase-dot complete"></div>
+          <span class="phase-label complete">Discovery</span>
+        </div>
+        <div class="detail-expansion">
+          <div class="detail-header">Detail Agents (7)</div>
+          <div class="detail-grid">
+            <div class="detail-chip complete"><span class="chip-dot"></span>CoreWeave</div>
+            <div class="detail-chip running"><span class="chip-dot"></span>Lambda</div>
+            <div class="detail-chip running"><span class="chip-dot"></span>Vultr</div>
+            <div class="detail-chip pending"><span class="chip-dot"></span>Corelight</div>
+            <div class="detail-chip pending"><span class="chip-dot"></span>Oxide</div>
+            <div class="detail-chip pending"><span class="chip-dot"></span>Fly.io</div>
+            <div class="detail-chip pending"><span class="chip-dot"></span>Railway</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Market Sizing — running -->
+    <div class="branch">
+      <div class="v-connector">
+        <div class="v-line solid complete"></div>
+        <div class="v-arrow complete"></div>
+      </div>
+      <div class="node node-running">
+        <div class="node-circle" style="border-color: #06b6d4; color: #06b6d4;">●</div>
+        <div class="node-label" style="color: #06b6d4;">Market Sizing</div>
+        <div class="node-time">8.3s</div>
+      </div>
+      <div class="sub-phases">
+        <div class="phase-row">
+          <div class="phase-dot running"></div>
+          <span class="phase-label running">Research</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Merge — pending -->
+  <div class="merge-dots">
+    <div class="merge-dot"></div>
+    <div class="merge-dot"></div>
+    <div class="merge-dot"></div>
+  </div>
+
+  <div class="v-connector">
+    <div class="v-line dashed"></div>
+    <div class="v-arrow"></div>
+  </div>
+
+  <!-- Synthesis — pending -->
+  <div class="node node-pending">
+    <div class="node-circle">◇</div>
+    <div class="node-label">Synthesis</div>
+  </div>
+  <div class="sub-phases">
+    <div class="phase-row">
+      <div class="phase-dot pending"></div>
+      <span class="phase-label">Company Research</span>
+    </div>
+    <div class="phase-row">
+      <div class="phase-dot pending"></div>
+      <span class="phase-label">Cross-Reference</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
