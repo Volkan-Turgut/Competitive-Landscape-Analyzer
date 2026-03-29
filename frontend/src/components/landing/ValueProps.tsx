@@ -26,7 +26,7 @@ const PROPS: { icon: LucideIcon; title: string; desc: string; glow: string }[] =
 export function ValueProps() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-16">
-      <GlowingCards gap="1.5rem" padding="0" glowRadius={20} maxWidth="100%">
+      <GlowingCards gap="1.5rem" padding="0" maxWidth="100%">
         {PROPS.map(({ icon: Icon, title, desc, glow }) => (
           <GlowingCard key={title} glowColor={glow} className="!rounded-xl">
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg" style={{ background: `${glow}1a` }}>

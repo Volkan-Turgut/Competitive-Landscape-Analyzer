@@ -77,7 +77,7 @@ export function Verdict({ verdict, allSources }: VerdictProps) {
         {verdict.summary}
       </p>
 
-      <GlowingCards gap="0.65rem" padding="0" glowRadius={15} maxWidth="100%">
+      <GlowingCards gap="0.65rem" padding="0" maxWidth="100%">
         {verdict.factors.map((f) => {
           const s = SIGNAL_STYLES[f.signal] || SIGNAL_STYLES.neutral;
           const glowColor = f.signal === "positive" ? "#22c55e" : f.signal === "negative" ? "#f59e0b" : "#8b5cf6";

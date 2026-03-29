@@ -173,8 +173,6 @@ export const DottedGlowBackground: React.FC<DottedGlowBackgroundProps> = ({
 
     regenDots();
 
-    let last = performance.now();
-
     const draw = (now: number) => {
       if (stopped) return;
       if (!isVisible) {
@@ -230,7 +228,6 @@ export const DottedGlowBackground: React.FC<DottedGlowBackgroundProps> = ({
       }
       ctx.restore();
 
-      last = now;
       raf = requestAnimationFrame(draw);
     };
 

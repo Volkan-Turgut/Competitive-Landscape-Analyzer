@@ -84,7 +84,7 @@ export function SourceBar(props: any) {
     <foreignObject x={x} y={y} width={Math.max(width, 1)} height={height} style={{ overflow: "visible" }}>
       <TooltipProvider delay={100}>
         <Tooltip>
-          <TooltipTrigger asChild>
+          <TooltipTrigger>
             <div style={{ width: Math.max(width, 1), height, background: fill, borderRadius: "0 4px 4px 0", cursor: "pointer" }} />
           </TooltipTrigger>
           <TooltipContent side="top" sideOffset={8} className={TOOLTIP_CLASS}>
@@ -150,7 +150,7 @@ export function SourcePieChart({ data, height = 320 }: { data: PieSliceData[]; h
             outerRadius={110}
             dataKey="value"
             stroke="none"
-            label={({ name, value }) => `${name.split(" ")[0]} ${value}%`}
+            label={({ name, value }) => `${(name ?? "").split(" ")[0]} ${value}%`}
             isAnimationActive={!hasAnimated}
             animationBegin={0}
             animationDuration={800}

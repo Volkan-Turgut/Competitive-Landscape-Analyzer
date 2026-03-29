@@ -37,7 +37,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function SynthesisView({ verdict, company, market, incumbents, emergingCompetitors, capitalFlow, marketSizing }: SynthesisViewProps) {
+export function SynthesisView({ verdict, company, incumbents, emergingCompetitors, capitalFlow, marketSizing }: SynthesisViewProps) {
   if (!verdict) {
     return <div style={{ color: "var(--text-tertiary)", padding: 40, textAlign: "center" }}>No synthesis data available</div>;
   }

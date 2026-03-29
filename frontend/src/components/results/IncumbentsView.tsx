@@ -2,7 +2,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 import type { Competitor, SourceRef } from "@/types";
 import { formatCurrency, formatPercent } from "@/lib/utils";
 import { SourceTooltip } from "@/components/ui/SourceTooltip";
-import { ChartContainer, NoData, PIE_COLORS, CHART_COLORS, SourceBar, SourcePieChart } from "./Charts";
+import { ChartContainer, NoData, CHART_COLORS, SourceBar, SourcePieChart } from "./Charts";
 import { useInView } from "@/hooks/useInView";
 
 interface IncumbentsViewProps {
