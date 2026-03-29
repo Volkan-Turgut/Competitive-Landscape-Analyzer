@@ -1,6 +1,11 @@
 import os
+from pathlib import Path
 
 from pydantic_settings import BaseSettings
+
+# Look for .env at project root (../../ from this file) or CWD
+_project_root = Path(__file__).resolve().parent.parent.parent.parent
+_env_file = _project_root / ".env" if (_project_root / ".env").exists() else ".env"
 
 
 class Settings(BaseSettings):
@@ -8,7 +13,7 @@ class Settings(BaseSettings):
     tavily_api_key: str = ""
     valyu_api_key: str = ""
 
-    model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
+    model_config = {"env_file": str(_env_file), "env_file_encoding": "utf-8"}
 
 
 settings = Settings()

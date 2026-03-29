@@ -18,6 +18,7 @@ const INITIAL_STATE: DAGState = {
     market_sizing: { ...INITIAL_AGENT },
     synthesis: { ...INITIAL_AGENT },
   },
+  detailNames: {},
   elapsed: 0,
 };
 
@@ -42,9 +43,15 @@ function reduceEvent(prev: DAGState, event: SSEEvent): DAGState {
       };
     }
 
+    // Capture detail_names if present
+    const newDetailNames = event.detail_names
+      ? { ...prev.detailNames, [agentId]: event.detail_names }
+      : prev.detailNames;
+
     return {
       ...prev,
       agents: { ...prev.agents, [agentId]: updated },
+      detailNames: newDetailNames,
     };
   }
 
@@ -72,12 +79,43 @@ function bootstrapFromResponse(data: AnalysisResponse): DAGState {
     }
     agents[agentId] = { status, subPhases };
   }
+  // Extract detail names from results if available (for completed analyses)
+  const detailNames: Record<string, string[]> = {};
+  if (data.results?.incumbents?.length) {
+    detailNames.incumbents = data.results.incumbents.map((c: any) => c.name);
+  }
+  if (data.results?.emerging_competitors?.length) {
+    detailNames.emerging = data.results.emerging_competitors.map((e: any) => e.name);
+  }
+
   return {
     analysisStatus: data.status as DAGState["analysisStatus"],
     recommendation: data.results?.verdict?.verdict,
     agents,
+    detailNames,
     elapsed: 0,
   };
+}
+
+function debugSave(filename: string, data: unknown) {
+  if (import.meta.env.DEV) {
+    fetch("/__debug/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ filename, data }),
+    }).catch(() => {});
+  }
+}
+
+function saveResults(data: AnalysisResponse) {
+  if (!data.results) return;
+  const r = data.results;
+  if (r.incumbents) debugSave("incumbents.json", r.incumbents);
+  if (r.emerging_competitors) debugSave("emerging_competitors.json", r.emerging_competitors);
+  if (r.market_sizing) debugSave("market_sizing.json", r.market_sizing);
+  if (r.capital_flow) debugSave("capital_flow.json", r.capital_flow);
+  if (r.verdict) debugSave("verdict.json", r.verdict);
+  debugSave("full_response.json", data);
 }
 
 export function useAnalysis(analysisId: string) {
@@ -98,6 +136,7 @@ export function useAnalysis(analysisId: string) {
           const state = bootstrapFromResponse(data);
           state.analysisStatus = "completed";
           setDagState(state);
+          saveResults(data);
         }
       })
       .catch(() => {
@@ -115,7 +154,7 @@ export function useAnalysis(analysisId: string) {
         (event.status === "completed" || event.status === "failed")
       ) {
         setShouldStream(false);
-        getAnalysis(analysisId).then(setAnalysisData);
+        getAnalysis(analysisId).then((data) => { setAnalysisData(data); saveResults(data); });
       }
     },
     [analysisId]

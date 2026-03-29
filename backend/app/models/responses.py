@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -126,4 +126,4 @@ class AnalysisResponse(BaseModel):
     workflow: WorkflowManifest | None = None
     agent_statuses: dict[str, str] = Field(default_factory=dict)
     agent_sub_phases: dict[str, dict[str, str]] = Field(default_factory=dict)
-    results: AnalysisResults | None = None
+    results: Any = None

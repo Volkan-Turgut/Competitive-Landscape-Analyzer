@@ -34,11 +34,11 @@ export function AnalysisForm() {
       className="mx-auto max-w-lg px-6 py-16"
     >
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6">
-          <h2 className="mb-1 text-lg font-medium text-[#f0f0f0]">
+        <div className="rounded-xl border border-[var(--border-primary)] bg-[var(--surface-glow)] p-6">
+          <h2 className="mb-1 text-lg font-medium text-[var(--text-primary)]">
             Run an analysis
           </h2>
-          <p className="mb-5 text-sm text-white/[0.45]">
+          <p className="mb-5 text-sm text-[var(--text-secondary)]">
             Enter a company and the market you want to evaluate.
           </p>
 
@@ -48,14 +48,14 @@ export function AnalysisForm() {
               placeholder="Company name (e.g. Notion)"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm text-[#f0f0f0] placeholder:text-white/30 focus:border-[#7c5aff] focus:outline-none focus:ring-1 focus:ring-[#7c5aff]"
+              className="w-full rounded-lg border border-[var(--border-secondary)] bg-[var(--bg-card-hover)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:border-[#7c5aff] focus:outline-none focus:ring-1 focus:ring-[#7c5aff]"
             />
             <input
               type="text"
               placeholder="Market / product space (e.g. AI-powered project management)"
               value={market}
               onChange={(e) => setMarket(e.target.value)}
-              className="w-full rounded-lg border border-white/[0.12] bg-white/[0.04] px-4 py-2.5 text-sm text-[#f0f0f0] placeholder:text-white/30 focus:border-[#7c5aff] focus:outline-none focus:ring-1 focus:ring-[#7c5aff]"
+              className="w-full rounded-lg border border-[var(--border-secondary)] bg-[var(--bg-card-hover)] px-4 py-2.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:border-[#7c5aff] focus:outline-none focus:ring-1 focus:ring-[#7c5aff]"
             />
           </div>
 

@@ -5,7 +5,7 @@ __pycache__/
 .venv/
 venv/
 
-# Environment
+# Environment / secrets
 .env
 backend/.env
 
@@ -15,25 +15,30 @@ frontend/dist/
 # IDE
 .vscode/
 .idea/
-
-# Excluded folders
-Claude_Generated_Ideas/
-Brainstorming/
-.claude/
-
-# Markdown docs (folder docs, architecture notes)
-*.md
-!README.md
-
-# Jupyter notebooks (brainstorming)
-*.ipynb
-*.json
-!frontend/package.json
-!frontend/tsconfig.json
-!frontend/tsconfig.app.json
-!frontend/tsconfig.node.json
-!frontend/components.json
+*.swp
+*.swo
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Excluded project folders
+Claude_Generated_Ideas/
+Brainstorming/
+.claude/
+
+# Internal architecture docs (folder docs)
+ARCHITECTURE.md
+**/*.md
+!README.md
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Debug output dumps
+frontend/src/data/debug/
+
+# Pytest
+.pytest_cache/
+*.egg-info/

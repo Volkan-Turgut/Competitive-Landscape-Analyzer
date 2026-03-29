@@ -1,5 +1,11 @@
 // TypeScript interfaces mirroring backend Pydantic models
 
+export interface SourceRef {
+  title: string;
+  url: string;
+  snippet?: string;
+}
+
 export interface AnalysisRequest {
   company: string;
   market: string;
@@ -17,6 +23,7 @@ export interface Competitor {
   revenue_arr_mm: number | null;
   pricing_model: string | null;
   pricing_range: string | null;
+  _sources?: Record<string, SourceRef[]>;
 }
 
 export interface FundingRound {
@@ -36,6 +43,7 @@ export interface EmergingCompetitor {
   latest_round: FundingRound | null;
   key_differentiator: string | null;
   employee_count: number | null;
+  _sources?: Record<string, SourceRef[]>;
 }
 
 export interface CapitalFlow {
@@ -50,6 +58,7 @@ export interface CapitalFlow {
     | "decelerating"
     | "nascent"
     | null;
+  _sources?: Record<string, SourceRef[]>;
 }
 
 export interface GrowthProjection {
@@ -59,12 +68,16 @@ export interface GrowthProjection {
   start_value_mm: number | null;
   end_value_mm: number | null;
   source: string | null;
+  source_url?: string | null;
+  source_title?: string | null;
 }
 
 export interface MarketSizeEstimate {
   value_mm: number | null;
   year: number | null;
   source: string | null;
+  source_url?: string | null;
+  source_title?: string | null;
 }
 
 export interface RegionalBreakdown {
@@ -86,6 +99,9 @@ export interface MarketSizingResult {
   key_headwinds: string[];
   data_confidence: "high" | "medium" | "low" | null;
   confidence_note: string | null;
+  tam_current_sources?: SourceRef[];
+  tam_projected_sources?: SourceRef[];
+  all_sources?: SourceRef[];
 }
 
 export interface VerdictFactor {
@@ -144,6 +160,7 @@ export interface AgentEvent {
   status: "pending" | "running" | "completed" | "failed";
   sub_phase?: string;
   sub_phase_status?: string;
+  detail_names?: string[];
   message?: string;
   timestamp: string;
   metadata?: { duration_ms?: number };
@@ -174,5 +191,6 @@ export interface DAGState {
   analysisStatus: "pending" | "running" | "completed" | "failed";
   recommendation?: "GO" | "NO-GO";
   agents: Record<string, AgentState>;
+  detailNames: Record<string, string[]>;
   elapsed: number;
 }

@@ -1,6 +1,7 @@
 """Incumbents research agent — multi-agent phased (discovery + detail x N + assembly)."""
 
 import asyncio
+import json
 import sys
 from typing import Literal
 
@@ -10,6 +11,7 @@ from pydantic_ai.usage import UsageLimits
 
 from app.agents.search import (
     SOURCE_CITATION_RULES,
+    build_sources_dict,
     collect_all_sources,
     make_search_tool,
     resolve_sources,
@@ -107,8 +109,8 @@ def _create_detail_agent(competitor_name: str, market: str, search_log: list) ->
 
 # ── Main entry point ────────────────────────────────────────
 
-async def run_incumbents(market: str, emit=None) -> list[Competitor]:
-    """Run the 3-phase incumbents analysis. Returns list of Competitor response models."""
+async def run_incumbents(market: str, emit=None) -> tuple[list[Competitor], list[dict | None]]:
+    """Run the 3-phase incumbents analysis. Returns (competitors, source_maps)."""
 
     all_log_lists: list[list[dict]] = []
 
@@ -134,6 +136,7 @@ async def run_incumbents(market: str, emit=None) -> list[Competitor]:
     sys.stdout.flush()
     if emit:
         await emit("discovery", "completed")
+        await emit("detail_names", json.dumps([dc.name for dc in discovered]))
 
     # ── Phase 2: Detail agents in parallel ──
     print(f"  [incumbents] Phase 2: Researching {len(discovered)} competitors in parallel...")
@@ -164,6 +167,7 @@ async def run_incumbents(market: str, emit=None) -> list[Competitor]:
         await emit("assembly", "running")
 
     competitors: list[Competitor] = []
+    source_maps: list[dict | None] = []
     for item in detail_results:
         if isinstance(item, Exception):
             print(f"    ERROR: {item}")
@@ -188,6 +192,7 @@ async def run_incumbents(market: str, emit=None) -> list[Competitor]:
                 pricing_range=detail.pricing_range,
             )
         )
+        source_maps.append(build_sources_dict(resolved))
 
     if emit:
         await emit("assembly", "completed")
@@ -196,4 +201,4 @@ async def run_incumbents(market: str, emit=None) -> list[Competitor]:
     print(f"  [incumbents] Done: {len(competitors)} competitors, {total_searches} total searches")
     sys.stdout.flush()
 
-    return competitors
+    return competitors, source_maps

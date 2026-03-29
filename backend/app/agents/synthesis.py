@@ -24,16 +24,32 @@ class FieldSource(BaseModel):
 
 
 class _VerdictFactor(BaseModel):
-    factor: str
-    assessment: str
+    factor: str = Field(
+        description="Factor name, 2-5 words max",
+        max_length=50,
+    )
+    assessment: str = Field(
+        description="One sentence assessment, max 120 chars. Be specific with numbers, not verbose.",
+        max_length=200,
+    )
     signal: Literal["positive", "negative", "neutral"]
 
 
 class SynthesisOutput(BaseModel):
     verdict: Literal["GO", "NO-GO"]
     confidence: float = Field(ge=0.0, le=1.0)
-    summary: str
-    factors: list[_VerdictFactor] = Field(default_factory=list)
+    summary: str = Field(
+        description=(
+            "3-4 sentences max. Lead with the verdict reasoning, include key numbers, "
+            "end with the main risk or opportunity. No more than 400 characters."
+        ),
+        max_length=500,
+    )
+    factors: list[_VerdictFactor] = Field(
+        min_length=4,
+        max_length=6,
+        description="4-6 factors. Each assessment is ONE punchy sentence with a specific data point.",
+    )
     sources: list[FieldSource] = Field(
         description="Cite [SOURCE N] for any company research data used in the assessment."
     )
@@ -98,7 +114,7 @@ async def run_synthesis(
     research_context = "\n\n".join(context_parts)
 
     agent = Agent(
-        model="anthropic:claude-sonnet-4-6",
+        model="anthropic:claude-opus-4-6",
         output_type=SynthesisOutput,
         retries=2,
         system_prompt=(
@@ -121,6 +137,11 @@ async def run_synthesis(
             "Return a GO or NO-GO verdict with confidence (0.0-1.0) and 4-6 factors.\n"
             "Each factor should have a clear assessment and signal (positive/negative/neutral).\n\n"
             f"MARKET RESEARCH RESULTS:\n{research_context}\n\n"
+            "FORMATTING RULES:\n"
+            "- summary: 3-4 sentences, under 400 characters\n"
+            "- Each factor assessment: ONE sentence with a specific number or data point, under 120 characters\n"
+            "- factor names: 2-5 words (e.g. 'Market Growth', 'Incumbent Grip', 'Capital Signal')\n"
+            "- Be direct and specific, not verbose\n\n"
             "CRITICAL: You have a MAXIMUM of 4 searches for company research. "
             "Focus on the most important company facts."
             + SOURCE_CITATION_RULES

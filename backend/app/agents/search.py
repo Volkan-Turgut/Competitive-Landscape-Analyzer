@@ -3,7 +3,7 @@
 import re
 import sys
 
-from tavily import TavilyClient
+from tavily import AsyncTavilyClient
 
 from app.core.config import settings
 
@@ -60,7 +60,7 @@ def clean_raw_content(text: str) -> str:
 def make_search_tool(log_list: list):
     """Create a Tavily search tool with numbered SOURCE indices."""
 
-    def search_web(query: str) -> str:
+    async def search_web(query: str) -> str:
         """Search the web for market research information.
 
         Args:
@@ -68,8 +68,8 @@ def make_search_tool(log_list: list):
         """
         print(f"    -> Searching: {query}")
         sys.stdout.flush()
-        client = TavilyClient(api_key=settings.tavily_api_key)
-        response = client.search(
+        client = AsyncTavilyClient(api_key=settings.tavily_api_key)
+        response = await client.search(
             query, search_depth="basic", max_results=5, include_raw_content=True
         )
         results = []
@@ -127,6 +127,20 @@ def resolve_sources(field_sources: list, search_log: list[dict]) -> list[dict]:
                 }
             )
     return resolved
+
+
+def build_sources_dict(resolved: list[dict]) -> dict[str, list[dict]] | None:
+    """Group resolved sources by field name into frontend _sources format."""
+    result: dict[str, list[dict]] = {}
+    for s in resolved:
+        if not s.get("url"):
+            continue
+        ref: dict[str, str] = {"title": s.get("title", ""), "url": s["url"]}
+        snippet = s.get("value_found")
+        if snippet:
+            ref["snippet"] = snippet
+        result.setdefault(s["field"], []).append(ref)
+    return result or None
 
 
 def collect_all_sources(log_lists: list[list[dict]]) -> list[dict]:

@@ -2,7 +2,7 @@ import uuid
 
 from app.agents.workflow import WORKFLOW_MANIFEST
 from app.core.events import create_queue
-from app.models.responses import AnalysisResponse, AnalysisResults
+from app.models.responses import AnalysisResponse
 
 
 _analyses: dict[str, AnalysisResponse] = {}
@@ -43,7 +43,7 @@ def update_sub_phase(analysis_id: str, agent_id: str, sub_phase: str, status: st
         analysis.agent_sub_phases[agent_id][sub_phase] = status
 
 
-def complete_analysis(analysis_id: str, results: AnalysisResults) -> None:
+def complete_analysis(analysis_id: str, results: dict) -> None:
     analysis = _analyses.get(analysis_id)
     if analysis:
         analysis.results = results

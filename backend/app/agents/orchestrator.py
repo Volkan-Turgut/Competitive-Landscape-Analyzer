@@ -30,6 +30,19 @@ def _make_agent_emitter(analysis_id: str, agent_id: str) -> EmitFn:
     """Create a sub-phase emitter closure for one agent."""
 
     async def emit(sub_phase: str, sub_phase_status: str) -> None:
+        # Special case: detail_names carries discovered agent names as JSON in sub_phase_status
+        if sub_phase == "detail_names":
+            await _emit(analysis_id, "status", {
+                "event_type": "agent_status",
+                "agent_id": agent_id,
+                "status": "running",
+                "sub_phase": "detail",
+                "sub_phase_status": "running",
+                "detail_names": json.loads(sub_phase_status),
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+            })
+            return
+
         update_sub_phase(analysis_id, agent_id, sub_phase, sub_phase_status)
         await _emit(analysis_id, "status", {
             "event_type": "agent_status",
@@ -102,19 +115,26 @@ async def run_orchestrator(analysis_id: str, company: str, market: str) -> None:
             await _emit_agent(analysis_id, agent_id, "completed",
                               duration_s=round(time.time() - t0, 1))
 
-    # Unpack
+    # Unpack — keep models for synthesis, save sources for later enrichment
     incumbents_result, emerging_result, market_sizing_result = research_results
 
+    inc_sources = None
+    ec_sources = None
+    cf_sources_dict = None
+    ms_sources_dict = None
+
     if not isinstance(incumbents_result, Exception):
-        results.incumbents = incumbents_result
+        inc_models, inc_sources = incumbents_result
+        results.incumbents = inc_models
 
     if not isinstance(emerging_result, Exception):
-        emerging_competitors, capital_flow = emerging_result
-        results.emerging_competitors = emerging_competitors
+        ec_models, capital_flow, ec_sources, cf_sources_dict = emerging_result
+        results.emerging_competitors = ec_models
         results.capital_flow = capital_flow
 
     if not isinstance(market_sizing_result, Exception):
-        results.market_sizing = market_sizing_result
+        ms_model, ms_sources_dict = market_sizing_result
+        results.market_sizing = ms_model
 
     # ── Phase 2: Synthesis ──
     syn_emit = _make_agent_emitter(analysis_id, "synthesis")
@@ -132,8 +152,28 @@ async def run_orchestrator(analysis_id: str, company: str, market: str) -> None:
         update_agent_status(analysis_id, "synthesis", "failed")
         await _emit_agent(analysis_id, "synthesis", "failed", error=str(e))
 
-    # ── Done ──
-    complete_analysis(analysis_id, results)
+    # ── Done — enrich models with _sources and store as dicts ──
+    def _enrich(models, source_maps):
+        maps = source_maps or [None] * len(models)
+        return [
+            {**m.model_dump(), **({"_sources": s} if s else {})}
+            for m, s in zip(models, maps)
+        ]
+
+    final = {
+        "incumbents": _enrich(results.incumbents, inc_sources),
+        "emerging_competitors": _enrich(results.emerging_competitors, ec_sources),
+        "capital_flow": (
+            {**results.capital_flow.model_dump(), **({"_sources": cf_sources_dict} if cf_sources_dict else {})}
+            if results.capital_flow else None
+        ),
+        "market_sizing": (
+            {**results.market_sizing.model_dump(), **({"_sources": ms_sources_dict} if ms_sources_dict else {})}
+            if results.market_sizing else None
+        ),
+        "verdict": results.verdict.model_dump() if results.verdict else None,
+    }
+    complete_analysis(analysis_id, final)
     await _emit(analysis_id, "complete", {
         "event_type": "analysis_status",
         "status": "completed",

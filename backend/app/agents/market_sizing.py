@@ -5,9 +5,10 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 from pydantic_ai import Agent
+from pydantic_ai.exceptions import UsageLimitExceeded
 from pydantic_ai.usage import UsageLimits
 
-from app.agents.search import SOURCE_CITATION_RULES, make_search_tool, resolve_sources
+from app.agents.search import SOURCE_CITATION_RULES, build_sources_dict, make_search_tool, resolve_sources
 from app.models.responses import (
     GrowthProjection,
     MarketSizeEstimate,
@@ -69,8 +70,8 @@ class _MarketSizingOutput(BaseModel):
 
 # ── Main entry point ────────────────────────────────────────
 
-async def run_market_sizing(market: str, emit=None) -> MarketSizingResult:
-    """Run the market sizing agent. Returns MarketSizingResult response model."""
+async def run_market_sizing(market: str, emit=None) -> tuple[MarketSizingResult, dict | None]:
+    """Run the market sizing agent. Returns (MarketSizingResult, sources_dict)."""
 
     search_log: list[dict] = []
 
@@ -112,15 +113,29 @@ async def run_market_sizing(market: str, emit=None) -> MarketSizingResult:
     if emit:
         await emit("discovery", "running")
 
-    result = await agent.run(
-        f"Research the {market} market. Find current market size (TAM), "
-        f"growth projections (CAGR) from multiple industry sources, "
-        f"regional breakdown, growth drivers, and headwinds.",
-        usage_limits=UsageLimits(request_limit=8),
-    )
-
-    out = result.output
+    try:
+        result = await agent.run(
+            f"Research the {market} market. Find current market size (TAM), "
+            f"growth projections (CAGR) from multiple industry sources, "
+            f"regional breakdown, growth drivers, and headwinds.",
+            usage_limits=UsageLimits(request_limit=6),
+        )
+        out = result.output
+    except UsageLimitExceeded:
+        # Agent hit the request limit — re-run without limit to collect partial structured output
+        print("  [market_sizing] Hit request limit, collecting partial results...")
+        sys.stdout.flush()
+        result = await agent.run(
+            f"You have already gathered enough data about the {market} market. "
+            f"STOP searching and return your structured output NOW with whatever data you have. "
+            f"Set any unknown fields to null.",
+            usage_limits=UsageLimits(request_limit=2),
+        )
+        out = result.output
     total_searches = len(search_log)
+
+    resolved = resolve_sources(out.sources, search_log)
+    ms_sources = build_sources_dict(resolved)
 
     tam_str = f"${out.tam_current_mm:,.0f}M" if out.tam_current_mm else "N/A"
     print(f"  [market_sizing] Done: TAM={tam_str}, {total_searches} searches, confidence={out.data_confidence}")
@@ -171,4 +186,4 @@ async def run_market_sizing(market: str, emit=None) -> MarketSizingResult:
     )
     if emit:
         await emit("assembly", "completed")
-    return sizing
+    return sizing, ms_sources

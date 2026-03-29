@@ -1,6 +1,7 @@
 """Emerging competitors agent — multi-agent 4-phase (discovery + detail x N + capital flow + assembly)."""
 
 import asyncio
+import json
 import sys
 from typing import Literal
 
@@ -10,6 +11,7 @@ from pydantic_ai.usage import UsageLimits
 
 from app.agents.search import (
     SOURCE_CITATION_RULES,
+    build_sources_dict,
     make_search_tool,
     resolve_sources,
 )
@@ -135,9 +137,9 @@ def _create_capital_flow_agent(market: str, search_log: list) -> Agent:
 
 async def run_emerging(
     market: str, exclude_incumbents: list[str], emit=None
-) -> tuple[list[EmergingCompetitor], CapitalFlow]:
+) -> tuple[list[EmergingCompetitor], CapitalFlow, list[dict | None], dict | None]:
     """Run the 4-phase emerging competitors analysis.
-    Returns (list[EmergingCompetitor], CapitalFlow) response models.
+    Returns (emerging_competitors, capital_flow, ec_source_maps, cf_sources).
     """
 
     all_log_lists: list[list[dict]] = []
@@ -163,6 +165,7 @@ async def run_emerging(
     sys.stdout.flush()
     if emit:
         await emit("discovery", "completed")
+        await emit("detail_names", json.dumps(startup_names))
 
     # ── Phase 2: Detail agents in parallel ──
     print(f"  [emerging] Phase 2: Researching {len(startup_names)} startups in parallel...")
@@ -184,12 +187,15 @@ async def run_emerging(
     detail_results = await asyncio.gather(*tasks, return_exceptions=True)
 
     emerging_competitors: list[EmergingCompetitor] = []
+    ec_source_maps: list[dict | None] = []
     for i, item in enumerate(detail_results):
         if isinstance(item, Exception):
             print(f"    ERROR for {startup_names[i]}: {item}")
             continue
         detail, log = item
         all_log_lists.append(log)
+
+        resolved = resolve_sources(detail.sources, log)
 
         # Convert internal FundingRound to response FundingRound
         latest_round = None
@@ -214,6 +220,7 @@ async def run_emerging(
                 employee_count=detail.employee_count,
             )
         )
+        ec_source_maps.append(build_sources_dict(resolved))
 
     print(f"  [emerging] Phase 2 complete: {len(emerging_competitors)} detailed")
     sys.stdout.flush()
@@ -230,6 +237,9 @@ async def run_emerging(
     )
     cf = cf_result.output
     all_log_lists.append(cf_log)
+
+    cf_resolved = resolve_sources(cf.sources, cf_log)
+    cf_sources = build_sources_dict(cf_resolved)
 
     print(f"  [emerging] Phase 3 complete: signal={cf.capital_velocity_signal}")
     sys.stdout.flush()
@@ -253,4 +263,4 @@ async def run_emerging(
     print(f"  [emerging] Done: {len(emerging_competitors)} startups, {total_searches} total searches")
     sys.stdout.flush()
 
-    return emerging_competitors, capital_flow
+    return emerging_competitors, capital_flow, ec_source_maps, cf_sources

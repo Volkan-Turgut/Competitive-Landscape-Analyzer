@@ -19,8 +19,16 @@ function CheckDot() {
 
 function Bullet({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mb-2.5 flex items-start gap-2 text-xs leading-relaxed text-white/55">
+    <div className="mb-2.5 flex items-start gap-2 text-[13px] leading-relaxed text-[var(--text-secondary)]">
       <CheckDot />
+      {children}
+    </div>
+  );
+}
+
+function SectionLabel({ color, children }: { color: string; children: React.ReactNode }) {
+  return (
+    <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.1em]" style={{ color }}>
       {children}
     </div>
   );
@@ -36,9 +44,9 @@ function StatCard({
   change?: string;
 }) {
   return (
-    <div className="rounded-lg bg-white/[0.04] p-2.5">
-      <div className="text-[10px] text-white/35">{label}</div>
-      <div className="text-lg font-medium text-[#f0f0f0]">{value}</div>
+    <div className="rounded-lg bg-[var(--bg-mockup-inner)] p-2.5">
+      <div className="text-[10px] text-[var(--text-tertiary)]">{label}</div>
+      <div className="text-lg font-medium text-[var(--text-primary)]">{value}</div>
       {change && (
         <div className="text-[10px] text-green-500">&#9650; {change}</div>
       )}
@@ -46,14 +54,23 @@ function StatCard({
   );
 }
 
+function MockupCard({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-5">
+      {children}
+    </div>
+  );
+}
+
 function MarketTab() {
   return (
-    <div className="flex flex-col gap-8 md:flex-row">
-      <div className="flex-shrink-0 md:w-[220px]">
-        <h3 className="mb-1.5 text-lg font-medium text-[#f0f0f0]">
+    <div className="flex flex-col gap-6 md:flex-row md:gap-12">
+      <div className="flex-shrink-0 md:w-[35%]">
+        <SectionLabel color="#7c5aff">Market Sizing</SectionLabel>
+        <h3 className="mb-1.5 text-xl font-semibold text-[var(--text-primary)]">
           Map the market
         </h3>
-        <p className="mb-4 text-[13px] leading-relaxed text-white/55">
+        <p className="mb-5 text-[13px] leading-relaxed text-[var(--text-secondary)]">
           Quantify the opportunity with TAM, growth projections, and analyst
           data from multiple sources.
         </p>
@@ -67,11 +84,11 @@ function MarketTab() {
         <Bullet>Growth drivers and headwinds identified automatically</Bullet>
       </div>
       <div className="min-w-0 flex-1">
-        <div className="rounded-xl border border-white/[0.08] bg-[#0a0a0b] p-4">
-          <div className="mb-1 text-sm font-medium text-[#f0f0f0]">
+        <MockupCard>
+          <div className="mb-1 text-sm font-medium text-[var(--text-primary)]">
             Market sizing — AI code review
           </div>
-          <div className="mb-3.5 text-[11px] text-white/55">
+          <div className="mb-3.5 text-[11px] text-[var(--text-secondary)]">
             Data confidence: Medium
           </div>
           <div className="mb-3.5 grid grid-cols-3 gap-2">
@@ -83,7 +100,7 @@ function MarketTab() {
             <text
               fontFamily="system-ui"
               fontSize="9"
-              fill="rgba(255,255,255,0.35)"
+              fill="var(--text-tertiary)"
               x="5"
               y="12"
             >
@@ -92,7 +109,7 @@ function MarketTab() {
             <text
               fontFamily="system-ui"
               fontSize="9"
-              fill="rgba(255,255,255,0.35)"
+              fill="var(--text-tertiary)"
               x="5"
               y="90"
             >
@@ -103,7 +120,7 @@ function MarketTab() {
               y1="15"
               x2="370"
               y2="15"
-              stroke="rgba(255,255,255,0.08)"
+              stroke="var(--border-primary)"
               strokeWidth="0.5"
               strokeDasharray="3 3"
             />
@@ -112,7 +129,7 @@ function MarketTab() {
               y1="85"
               x2="370"
               y2="85"
-              stroke="rgba(255,255,255,0.08)"
+              stroke="var(--border-primary)"
               strokeWidth="0.5"
               strokeDasharray="3 3"
             />
@@ -130,7 +147,7 @@ function MarketTab() {
             <text
               fontFamily="system-ui"
               fontSize="8"
-              fill="rgba(255,255,255,0.35)"
+              fill="var(--text-tertiary)"
               x="46"
               y="98"
             >
@@ -139,7 +156,7 @@ function MarketTab() {
             <text
               fontFamily="system-ui"
               fontSize="8"
-              fill="rgba(255,255,255,0.35)"
+              fill="var(--text-tertiary)"
               x="145"
               y="98"
             >
@@ -148,7 +165,7 @@ function MarketTab() {
             <text
               fontFamily="system-ui"
               fontSize="8"
-              fill="rgba(255,255,255,0.35)"
+              fill="var(--text-tertiary)"
               x="248"
               y="98"
             >
@@ -157,18 +174,18 @@ function MarketTab() {
             <text
               fontFamily="system-ui"
               fontSize="8"
-              fill="rgba(255,255,255,0.35)"
+              fill="var(--text-tertiary)"
               x="348"
               y="98"
             >
               2030
             </text>
           </svg>
-          <div className="text-[10px] text-white/35">
+          <div className="text-[10px] text-[var(--text-tertiary)]">
             Sources: ResearchAndMarkets, Mordor Intelligence, MarketsAndMarkets,
             Precedence Research
           </div>
-        </div>
+        </MockupCard>
       </div>
     </div>
   );
@@ -189,16 +206,17 @@ function PlayersTab() {
   const badgeColors: Record<string, string> = {
     leader: "bg-green-500/10 text-green-500",
     challenger: "bg-amber-500/10 text-amber-500",
-    niche: "bg-white/[0.06] text-white/55",
+    niche: "bg-[var(--bg-mockup-inner)] text-[var(--text-secondary)]",
   };
 
   return (
-    <div className="flex flex-col gap-8 md:flex-row">
-      <div className="flex-shrink-0 md:w-[220px]">
-        <h3 className="mb-1.5 text-lg font-medium text-[#f0f0f0]">
+    <div className="flex flex-col gap-6 md:flex-row md:gap-12">
+      <div className="flex-shrink-0 md:w-[35%]">
+        <SectionLabel color="#3b82f6">Incumbents</SectionLabel>
+        <h3 className="mb-1.5 text-xl font-semibold text-[var(--text-primary)]">
           Know the players
         </h3>
-        <p className="mb-4 text-[13px] leading-relaxed text-white/55">
+        <p className="mb-5 text-[13px] leading-relaxed text-[var(--text-secondary)]">
           Identify every established competitor, their revenue, market share,
           pricing, and strategic positioning.
         </p>
@@ -213,34 +231,34 @@ function PlayersTab() {
         </Bullet>
       </div>
       <div className="min-w-0 flex-1">
-        <div className="rounded-xl border border-white/[0.08] bg-[#0a0a0b] p-4">
-          <div className="mb-1 text-sm font-medium text-[#f0f0f0]">
+        <MockupCard>
+          <div className="mb-1 text-sm font-medium text-[var(--text-primary)]">
             Incumbents — AI code review
           </div>
-          <div className="mb-3.5 text-[11px] text-white/55">
+          <div className="mb-3.5 text-[11px] text-[var(--text-secondary)]">
             8 competitors identified
           </div>
           <table className="w-full text-[11px]">
             <thead>
-              <tr className="border-b border-white/[0.08]">
-                <th className="px-2 py-1.5 text-left text-[10px] font-normal text-white/35">
+              <tr className="border-b border-[var(--border-primary)]">
+                <th className="px-2 py-1.5 text-left text-[10px] font-normal text-[var(--text-tertiary)]">
                   Company
                 </th>
-                <th className="px-2 py-1.5 text-left text-[10px] font-normal text-white/35">
+                <th className="px-2 py-1.5 text-left text-[10px] font-normal text-[var(--text-tertiary)]">
                   Position
                 </th>
-                <th className="px-2 py-1.5 text-left text-[10px] font-normal text-white/35">
+                <th className="px-2 py-1.5 text-left text-[10px] font-normal text-[var(--text-tertiary)]">
                   ARR
                 </th>
-                <th className="px-2 py-1.5 text-left text-[10px] font-normal text-white/35">
+                <th className="px-2 py-1.5 text-left text-[10px] font-normal text-[var(--text-tertiary)]">
                   Share
                 </th>
               </tr>
             </thead>
             <tbody>
               {rows.map((r) => (
-                <tr key={r.name} className="border-b border-white/[0.08]">
-                  <td className="px-2 py-[7px] font-medium text-[#f0f0f0]">
+                <tr key={r.name} className="border-b border-[var(--border-primary)]">
+                  <td className="px-2 py-[7px] font-medium text-[var(--text-primary)]">
                     {r.name}
                   </td>
                   <td className="px-2 py-[7px]">
@@ -250,16 +268,16 @@ function PlayersTab() {
                       {r.pos}
                     </span>
                   </td>
-                  <td className="px-2 py-[7px] text-[#f0f0f0]">{r.arr}</td>
-                  <td className="px-2 py-[7px] text-[#f0f0f0]">{r.share}</td>
+                  <td className="px-2 py-[7px] text-[var(--text-primary)]">{r.arr}</td>
+                  <td className="px-2 py-[7px] text-[var(--text-primary)]">{r.share}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <div className="mt-1.5 text-[9px] text-white/35">
+          <div className="mt-1.5 text-[9px] text-[var(--text-tertiary)]">
             *Code quality niche (different market category)
           </div>
-        </div>
+        </MockupCard>
       </div>
     </div>
   );
@@ -284,12 +302,13 @@ function DisruptorsTab() {
   ];
 
   return (
-    <div className="flex flex-col gap-8 md:flex-row">
-      <div className="flex-shrink-0 md:w-[220px]">
-        <h3 className="mb-1.5 text-lg font-medium text-[#f0f0f0]">
+    <div className="flex flex-col gap-6 md:flex-row md:gap-12">
+      <div className="flex-shrink-0 md:w-[35%]">
+        <SectionLabel color="#f59e0b">Emerging</SectionLabel>
+        <h3 className="mb-1.5 text-xl font-semibold text-[var(--text-primary)]">
           Spot the disruptors
         </h3>
-        <p className="mb-4 text-[13px] leading-relaxed text-white/55">
+        <p className="mb-5 text-[13px] leading-relaxed text-[var(--text-secondary)]">
           Track new entrants, recent funding rounds, and the velocity of capital
           flowing into the space.
         </p>
@@ -304,11 +323,11 @@ function DisruptorsTab() {
         </Bullet>
       </div>
       <div className="min-w-0 flex-1">
-        <div className="rounded-xl border border-white/[0.08] bg-[#0a0a0b] p-4">
-          <div className="mb-1 text-sm font-medium text-[#f0f0f0]">
+        <MockupCard>
+          <div className="mb-1 text-sm font-medium text-[var(--text-primary)]">
             Emerging competitors — AI code review
           </div>
-          <div className="mb-3.5 text-[11px] text-white/55">
+          <div className="mb-3.5 text-[11px] text-[var(--text-secondary)]">
             7 new entrants tracked
           </div>
           <div className="mb-3.5 grid grid-cols-3 gap-2">
@@ -319,10 +338,10 @@ function DisruptorsTab() {
           <div className="mb-2.5">
             {bars.map((b) => (
               <div key={b.name} className="mb-1.5 flex items-center gap-2">
-                <span className="w-[80px] flex-shrink-0 overflow-hidden text-ellipsis whitespace-nowrap text-right text-[11px] text-white/55">
+                <span className="w-[80px] flex-shrink-0 overflow-hidden text-ellipsis whitespace-nowrap text-right text-[11px] text-[var(--text-secondary)]">
                   {b.name}
                 </span>
-                <div className="relative h-3.5 flex-1 overflow-hidden rounded-[3px] bg-white/[0.04]">
+                <div className="relative h-3.5 flex-1 overflow-hidden rounded-[3px] bg-[var(--bg-mockup-inner)]">
                   <div
                     className="h-full rounded-[3px]"
                     style={{
@@ -332,7 +351,7 @@ function DisruptorsTab() {
                     }}
                   />
                 </div>
-                <span className="w-9 flex-shrink-0 text-[10px] text-white/35">
+                <span className="w-9 flex-shrink-0 text-[10px] text-[var(--text-tertiary)]">
                   {b.val}
                 </span>
               </div>
@@ -342,13 +361,13 @@ function DisruptorsTab() {
             {investors.map((name) => (
               <span
                 key={name}
-                className="rounded-full border border-white/[0.08] bg-white/[0.04] px-2 py-0.5 text-[10px] text-white/55"
+                className="rounded-full border border-[var(--border-primary)] bg-[var(--bg-mockup-inner)] px-2 py-0.5 text-[10px] text-[var(--text-secondary)]"
               >
                 {name}
               </span>
             ))}
           </div>
-        </div>
+        </MockupCard>
       </div>
     </div>
   );
@@ -365,12 +384,13 @@ function VerdictTab() {
   ];
 
   return (
-    <div className="flex flex-col gap-8 md:flex-row">
-      <div className="flex-shrink-0 md:w-[220px]">
-        <h3 className="mb-1.5 text-lg font-medium text-[#f0f0f0]">
+    <div className="flex flex-col gap-6 md:flex-row md:gap-12">
+      <div className="flex-shrink-0 md:w-[35%]">
+        <SectionLabel color="#22c55e">Synthesis</SectionLabel>
+        <h3 className="mb-1.5 text-xl font-semibold text-[var(--text-primary)]">
           Get the verdict
         </h3>
-        <p className="mb-4 text-[13px] leading-relaxed text-white/55">
+        <p className="mb-5 text-[13px] leading-relaxed text-[var(--text-secondary)]">
           A synthesis agent cross-references all findings and delivers a
           data-backed Go/No-Go recommendation.
         </p>
@@ -385,15 +405,15 @@ function VerdictTab() {
         </Bullet>
       </div>
       <div className="min-w-0 flex-1">
-        <div className="rounded-xl border border-white/[0.08] bg-[#0a0a0b] p-4">
+        <MockupCard>
           <div className="p-5 text-center">
             <div className="text-[28px] font-medium tracking-[0.05em] text-green-500">
               GO
             </div>
-            <div className="mt-1 mb-3 text-xs text-white/55">
+            <div className="mt-1 mb-3 text-xs text-[var(--text-secondary)]">
               Confidence: 78%
             </div>
-            <p className="mx-auto mb-3.5 max-w-[340px] text-xs leading-relaxed text-white/55">
+            <p className="mx-auto mb-3.5 max-w-[340px] text-xs leading-relaxed text-[var(--text-secondary)]">
               Strong opportunity with identifiable white space in AI-native code
               review. High capital velocity signals market validation, but
               dominant incumbent presence requires differentiated positioning.
@@ -402,9 +422,9 @@ function VerdictTab() {
               {factors.map((f) => (
                 <div
                   key={f.label}
-                  className="rounded-lg bg-white/[0.04] px-2.5 py-2"
+                  className="rounded-lg bg-[var(--bg-mockup-inner)] px-2.5 py-2"
                 >
-                  <div className="text-[10px] text-white/35">{f.label}</div>
+                  <div className="text-[10px] text-[var(--text-tertiary)]">{f.label}</div>
                   <div
                     className={`text-xs font-medium ${
                       f.positive === true
@@ -420,7 +440,7 @@ function VerdictTab() {
               ))}
             </div>
           </div>
-        </div>
+        </MockupCard>
       </div>
     </div>
   );
@@ -433,12 +453,12 @@ export function FeatureTabs() {
         <span className="text-[13px] font-medium tracking-[0.05em] text-[#7c5aff]">
           How it works
         </span>
-        <h2 className="mt-2 text-[22px] font-medium leading-[1.4] text-[#f0f0f0]">
+        <h2 className="mt-2 text-[22px] font-medium leading-[1.4] text-[var(--text-primary)]">
           From company name to Go/No-Go verdict.
           <br />
           AI agents that do the research for you.
         </h2>
-        <p className="mx-auto mt-1.5 max-w-[480px] text-sm leading-relaxed text-white/55">
+        <p className="mx-auto mt-1.5 max-w-[480px] text-sm leading-relaxed text-[var(--text-secondary)]">
           Enter any company and market. Our agents research incumbents, track
           emerging threats, size the opportunity, and deliver a data-backed
           recommendation.
@@ -446,28 +466,28 @@ export function FeatureTabs() {
       </div>
 
       <Tabs defaultValue="market" className="w-full">
-        <TabsList className="mx-auto mb-8 grid h-auto max-w-[580px] grid-cols-4 gap-0 rounded-xl border border-white/[0.08] bg-transparent p-0">
+        <TabsList className="mx-auto mb-8 grid h-auto max-w-[580px] grid-cols-4 gap-0 rounded-xl border border-[var(--border-primary)] bg-transparent p-0">
           <TabsTrigger
             value="market"
-            className="flex items-center justify-center gap-1.5 rounded-none rounded-l-xl border-r border-white/[0.08] px-2 py-2.5 text-[13px] text-white/55 data-[state=active]:bg-white/[0.04] data-[state=active]:text-[#f0f0f0] data-[state=active]:font-medium data-[state=active]:shadow-none"
+            className="flex items-center justify-center gap-1.5 rounded-none rounded-l-xl border-r border-[var(--border-primary)] px-2 py-2.5 text-[13px] text-[var(--text-secondary)] data-[state=active]:bg-[var(--bg-card-hover)] data-[state=active]:text-[var(--text-primary)] data-[state=active]:font-medium data-[state=active]:shadow-none"
           >
             <span className="text-sm">&#9678;</span> Map the market
           </TabsTrigger>
           <TabsTrigger
             value="players"
-            className="flex items-center justify-center gap-1.5 rounded-none border-r border-white/[0.08] px-2 py-2.5 text-[13px] text-white/55 data-[state=active]:bg-white/[0.04] data-[state=active]:text-[#f0f0f0] data-[state=active]:font-medium data-[state=active]:shadow-none"
+            className="flex items-center justify-center gap-1.5 rounded-none border-r border-[var(--border-primary)] px-2 py-2.5 text-[13px] text-[var(--text-secondary)] data-[state=active]:bg-[var(--bg-card-hover)] data-[state=active]:text-[var(--text-primary)] data-[state=active]:font-medium data-[state=active]:shadow-none"
           >
             <span className="text-sm">&#9635;</span> Know the players
           </TabsTrigger>
           <TabsTrigger
             value="disruptors"
-            className="flex items-center justify-center gap-1.5 rounded-none border-r border-white/[0.08] px-2 py-2.5 text-[13px] text-white/55 data-[state=active]:bg-white/[0.04] data-[state=active]:text-[#f0f0f0] data-[state=active]:font-medium data-[state=active]:shadow-none"
+            className="flex items-center justify-center gap-1.5 rounded-none border-r border-[var(--border-primary)] px-2 py-2.5 text-[13px] text-[var(--text-secondary)] data-[state=active]:bg-[var(--bg-card-hover)] data-[state=active]:text-[var(--text-primary)] data-[state=active]:font-medium data-[state=active]:shadow-none"
           >
             <span className="text-sm">&#9733;</span> Spot disruptors
           </TabsTrigger>
           <TabsTrigger
             value="verdict"
-            className="flex items-center justify-center gap-1.5 rounded-none rounded-r-xl px-2 py-2.5 text-[13px] text-white/55 data-[state=active]:bg-white/[0.04] data-[state=active]:text-[#f0f0f0] data-[state=active]:font-medium data-[state=active]:shadow-none"
+            className="flex items-center justify-center gap-1.5 rounded-none rounded-r-xl px-2 py-2.5 text-[13px] text-[var(--text-secondary)] data-[state=active]:bg-[var(--bg-card-hover)] data-[state=active]:text-[var(--text-primary)] data-[state=active]:font-medium data-[state=active]:shadow-none"
           >
             <span className="text-sm">&#10003;</span> Get the verdict
           </TabsTrigger>

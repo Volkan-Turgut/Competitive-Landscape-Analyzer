@@ -3,7 +3,61 @@
 @tailwind utilities;
 
 @layer base {
+  /* ── Light mode (default) ──────────────────────────────── */
   :root {
+    /* shadcn light */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 4%;
+    --primary: 258 100% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 6% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 258 100% 67%;
+    --radius: 0.5rem;
+
+    /* Custom theme — light */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f5f5f5;
+    --bg-inset: rgba(0,0,0,0.03);
+    --navbar-bg: rgba(255,255,255,0.8);
+    --text-primary: #0a0a0b;
+    --text-muted: #4b5563;
+    --text-secondary: #6b7280;
+    --text-tertiary: #9ca3af;
+    --border-primary: rgba(0,0,0,0.1);
+    --border-secondary: rgba(0,0,0,0.15);
+    --border-subtle: rgba(0,0,0,0.06);
+    --surface-glow: rgba(0,0,0,0.03);
+    --bg-mockup-inner: #ffffff;
+
+    /* Hero */
+    --hero-bg: #f0eef6;
+    --hero-text: #1a1a2e;
+    --hero-subtitle: #64607a;
+    --hero-badge-border: rgba(0,0,0,0.10);
+    --hero-badge-bg: rgba(0,0,0,0.04);
+    --hero-badge-text: rgba(0,0,0,0.50);
+    --hero-glow-primary: rgba(120,80,255,0.10);
+    --hero-glow-secondary: rgba(200,160,255,0.08);
+  }
+
+  /* ── Dark mode ─────────────────────────────────────────── */
+  .dark {
+    /* shadcn dark */
     --background: 0 0% 4%;
     --foreground: 0 0% 94%;
     --card: 0 0% 6%;
@@ -23,7 +77,33 @@
     --border: 0 0% 100% / 0.08;
     --input: 0 0% 100% / 0.12;
     --ring: 258 100% 67%;
-    --radius: 0.5rem;
+
+    /* Custom theme — dark */
+    --bg-primary: #0a0a0b;
+    --bg-secondary: #111114;
+    --bg-card: #1a1a2e;
+    --bg-card-hover: rgba(255,255,255,0.04);
+    --bg-inset: rgba(0,0,0,0.2);
+    --navbar-bg: rgba(10,10,11,0.8);
+    --text-primary: #f0f0f0;
+    --text-muted: #9ca3af;
+    --text-secondary: rgba(255,255,255,0.5);
+    --text-tertiary: #71717a;
+    --border-primary: rgba(255,255,255,0.08);
+    --border-secondary: rgba(255,255,255,0.12);
+    --border-subtle: rgba(255,255,255,0.04);
+    --surface-glow: rgba(255,255,255,0.025);
+    --bg-mockup-inner: rgba(255,255,255,0.05);
+
+    /* Hero */
+    --hero-bg: #0a0a0b;
+    --hero-text: #f0f0f0;
+    --hero-subtitle: rgba(255,255,255,0.45);
+    --hero-badge-border: rgba(255,255,255,0.12);
+    --hero-badge-bg: rgba(255,255,255,0.04);
+    --hero-badge-text: rgba(255,255,255,0.50);
+    --hero-glow-primary: rgba(120,80,255,0.18);
+    --hero-glow-secondary: rgba(200,160,255,0.12);
   }
 
   * {
@@ -31,12 +111,16 @@
   }
 
   html {
+    color-scheme: light;
+  }
+
+  .dark {
     color-scheme: dark;
   }
 
   body {
-    background-color: #0a0a0b;
-    color: hsl(var(--foreground));
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -69,4 +153,82 @@
 
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Kill Recharts white tooltip wrapper */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  z-index: 10 !important;
+  overflow: visible !important;
+  pointer-events: none !important;
+}
+.recharts-default-tooltip {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-secondary) !important;
+  border-radius: 8px !important;
+}
+
+/* Kill focus outlines on Recharts SVG elements */
+.recharts-wrapper svg,
+.recharts-wrapper svg:focus,
+.recharts-wrapper svg:active,
+.recharts-surface,
+.recharts-surface:focus,
+.recharts-surface:active {
+  outline: none !important;
+  border: none !important;
+}
+
+/* Also kill any focus rect Recharts renders internally */
+.recharts-wrapper rect.recharts-cartesian-grid-bg,
+.recharts-wrapper rect:focus {
+  outline: none !important;
+  stroke: none !important;
+}
+
+/* Kill ALL focus outlines on Recharts elements */
+.recharts-wrapper,
+.recharts-wrapper *,
+.recharts-surface,
+.recharts-surface *,
+.recharts-layer,
+.recharts-layer *,
+.recharts-bar-rectangle,
+.recharts-bar-rectangle *,
+.recharts-pie-sector,
+.recharts-pie-sector *,
+.recharts-area,
+.recharts-area * {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.recharts-wrapper svg,
+.recharts-wrapper svg *,
+.recharts-wrapper svg:focus,
+.recharts-wrapper svg:active,
+.recharts-wrapper svg *:focus,
+.recharts-wrapper svg *:active {
+  outline: none !important;
+  border: none !important;
+}
+
+/* Kill the Recharts reference area / brush selection box */
+.recharts-active-shape,
+.recharts-reference-area rect,
+.recharts-brush rect,
+.recharts-cartesian-grid-bg {
+  stroke: none !important;
+  outline: none !important;
+  fill: transparent !important;
+}
+
+/* Kill white background rect Recharts renders inside charts */
+.recharts-wrapper rect:not(.recharts-rectangle) {
+  fill: transparent !important;
+  stroke: transparent !important;
+  outline: none !important;
 }
